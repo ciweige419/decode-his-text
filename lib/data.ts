@@ -223,6 +223,167 @@ export const TOXIC_QUOTES: QuoteData[] = [
     score: 3,
     roast: "Generic. Lazy. Low effort. If it feels like a mass email, it probably is. Check if he actually asks about your day or just wants a generic ego boost.",
     keywords: ["breadcrumbing", "player tactics", "dating apps"]
+  },
+  // --- Ghosting & Zombieing Collection (消失与诈尸系列) ---
+  {
+    slug: 'hey-stranger',
+    quote: "Hey stranger.",
+    translation: "I ghosted you 3 months ago, but now I'm bored/horny and my other options fell through. I'm testing if you have low enough self-esteem to reply.",
+    score: 5,
+    roast: "This is 'Zombie-ing' at its finest. He's rising from the dead not because he misses you, but because he's hungry for attention. Do not engage. Leave him in the grave.",
+    keywords: ["zombieing", "he came back", "ghosting"]
+  },
+  {
+    slug: 'i-thought-i-replied',
+    quote: "Omg I'm so sorry, I drafted a reply and thought I sent it!",
+    translation: "I saw your text, ignored it for 4 days, and now I need something from you. I think you are dumb enough to believe this glitch excuse.",
+    score: 3,
+    roast: "Unless he is 85 years old using a flip phone, he didn't 'forget' to hit send. We live on our phones. He ignored you. Don't let him insult your intelligence.",
+    keywords: ["slow fading", "lying", "bad texter"]
+  },
+  {
+    slug: 'deleted-the-app',
+    quote: "Sorry I've been quiet, I deleted the app for a mental health detox.",
+    translation: "I moved the conversation to WhatsApp/Snapchat with the girls I actually like. You didn't make the cut.",
+    score: 4,
+    roast: "Funny how his 'detox' didn't stop him from posting stories on Instagram. He didn't delete the app, he deleted his interest in you. Move on.",
+    keywords: ["dating app fatigue", "hinge excuses", "soft ghosting"]
+  },
+  {
+    slug: 'work-has-been-insane',
+    quote: "Work has just been absolutely insane this week.",
+    translation: "I have time to poop, eat, and scroll TikTok, but I don't value you enough to send a 5-second text.",
+    score: 3,
+    roast: "No one is that busy. Elon Musk tweets 50 times a day. If he wanted to talk to you, he would find the time. 'Busy' is just a polite way of saying 'Priority #99'.",
+    keywords: ["busy trap", "low effort", "mixed signals"]
+  },
+  {
+    slug: 'not-ignoring-you',
+    quote: "I promise I'm not ignoring you!",
+    translation: "I am definitely ignoring you, but I want to keep you on the hook as a backup option for when I'm free.",
+    score: 4,
+    roast: "If he has to clarify that he's not ignoring you... he's ignoring you. Secure men just reply; they don't give disclaimers about their silence.",
+    keywords: ["breadcrumbing", "manipulation", "gaslighting"]
+  },
+  {
+    slug: 'bad-headspace',
+    quote: "I'm just in a weird headspace right now.",
+    translation: "I want to ghost you, but I want to sound deep and mysterious about it so you don't get mad.",
+    score: 4,
+    roast: "Translation: He's emotionally unavailable. Don't try to be his therapist. You can't fix his 'headspace', but you can protect yours by blocking him.",
+    keywords: ["emotional unavailability", "soft breakup", "dating excuses"]
+  },
+  {
+    slug: 'miss-your-face',
+    quote: "I miss your face.",
+    translation: "I haven't texted you in 2 weeks, but I want to see if I can still get a nude or a hookup tonight.",
+    score: 5,
+    roast: "Lazy. He doesn't miss *you* (your personality, your mind), he misses *your face* (and body). This is a 2 AM booty call disguised as a compliment.",
+    keywords: ["booty call", "breadcrumbing", "hoovering"]
+  },
+  {
+    slug: 'lost-my-phone',
+    quote: "I lost my phone / got a new number.",
+    translation: "I blocked you / deleted your number, but now I'm back. I am lying to your face.",
+    score: 5,
+    roast: "In the age of iCloud? Please. He didn't lose his contacts. He's just hoping you've lost your memory of how badly he treated you last time.",
+    keywords: ["lying", "ghosting excuses", "toxic ex"]
+  },
+  {
+    slug: 'didnt-want-to-lead-on',
+    quote: "I pulled back because I didn't want to lead you on.",
+    translation: "I ghosted you instead of having a mature conversation. I'm framing my cowardice as 'protecting you'.",
+    score: 4,
+    roast: "Ghosting IS leading someone on (to wonder where you went). A mature man says 'I'm not interested'. A coward disappears and calls it 'kindness'.",
+    keywords: ["cowardice", "ghosting psychology", "avoidant attachment"]
+  },
+  {
+    slug: 'family-emergency',
+    quote: "Sorry, had a family emergency.",
+    translation: "5% chance it's real, 95% chance it's the 'Get Out of Jail Free' card for disappearing for a week.",
+    score: 3,
+    roast: "If it's real, fair enough. But if he's back on Bumble 2 days later without explaining, the 'emergency' was just him losing interest. Proceed with extreme caution.",
+    keywords: ["lying", "red flags", "excuses"]
+  },
+  {
+    slug: 'scared-of-how-much-like',
+    quote: "I got scared because I like you too much.",
+    translation: "I am an Avoidant. I will sabotage this relationship the moment it gets real. Ghosting is my defense mechanism.",
+    score: 5,
+    roast: "Run. This isn't romantic; it's a warning. He's telling you he will punish you for getting close to him. You are not a rehabilitation center for avoidant men.",
+    keywords: ["avoidant attachment", "love bombing", "future faking"]
+  },
+  {
+    slug: 'forgot-to-hit-send',
+    quote: "I literally forgot to hit send.",
+    translation: "I typed it, got distracted by a better offer, and only remembered you now that I'm bored.",
+    score: 2,
+    roast: "Once? Maybe. Every time? He's just not that into you. People don't forget to text people they are crazy about.",
+    keywords: ["low interest", "bad texter", "slow fade"]
+  },
+  {
+    slug: 'social-battery-drained',
+    quote: "My social battery is just drained.",
+    translation: "I have energy for my friends and video games, just not for you.",
+    score: 3,
+    roast: "If you drain his battery, you aren't a match. The right person recharges you. Don't beg for the scraps of his energy.",
+    keywords: ["introvert excuses", "lack of interest", "incompatibility"]
+  },
+  {
+    slug: 'fell-asleep',
+    quote: "Sorry I fell asleep.",
+    translation: "Sent at 4 PM the next day. I saw your text, didn't feel like replying, and now I'm doing the bare minimum.",
+    score: 2,
+    roast: "He fell asleep at 8 PM and woke up at 4 PM? Is he a bear hibernating? No, he just didn't prioritize replying to you in the morning.",
+    keywords: ["low effort", "lies", "texting etiquette"]
+  },
+  {
+    slug: 'notifications-off',
+    quote: "I have my notifications turned off.",
+    translation: "I don't want you popping up on my screen when I'm with other people.",
+    score: 4,
+    roast: "Why does he need to hide his notifications? Usually, it's because he doesn't want the girl he's *actually* dating to see your name.",
+    keywords: ["cheating", "hiding phone", "player"]
+  },
+  {
+    slug: 'just-saw-this',
+    quote: "Just saw this!",
+    translation: "I saw this 3 days ago. I'm replying now because I want something.",
+    score: 3,
+    roast: "Read receipts exist for a reason. Even if they're off, we know. He's treating you like an option. Treat him like a ghost.",
+    keywords: ["breadcrumbing", "stalling", "benching"]
+  },
+  {
+    slug: 'raincheck-ghost',
+    quote: "Can we raincheck? (and never reschedules)",
+    translation: "I am cancelling on you, and I am ghosting the rescheduling part hoping you'll get the hint.",
+    score: 4,
+    roast: "A cancellation without a new date proposed is a rejection. He's not busy; he's bailing. Don't ask 'when?'. Just say 'ok' and delete his number.",
+    keywords: ["flaky", "cancellation", "soft rejection"]
+  },
+  {
+    slug: 'u-up',
+    quote: "U up?",
+    translation: "I ghosted you all day, but now it's midnight and I'm lonely/horny.",
+    score: 5,
+    roast: "The classic booty call. He didn't ask how your day was at noon. He's asking if you're available for service at midnight. Respect yourself and go back to sleep.",
+    keywords: ["booty call", "hookup", "disrespect"]
+  },
+  {
+    slug: 'thinking-of-you',
+    quote: "Thinking of you.",
+    translation: "I'm sending this exact text to 3 exes to see who gives me attention.",
+    score: 3,
+    roast: "This is a 'ping'. He's just checking if you're still on the hook. It's low effort and requires zero commitment. Don't give him the validation.",
+    keywords: ["orbiting", "hoovering", "breadcrumbing"]
+  },
+  {
+    slug: 'left-on-read',
+    quote: "*Left on Read*",
+    translation: "I have read your message and I am choosing not to respond. That IS the message.",
+    score: 5,
+    roast: "No answer is an answer. It's the loudest answer. He is showing you exactly how much he respects you (he doesn't). Block and bless.",
+    keywords: ["ghosting", "disrespect", "closure"]
   }
 ];
 
