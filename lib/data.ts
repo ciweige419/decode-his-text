@@ -78,3 +78,4 @@ export function getQuoteBySlug(slug: string) {
   return TOXIC_QUOTES.find((q) => q.slug === slug);
 }
 
+
