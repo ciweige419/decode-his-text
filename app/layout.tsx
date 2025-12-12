@@ -17,11 +17,11 @@ const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 export const metadata: Metadata = {
   title: "DecodeHisText - AI Tool for Dating Safety",
   description: "Translate mixed signals into truth. Our Toxic Bestie AI analyzes his texts to detect gaslighting and commitment issues instantly.",
-  ...(googleVerification && {
+  ...(googleVerification ? {
     verification: {
       google: googleVerification,
     },
-  }),
+  } : {}),
 };
 
 export default function RootLayout({
