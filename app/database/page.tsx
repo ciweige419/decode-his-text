@@ -23,10 +23,19 @@ export default function DatabasePage() {
              <Database size={32} />
            </div>
            <div>
-             <h1 className="text-4xl md:text-5xl font-black tracking-tight">Red Flag Database</h1>
-             <p className="text-gray-400 mt-2">The complete library of {TOXIC_QUOTES.length} toxic phrases decoded.</p>
+             <h1 className="text-4xl md:text-5xl font-black tracking-tight">Dating Red Flag Phrases Explained</h1>
+             <p className="text-gray-400 mt-2"> A database of common texts and phrases men use that often signal mixed intentions, emotional unavailability, or commitment issues.</p>
            </div>
         </div>
+
+        <section>
+  <p>
+    This page contains a curated database of common dating phrases frequently used in text messages and conversations...
+  </p>
+  <p>
+    The explanations focus on behavioral patterns such as mixed signals...
+  </p>
+</section>
 
         {/* 列表区域 */}
         <div className="grid gap-4">
