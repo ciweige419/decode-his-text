@@ -2,7 +2,7 @@ import { getQuoteBySlug, TOXIC_QUOTES } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, AlertTriangle } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 // 1. 自动生成 SEO 标题
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -26,7 +26,7 @@ export async function generateStaticParams() {
 export default async function QuotePage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
   const quote = getQuoteBySlug(params.slug);
-  
+
   if (!quote) notFound();
 
   // 获取相关推荐
@@ -35,53 +35,55 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
   return (
     <div className="min-h-screen bg-neutral-950 text-white p-6 md:p-20 font-sans">
       <div className="max-w-3xl mx-auto space-y-12">
-        
+
         {/* 顶部导航 */}
         <Link href="/" className="inline-flex items-center gap-2 text-gray-500 hover:text-white transition mb-8">
           <ArrowLeft size={20} /> Back to Decoder
         </Link>
 
-        {/* 标题区 */}
-        <div className="space-y-4">
-           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-bold border border-rose-500/20 uppercase">
-              2025 Updated Analysis
-           </div>
-           <h1 className="text-4xl md:text-6xl font-black leading-tight">
-             When He Says: <br/>
-             <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-400">"{quote.quote}"</span>
-           </h1>
-        </div>
+        {/* H1: 原始完整用户句子 */}
+        <h1 className="text-4xl md:text-6xl font-black leading-tight text-center">
+          "{quote.quote}"
+        </h1>
 
-        {/* 核心分析卡片 */}
-        <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
-           {/* 背景大图标装饰 */}
-           <div className="absolute top-0 right-0 p-6 opacity-20 pointer-events-none">
-             <AlertTriangle size={100} className={quote.score >= 4 ? "text-red-500" : "text-yellow-500"} />
-           </div>
+        {/* Section 1: What this really means */}
+        <section className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
+          <h2 className="text-2xl font-bold text-rose-400 mb-4">What this really means</h2>
+          <p className="text-xl leading-relaxed text-gray-300">{quote.translation}</p>
+        </section>
 
-           <div className="relative z-10 space-y-8">
-             {/* 红旗指数 */}
-             <div>
-                <p className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-2">Red Flag Score</p>
-                <div className="text-3xl font-black text-white flex items-center gap-3">
-                  {quote.score}/5 
-                  <span className="text-2xl">{quote.score >= 4 ? '🚩' : '⚠️'}</span>
-                </div>
-             </div>
+        {/* Section 2: Red flag score */}
+        <section className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
+          <h2 className="text-2xl font-bold text-red-500 mb-4">Red flag score</h2>
+          <div className="flex items-center gap-4">
+            <span className="text-4xl font-black text-white">{quote.score}/5</span>
+            <span className="text-2xl">{quote.score >= 4 ? '🚩' : '⚠️'}</span>
+          </div>
+          <p className="text-lg text-gray-300 mt-4">
+            {quote.score >= 4 ? "This is a major red flag indicating serious relationship issues." :
+             quote.score >= 3 ? "This is concerning behavior that warrants careful consideration." :
+             "This shows poor communication but may be manageable."}
+          </p>
+        </section>
 
-             {/* 翻译 */}
-             <div className="pl-6 border-l-4 border-rose-600">
-                <p className="text-sm font-bold text-rose-400 uppercase mb-2">The Translation</p>
-                <p className="text-2xl font-medium leading-relaxed">"{quote.translation}"</p>
-             </div>
+        {/* Section 3: Toxic bestie take */}
+        <section className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
+          <h2 className="text-2xl font-bold text-orange-400 mb-4">Toxic bestie take</h2>
+          <p className="text-lg leading-relaxed text-gray-300 italic">"{quote.roast}"</p>
+        </section>
 
-             {/* 毒舌点评 */}
-             <div className="bg-black/30 p-6 rounded-xl border border-white/5">
-                <p className="text-sm font-bold text-orange-400 uppercase mb-2">Toxic Bestie's Roast</p>
-                <p className="text-gray-300 text-lg leading-relaxed">{quote.roast}</p>
-             </div>
-           </div>
-        </div>
+        {/* Section 4: Why this is a red flag */}
+        <section className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
+          <h2 className="text-2xl font-bold text-yellow-400 mb-6">Why this is a red flag</h2>
+          <ul className="space-y-3">
+            {quote.keywords.map((keyword, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <span className="text-red-500 mt-1">•</span>
+                <span className="text-lg text-gray-300">{keyword}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         {/* 导流按钮 (Call to Action) */}
         <div className="bg-gradient-to-r from-rose-600 to-orange-600 text-white p-8 rounded-3xl text-center space-y-6 shadow-lg">

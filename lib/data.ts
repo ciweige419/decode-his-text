@@ -7,9 +7,26 @@ export interface QuoteData {
   keywords: string[];
 }
 
-export const TOXIC_QUOTES: QuoteData[] = [
+// 去主语的标准化 slug 生成函数
+function generateSeoSlug(quote: string): string {
+  return quote
+    // 去除常见主语开头
+    .replace(/^(I'm|I am|He says|She says|He said|She said|I've|I have|Let's|You|We|They|Don't|Can't|Won't)\s+/i, '')
+    // 去除标点符号
+    .replace(/[.,!?;:'"]/g, '')
+    // 转换为小写并用连字符替换空格
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    // 移除多余的连字符
+    .replace(/-+/g, '-')
+    // 移除开头和结尾的连字符
+    .replace(/^-+|-+$/g, '');
+}
+
+// 原始数据（用于生成新的 SEO slug）
+const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
   {
-    slug: 'not-looking-for-serious',
     quote: "I'm not looking for anything serious right now.",
     translation: "I want girlfriend benefits without boyfriend duties. Keeping options open for someone 'better'.",
     score: 4,
@@ -17,7 +34,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["situationship", "commitment issues", "dating red flags"]
   },
   {
-    slug: 'go-with-the-flow',
     quote: "Let's just go with the flow.",
     translation: "I have no plan to commit. You are a placeholder until I get bored.",
     score: 5,
@@ -25,7 +41,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["dating advice", "casual dating", "nato dating"]
   },
   {
-    slug: 'busy-with-work',
     quote: "I'm just really busy with work right now.",
     translation: "You are not a priority. If he wanted to, he would.",
     score: 3,
@@ -33,7 +48,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["mixed signals", "slow fading", "he takes hours to text"]
   },
   {
-    slug: 'my-ex-was-crazy',
     quote: "My ex was crazy.",
     translation: "I drove her crazy and now I'm playing the victim.",
     score: 5,
@@ -41,7 +55,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["narcissist", "gaslighting", "toxic ex"]
   },
   {
-    slug: 'bad-at-texting',
     quote: "I'm bad at texting.",
     translation: "I'm on my phone 24/7, just not for you.",
     score: 2,
@@ -49,7 +62,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["dry texting", "breadcrumbing"]
   },
   {
-    slug: 'dont-want-to-ruin-friendship',
     quote: "I don't want to ruin our friendship.",
     translation: "I'm not sexually attracted to you, but I like the attention.",
     score: 1,
@@ -57,7 +69,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["friendzone", "unrequited love"]
   },
   {
-    slug: 'you-deserve-better',
     quote: "You deserve better than me.",
     translation: "I am going to hurt you, and this is my pre-emptive fake apology.",
     score: 5,
@@ -65,7 +76,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["low self esteem", "manipulation", "breakup lines"]
   },
   {
-    slug: 'never-felt-this-way',
     quote: "I've never felt this connection with anyone before.",
     translation: "I say this to every girl on the second date to get in her pants.",
     score: 5,
@@ -73,7 +83,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["love bombing", "moving too fast", "narcissistic patterns"]
   },
   {
-    slug: 'not-ready-for-relationship',
     quote: "I'm not ready for a relationship right now, but I really like you.",
     translation: "I am ready for a relationship, just not with YOU. I want to keep you around as a placeholder until I find someone I actually want to commit to.",
     score: 5,
@@ -81,7 +90,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["commitment issues", "friendzone", "mixed signals"]
   },
   {
-    slug: 'you-are-intimidating',
     quote: "You are just so intimidating.",
     translation: "You have standards and boundaries, and that makes it hard for me to manipulate you.",
     score: 4,
@@ -89,7 +97,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["negging", "insecure men", "dating red flags"]
   },
   {
-    slug: 'just-joking-sensitive',
     quote: "I was just joking, you're too sensitive.",
     translation: "I said something mean to test your boundaries. Now that you got upset, I'm gaslighting you into thinking YOU are the problem.",
     score: 5,
@@ -97,7 +104,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["gaslighting", "emotional abuse", "narcissist"]
   },
   {
-    slug: 'hate-drama',
     quote: "I hate drama.",
     translation: "I create chaos everywhere I go, but I refuse to take accountability for it. If you express any negative emotion, I will label you 'crazy'.",
     score: 5,
@@ -105,7 +111,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["toxic relationships", "emotional unavailability", "red flag"]
   },
   {
-    slug: 'see-where-night-takes-us',
     quote: "Let's just see where the night takes us.",
     translation: "I am hoping the night takes us to your bedroom. I have zero plans to actually take you on a date.",
     score: 3,
@@ -113,7 +118,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["hookup culture", "low effort men", "casual dating"]
   },
   {
-    slug: 'shes-just-a-friend',
     quote: "Don't worry about her, she's just a friend.",
     translation: "She is my backup plan, or I am currently sleeping with her. Your intuition is right, and I am lying.",
     score: 4,
@@ -121,7 +125,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["cheating signs", "micro-cheating", "jealousy"]
   },
   {
-    slug: 'sorry-you-feel-that-way',
     quote: "I'm sorry you feel that way.",
     translation: "I am not sorry for what I did. I am only annoyed that you are reacting to it. This is a non-apology.",
     score: 5,
@@ -129,7 +132,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["fake apology", "gaslighting", "communication issues"]
   },
   {
-    slug: 'not-like-other-guys',
     quote: "I'm not like other guys.",
     translation: "I am exactly like other guys, but with a superiority complex. I will likely disappoint you in a very specific, 'unique' way.",
     score: 3,
@@ -137,7 +139,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["nice guy syndrome", "soft boi", "dating cliches"]
   },
   {
-    slug: 'crazy-connection',
     quote: "We have such a crazy connection, let's skip the small talk.",
     translation: "I want to rush intimacy to get what I want (sex/validation) before you realize who I really am.",
     score: 4,
@@ -145,7 +146,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["love bombing", "rushing intimacy", "future faking"]
   },
   {
-    slug: 'bad-at-making-plans',
     quote: "I'm terrible at making plans, I'm more spontaneous.",
     translation: "I don't value your time enough to schedule it in advance. I want you to be available whenever I'm bored.",
     score: 3,
@@ -153,7 +153,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["low effort", "breadcrumbing", "flaky"]
   },
   {
-    slug: 'never-met-anyone-like-you',
     quote: "I've never met anyone like you before.",
     translation: "I am mirroring your personality to make you like me. I will say this to the next girl next month.",
     score: 4,
@@ -161,7 +160,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["love bombing", "mirroring", "narcissist"]
   },
   {
-    slug: 'my-phone-died',
     quote: "Sorry, my phone died.",
     translation: "I saw your text, ignored it, went out, and now I'm back and need attention. I didn't care enough to charge my phone or find a charger.",
     score: 2,
@@ -169,7 +167,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["slow fading", "ghosting", "lying"]
   },
   {
-    slug: 'trust-issues',
     quote: "I have trust issues because of my ex.",
     translation: "I will make you pay for crimes you didn't commit. I will check your phone and control who you see, but I will cheat on you.",
     score: 5,
@@ -177,7 +174,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["controlling behavior", "insecure", "emotional baggage"]
   },
   {
-    slug: 'casual-but-exclusive',
     quote: "I want to be exclusive, but not put a label on it.",
     translation: "I want you to be loyal to me, but I want the freedom to leave you without 'technically' breaking up.",
     score: 4,
@@ -185,7 +181,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["situationship", "fear of commitment", "mixed signals"]
   },
   {
-    slug: 'focusing-on-me',
     quote: "I really need to focus on myself right now.",
     translation: "I want to break up (or reject you), but I want to sound noble about it.",
     score: 2,
@@ -193,7 +188,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["breakup lines", "soft rejection", "emotional unavailability"]
   },
   {
-    slug: 'come-over-chill',
     quote: "Do you want to come over and watch a movie?",
     translation: "I want sex. There will be no movie, or a very bad movie that we ignore.",
     score: 3,
@@ -201,7 +195,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["hookup signs", "low effort date", "netflix and chill"]
   },
   {
-    slug: 'kind-of-seeing-someone',
     quote: "I'm kind of seeing someone, but it's complicated.",
     translation: "I have a girlfriend, but I'm looking to cheat. I'm testing if you have low enough morals to be the side piece.",
     score: 5,
@@ -209,7 +202,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["cheating", "emotional affair", "red flag"]
   },
   {
-    slug: 'acting-crazy',
     quote: "Why are you acting so crazy?",
     translation: "I pushed you to your breaking point, and now I'm using your reaction to invalidate your valid feelings.",
     score: 5,
@@ -217,7 +209,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["reactive abuse", "gaslighting", "toxic argument"]
   },
   {
-    slug: 'good-morning-beautiful',
     quote: "Good morning beautiful (mass text)",
     translation: "I am copy-pasting this to 5 other girls to see who bites. I am fishing for validation.",
     score: 3,
@@ -226,7 +217,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
   },
   // --- Ghosting & Zombieing Collection (消失与诈尸系列) ---
   {
-    slug: 'hey-stranger',
     quote: "Hey stranger.",
     translation: "I ghosted you 3 months ago, but now I'm bored/horny and my other options fell through. I'm testing if you have low enough self-esteem to reply.",
     score: 5,
@@ -234,7 +224,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["zombieing", "he came back", "ghosting"]
   },
   {
-    slug: 'i-thought-i-replied',
     quote: "Omg I'm so sorry, I drafted a reply and thought I sent it!",
     translation: "I saw your text, ignored it for 4 days, and now I need something from you. I think you are dumb enough to believe this glitch excuse.",
     score: 3,
@@ -242,7 +231,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["slow fading", "lying", "bad texter"]
   },
   {
-    slug: 'deleted-the-app',
     quote: "Sorry I've been quiet, I deleted the app for a mental health detox.",
     translation: "I moved the conversation to WhatsApp/Snapchat with the girls I actually like. You didn't make the cut.",
     score: 4,
@@ -250,7 +238,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["dating app fatigue", "hinge excuses", "soft ghosting"]
   },
   {
-    slug: 'work-has-been-insane',
     quote: "Work has just been absolutely insane this week.",
     translation: "I have time to poop, eat, and scroll TikTok, but I don't value you enough to send a 5-second text.",
     score: 3,
@@ -258,7 +245,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["busy trap", "low effort", "mixed signals"]
   },
   {
-    slug: 'not-ignoring-you',
     quote: "I promise I'm not ignoring you!",
     translation: "I am definitely ignoring you, but I want to keep you on the hook as a backup option for when I'm free.",
     score: 4,
@@ -266,7 +252,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["breadcrumbing", "manipulation", "gaslighting"]
   },
   {
-    slug: 'bad-headspace',
     quote: "I'm just in a weird headspace right now.",
     translation: "I want to ghost you, but I want to sound deep and mysterious about it so you don't get mad.",
     score: 4,
@@ -274,7 +259,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["emotional unavailability", "soft breakup", "dating excuses"]
   },
   {
-    slug: 'miss-your-face',
     quote: "I miss your face.",
     translation: "I haven't texted you in 2 weeks, but I want to see if I can still get a nude or a hookup tonight.",
     score: 5,
@@ -282,7 +266,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["booty call", "breadcrumbing", "hoovering"]
   },
   {
-    slug: 'lost-my-phone',
     quote: "I lost my phone / got a new number.",
     translation: "I blocked you / deleted your number, but now I'm back. I am lying to your face.",
     score: 5,
@@ -290,7 +273,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["lying", "ghosting excuses", "toxic ex"]
   },
   {
-    slug: 'didnt-want-to-lead-on',
     quote: "I pulled back because I didn't want to lead you on.",
     translation: "I ghosted you instead of having a mature conversation. I'm framing my cowardice as 'protecting you'.",
     score: 4,
@@ -298,7 +280,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["cowardice", "ghosting psychology", "avoidant attachment"]
   },
   {
-    slug: 'family-emergency',
     quote: "Sorry, had a family emergency.",
     translation: "5% chance it's real, 95% chance it's the 'Get Out of Jail Free' card for disappearing for a week.",
     score: 3,
@@ -306,7 +287,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["lying", "red flags", "excuses"]
   },
   {
-    slug: 'scared-of-how-much-like',
     quote: "I got scared because I like you too much.",
     translation: "I am an Avoidant. I will sabotage this relationship the moment it gets real. Ghosting is my defense mechanism.",
     score: 5,
@@ -314,7 +294,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["avoidant attachment", "love bombing", "future faking"]
   },
   {
-    slug: 'forgot-to-hit-send',
     quote: "I literally forgot to hit send.",
     translation: "I typed it, got distracted by a better offer, and only remembered you now that I'm bored.",
     score: 2,
@@ -322,7 +301,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["low interest", "bad texter", "slow fade"]
   },
   {
-    slug: 'social-battery-drained',
     quote: "My social battery is just drained.",
     translation: "I have energy for my friends and video games, just not for you.",
     score: 3,
@@ -330,7 +308,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["introvert excuses", "lack of interest", "incompatibility"]
   },
   {
-    slug: 'fell-asleep',
     quote: "Sorry I fell asleep.",
     translation: "Sent at 4 PM the next day. I saw your text, didn't feel like replying, and now I'm doing the bare minimum.",
     score: 2,
@@ -338,7 +315,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["low effort", "lies", "texting etiquette"]
   },
   {
-    slug: 'notifications-off',
     quote: "I have my notifications turned off.",
     translation: "I don't want you popping up on my screen when I'm with other people.",
     score: 4,
@@ -346,7 +322,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["cheating", "hiding phone", "player"]
   },
   {
-    slug: 'just-saw-this',
     quote: "Just saw this!",
     translation: "I saw this 3 days ago. I'm replying now because I want something.",
     score: 3,
@@ -354,7 +329,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["breadcrumbing", "stalling", "benching"]
   },
   {
-    slug: 'raincheck-ghost',
     quote: "Can we raincheck? (and never reschedules)",
     translation: "I am cancelling on you, and I am ghosting the rescheduling part hoping you'll get the hint.",
     score: 4,
@@ -362,7 +336,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["flaky", "cancellation", "soft rejection"]
   },
   {
-    slug: 'u-up',
     quote: "U up?",
     translation: "I ghosted you all day, but now it's midnight and I'm lonely/horny.",
     score: 5,
@@ -370,7 +343,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["booty call", "hookup", "disrespect"]
   },
   {
-    slug: 'thinking-of-you',
     quote: "Thinking of you.",
     translation: "I'm sending this exact text to 3 exes to see who gives me attention.",
     score: 3,
@@ -378,7 +350,6 @@ export const TOXIC_QUOTES: QuoteData[] = [
     keywords: ["orbiting", "hoovering", "breadcrumbing"]
   },
   {
-    slug: 'left-on-read',
     quote: "*Left on Read*",
     translation: "I have read your message and I am choosing not to respond. That IS the message.",
     score: 5,
@@ -387,8 +358,67 @@ export const TOXIC_QUOTES: QuoteData[] = [
   }
 ];
 
+// 生成新的 TOXIC_QUOTES 数组，使用 SEO slug
+export const TOXIC_QUOTES: QuoteData[] = QUOTE_DATA.map((data) => ({
+  ...data,
+  slug: generateSeoSlug(data.quote)
+}));
+
+// 旧 slug 到新 slug 的映射（用于重定向）
+export const SLUG_REDIRECTS: Record<string, string> = {
+  'not-looking-for-serious': generateSeoSlug("I'm not looking for anything serious right now."),
+  'go-with-the-flow': generateSeoSlug("Let's just go with the flow."),
+  'busy-with-work': generateSeoSlug("I'm just really busy with work right now."),
+  'my-ex-was-crazy': generateSeoSlug("My ex was crazy."),
+  'bad-at-texting': generateSeoSlug("I'm bad at texting."),
+  'dont-want-to-ruin-friendship': generateSeoSlug("I don't want to ruin our friendship."),
+  'you-deserve-better': generateSeoSlug("You deserve better than me."),
+  'never-felt-this-way': generateSeoSlug("I've never felt this connection with anyone before."),
+  'not-ready-for-relationship': generateSeoSlug("I'm not ready for a relationship right now, but I really like you."),
+  'you-are-intimidating': generateSeoSlug("You are just so intimidating."),
+  'just-joking-sensitive': generateSeoSlug("I was just joking, you're too sensitive."),
+  'hate-drama': generateSeoSlug("I hate drama."),
+  'see-where-night-takes-us': generateSeoSlug("Let's just see where the night takes us."),
+  'shes-just-a-friend': generateSeoSlug("Don't worry about her, she's just a friend."),
+  'sorry-you-feel-that-way': generateSeoSlug("I'm sorry you feel that way."),
+  'not-like-other-guys': generateSeoSlug("I'm not like other guys."),
+  'crazy-connection': generateSeoSlug("We have such a crazy connection, let's skip the small talk."),
+  'bad-at-making-plans': generateSeoSlug("I'm terrible at making plans, I'm more spontaneous."),
+  'never-met-anyone-like-you': generateSeoSlug("I've never met anyone like you before."),
+  'my-phone-died': generateSeoSlug("Sorry, my phone died."),
+  'trust-issues': generateSeoSlug("I have trust issues because of my ex."),
+  'casual-but-exclusive': generateSeoSlug("I want to be exclusive, but not put a label on it."),
+  'focusing-on-me': generateSeoSlug("I really need to focus on myself right now."),
+  'come-over-chill': generateSeoSlug("Do you want to come over and watch a movie?"),
+  'kind-of-seeing-someone': generateSeoSlug("I'm kind of seeing someone, but it's complicated."),
+  'acting-crazy': generateSeoSlug("Why are you acting so crazy?"),
+  'good-morning-beautiful': generateSeoSlug("Good morning beautiful (mass text)"),
+  'hey-stranger': generateSeoSlug("Hey stranger."),
+  'i-thought-i-replied': generateSeoSlug("Omg I'm so sorry, I drafted a reply and thought I sent it!"),
+  'deleted-the-app': generateSeoSlug("Sorry I've been quiet, I deleted the app for a mental health detox."),
+  'work-has-been-insane': generateSeoSlug("Work has just been absolutely insane this week."),
+  'not-ignoring-you': generateSeoSlug("I promise I'm not ignoring you!"),
+  'bad-headspace': generateSeoSlug("I'm just in a weird headspace right now."),
+  'miss-your-face': generateSeoSlug("I miss your face."),
+  'lost-my-phone': generateSeoSlug("I lost my phone / got a new number."),
+  'didnt-want-to-lead-on': generateSeoSlug("I pulled back because I didn't want to lead you on."),
+  'family-emergency': generateSeoSlug("Sorry, had a family emergency."),
+  'scared-of-how-much-like': generateSeoSlug("I got scared because I like you too much."),
+  'forgot-to-hit-send': generateSeoSlug("I literally forgot to hit send."),
+  'social-battery-drained': generateSeoSlug("My social battery is just drained."),
+  'fell-asleep': generateSeoSlug("Sorry I fell asleep."),
+  'notifications-off': generateSeoSlug("I have my notifications turned off."),
+  'just-saw-this': generateSeoSlug("Just saw this!"),
+  'raincheck-ghost': generateSeoSlug("Can we raincheck? (and never reschedules)"),
+  'u-up': generateSeoSlug("U up?"),
+  'thinking-of-you': generateSeoSlug("Thinking of you."),
+  'left-on-read': generateSeoSlug("*Left on Read*")
+};
+
 export function getQuoteBySlug(slug: string) {
   return TOXIC_QUOTES.find((q) => q.slug === slug);
 }
 
-
+export function getRedirectSlug(oldSlug: string) {
+  return SLUG_REDIRECTS[oldSlug];
+}
