@@ -30,12 +30,20 @@ export default function DatabasePage() {
 
         <section>
   <p>
-    This page contains a curated database of common dating phrases frequently used in text messages and conversations...
+    This page contains a curated database of common dating phrases frequently used
+    in text messages and conversations. These phrases often appear harmless on the
+    surface, but can signal deeper patterns such as mixed intentions, emotional
+    unavailability, avoidance of commitment, or low relationship investment.
   </p>
+
   <p>
-    The explanations focus on behavioral patterns such as mixed signals...
+    Each phrase in this database is explained in a clear and practical way, focusing
+    on behavioral meaning rather than guesswork. The goal is to help readers
+    understand what these messages often imply in real dating contexts, so they can
+    make more informed emotional and relational decisions.
   </p>
 </section>
+
 
         {/* 列表区域 */}
         <div className="grid gap-4">
