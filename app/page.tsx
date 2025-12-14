@@ -18,6 +18,12 @@ export default function Home() {
 
   const handleAnalyze = async () => {
     if (!inputText.trim()) return;
+
+    // GA4 event tracking
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'mvp_submit');
+    }
+
     setIsAnalyzing(true);
     setResult(null);
 
