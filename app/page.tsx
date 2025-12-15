@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
-import { AlertTriangle, Search, Flame, HeartCrack, Menu, X, Sparkles } from 'lucide-react';
+import { AlertTriangle, Search, Flame, HeartCrack, Menu, X, Sparkles, CheckCircle2 } from 'lucide-react';
 import { TOXIC_QUOTES } from '@/lib/data';
 import ResultCard from '@/components/ResultCard';
 
