@@ -2,8 +2,9 @@
 
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
-import { AlertTriangle, MessageCircle, Share2, Search, ArrowRight, Flame, HeartCrack, Menu, X, Sparkles, Lock, CheckCircle2 } from 'lucide-react';
+import { AlertTriangle, Search, Flame, HeartCrack, Menu, X, Sparkles } from 'lucide-react';
 import { TOXIC_QUOTES } from '@/lib/data';
+import ResultCard from '@/components/ResultCard';
 
 export default function Home() {
   const [inputText, setInputText] = useState('');
@@ -155,76 +156,11 @@ export default function Home() {
           {/* Right Column: Results & Trending */}
           <div className="relative lg:pt-10">
             {result && !isAnalyzing ? (
-              <div ref={resultRef} className="bg-neutral-900 border border-white/10 rounded-3xl p-8 shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-500 ring-1 ring-rose-500/20">
-                <div className="flex items-center justify-between mb-8">
-                   <div>
-                     <p className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-1">Red Flag Score</p>
-                     <div className="flex items-center gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <div key={i} className={`h-2 w-8 rounded-full ${i < result.score ? (result.score >= 4 ? 'bg-red-500' : 'bg-yellow-500') : 'bg-neutral-800'}`}></div>
-                        ))}
-                        <span className={`ml-3 text-2xl font-black ${result.score >= 4 ? 'text-red-500' : 'text-yellow-500'}`}>{result.score}/5</span>
-                     </div>
-                   </div>
-                   <div className="bg-neutral-800 p-3 rounded-full">
-                     <Share2 size={20} className="text-neutral-400 hover:text-white cursor-pointer transition"/>
-                   </div>
-                </div>
-
-                <div className="space-y-8">
-                  <div className="pl-6 border-l-2 border-rose-500/30">
-                     <p className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">Translation</p>
-                     <p className="text-2xl text-white font-medium">"{result.translation}"</p>
-                  </div>
-                  
-                  <div className="bg-neutral-800/50 rounded-2xl p-6 border border-white/5">
-                    <p className="text-xs font-bold text-orange-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                       <MessageCircle size={14}/> The Roast
-                    </p>
-                    <p className="text-neutral-300 font-light text-lg">{result.roast}</p>
-                  </div>
-
-                  {/* STRATEGIC REPLIES SECTION */}
-                  <div className="bg-neutral-800/30 rounded-2xl p-6 border border-white/5">
-                    <p className="text-xs font-bold text-purple-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-                       <Sparkles size={14}/> Strategic Replies
-                    </p>
-                    <div className="space-y-3">
-                      {[
-                        "This response sets a clear boundary while showing you value authentic communication...",
-                        "Use this reply to call out the vague behavior without being accusatory...",
-                        "This option gives them space to be honest while protecting your emotional energy..."
-                      ].map((reply, index) => (
-                        <div key={index} className="relative">
-                          <div className="blur-sm text-neutral-400 font-medium p-4 bg-neutral-900/50 rounded-xl border border-white/5">
-                            "{reply}"
-                          </div>
-                          <div className="absolute inset-0 bg-black/60 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/10">
-                            <div className="text-center">
-                              <Lock size={20} className="text-white/60 mx-auto mb-2" />
-                              <button className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-bold px-6 py-2 rounded-full text-sm transition-all transform hover:scale-105 active:scale-95 shadow-lg">
-                                $2.99 Unlock
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* FAKE DOOR PAYMENT BUTTON */}
-                  <button 
-                    onClick={() => setShowWaitlist(true)}
-                    className="w-full bg-white hover:bg-neutral-200 text-black font-black py-4 rounded-xl transition-all flex items-center justify-center gap-2 text-lg group relative overflow-hidden"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-rose-100 to-orange-100 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <span className="relative z-10 flex items-center gap-2">
-                      <Lock size={18} className="text-rose-600"/>
-                      Unlock Full Advice ($2.99)
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform"/>
-                    </span>
-                  </button>
-                </div>
+              <div ref={resultRef}>
+                <ResultCard
+                  result={result}
+                  onUnlockClick={() => setShowWaitlist(true)}
+                />
               </div>
             ) : (
               <div className="space-y-6">
