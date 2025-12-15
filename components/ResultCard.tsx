@@ -112,7 +112,18 @@ export default function ResultCard({ result, onUnlockClick, showShareButton = tr
                 </Link>
               ) : (
                 <button
-                  onClick={onUnlockClick}
+                  onClick={() => {
+                    // GA4 event tracking
+                    if (typeof window !== 'undefined' && window.gtag) {
+                      window.gtag('event', 'unlock_click', {
+                        source: 'result_card',
+                        product: 'full_strategy_kit',
+                        price: 2.99
+                      });
+                    }
+                    // Original callback
+                    onUnlockClick?.();
+                  }}
                   className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-bold px-8 py-3 rounded-xl text-lg transition-all transform hover:scale-105 active:scale-95 shadow-xl mb-4"
                 >
                   Unlock Full Strategy Kit ($2.99)
