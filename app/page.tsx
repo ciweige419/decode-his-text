@@ -184,6 +184,34 @@ export default function Home() {
                     <p className="text-neutral-300 font-light text-lg">{result.roast}</p>
                   </div>
 
+                  {/* STRATEGIC REPLIES SECTION */}
+                  <div className="bg-neutral-800/30 rounded-2xl p-6 border border-white/5">
+                    <p className="text-xs font-bold text-purple-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                       <Sparkles size={14}/> Strategic Replies
+                    </p>
+                    <div className="space-y-3">
+                      {[
+                        "This response sets a clear boundary while showing you value authentic communication...",
+                        "Use this reply to call out the vague behavior without being accusatory...",
+                        "This option gives them space to be honest while protecting your emotional energy..."
+                      ].map((reply, index) => (
+                        <div key={index} className="relative">
+                          <div className="blur-sm text-neutral-400 font-medium p-4 bg-neutral-900/50 rounded-xl border border-white/5">
+                            "{reply}"
+                          </div>
+                          <div className="absolute inset-0 bg-black/60 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+                            <div className="text-center">
+                              <Lock size={20} className="text-white/60 mx-auto mb-2" />
+                              <button className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-bold px-6 py-2 rounded-full text-sm transition-all transform hover:scale-105 active:scale-95 shadow-lg">
+                                $2.99 Unlock
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* FAKE DOOR PAYMENT BUTTON */}
                   <button 
                     onClick={() => setShowWaitlist(true)}
