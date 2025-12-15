@@ -5,6 +5,7 @@ export interface QuoteData {
   score: number; // 1-5
   roast: string;
   keywords: string[];
+  psychologyContent: string; // HTML string for SEO content
 }
 
 // 去主语的标准化 slug 生成函数
@@ -24,6 +25,18 @@ function generateSeoSlug(quote: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
+// 创建基础心理学内容模板
+const createBasicPsychologyContent = (quote: string, score: number): string => `
+  <h3>The Psychology Behind "${quote}"</h3>
+  <p>This common dating phrase reveals important insights into communication patterns, emotional availability, and relationship intentions. Understanding the psychological meaning behind these words helps recognize red flags and make better dating decisions.</p>
+
+  <h3>Communication Patterns and Intent</h3>
+  <p>When someone uses this phrase, they're revealing their attachment style and relationship intentions. ${score >= 4 ? 'This typically indicates significant red flags including avoidant attachment, manipulation, or emotional unavailability.' : 'This suggests varying levels of emotional awareness and communication challenges that warrant attention.'}</p>
+
+  <h3>Setting Healthy Boundaries</h3>
+  <p>Recognizing these communication patterns enables setting appropriate boundaries and seeking relationships built on mutual respect and clear communication. Your emotional wellbeing deserves to be prioritized.</p>
+`;
+
 // 原始数据（用于生成新的 SEO slug）
 const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
   {
@@ -31,14 +44,46 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     translation: "I want girlfriend benefits without boyfriend duties. Keeping options open for someone 'better'.",
     score: 4,
     roast: "Ah, the classic 'Soft Boi' anthem. He wants to sleep with you and vent about his day, but the second you ask 'what are we?', he'll remind you he 'communicated boundaries'.",
-    keywords: ["situationship", "commitment issues", "dating red flags"]
+    keywords: ["situationship", "commitment issues", "dating red flags"],
+    psychologyContent: `
+      <h3>The Psychology Behind "I'm Not Looking for Anything Serious"</h3>
+      <p>This phrase represents one of the most common dating red flags in modern relationships. When someone says they're not looking for anything serious, they're typically engaging in avoidant attachment behavior—a defensive mechanism designed to protect themselves from emotional vulnerability and potential rejection.</p>
+
+      <h3>Why Men Use This Phrase</h3>
+      <p>Men who consistently use this line often struggle with commitment anxiety and emotional immaturity. The phrase serves multiple psychological purposes: it sets low expectations, removes accountability, and creates an escape route. By establishing these terms upfront, they can enjoy the benefits of emotional and physical intimacy without the perceived burdens of commitment.</p>
+
+      <h3>Power Dynamics and Control</h3>
+      <p>This statement immediately establishes a power imbalance in the relationship. One person gets to define all terms while the other must either accept or reject them entirely. It's a form of emotional control that prevents genuine partnership development. The person using this phrase maintains all the power while receiving all the benefits.</p>
+
+      <h3>The Impact on Self-Worth</h3>
+      <p>Being on the receiving end of this statement can significantly damage self-esteem. It implicitly communicates that you're not worthy of commitment, that you're "good enough for now but not for forever." This can trigger abandonment issues and create a cycle of seeking validation from emotionally unavailable partners.</p>
+
+      <h3>How to Recognize the Pattern</h3>
+      <p>If someone says this but continues to act like your boyfriend—texting daily, introducing you to friends, sharing intimate moments—they're engaging in contradictory behavior. This inconsistency often indicates deeper emotional wounds or narcissistic tendencies. Healthy adults either commit or maintain clear boundaries; they don't create confusion.</p>
+    `
   },
   {
     quote: "Let's just go with the flow.",
     translation: "I have no plan to commit. You are a placeholder until I get bored.",
     score: 5,
     roast: "'Flow' implies going down the drain. He's saying, 'I don't like you enough to date you, but I don't hate you enough to block you.' You are a convenience store, and he's browsing.",
-    keywords: ["dating advice", "casual dating", "nato dating"]
+    keywords: ["dating advice", "casual dating", "nato dating"],
+    psychologyContent: `
+      <h3>The Psychology Behind "Let's Just Go With the Flow"</h3>
+      <p>Perhaps the most insidious phrase in modern dating, "let's just go with the flow" represents the ultimate commitment-avoidance strategy. This seemingly innocent suggestion actually masks a deep-seated fear of intimacy and unwillingness to invest emotionally in another person.</p>
+
+      <h3>Avoidant Attachment in Action</h3>
+      <p>People who consistently suggest "going with the flow" typically exhibit avoidant attachment patterns. They crave intimacy but simultaneously fear it, creating a push-pull dynamic that keeps potential partners emotionally off-balance. By refusing to define the relationship, they maintain emotional distance while still享受ing the benefits of connection.</p>
+
+      <h3>The Illusion of Spontaneity</h3>
+      <p>The flow metaphor suggests natural, effortless progression, but in reality, it's carefully manufactured ambiguity. Most successful relationships require intentional planning, communication, and mutual investment. "Going with the flow" removes these requirements while creating the illusion that something meaningful might develop spontaneously.</p>
+
+      <h3>Power and Control Dynamics</h3>
+      <p>This phrase immediately establishes a power imbalance where one person gets to maintain complete control over the relationship's direction. They can reap all benefits of partnership without any of the responsibilities. It's emotional freeloading disguised as spiritual openness.</p>
+
+      <h3>Recognition and Response</h3>
+      <p>Healthy adults don't fear clarity or definition. When someone resists defining the relationship while wanting all the benefits, they're not "going with the flow"—they're going with their convenience. The appropriate response is to redirect toward clarity or redirect your energy elsewhere.</p>
+    `
   },
   {
     quote: "I'm just really busy with work right now.",
@@ -59,42 +104,99 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     translation: "I'm on my phone 24/7, just not for you.",
     score: 2,
     roast: "Lies. He has his phone in his hand right now. He's watching TikToks. 'Bad at texting' translates to 'Low Effort'. Don't settle for crumbs.",
-    keywords: ["dry texting", "breadcrumbing"]
+    keywords: ["dry texting", "breadcrumbing"],
+    psychologyContent: `
+      <h3>The Psychology Behind "I'm Bad at Texting"</h3>
+      <p>In the age of smartphones and constant connectivity, claiming to be "bad at texting" has become one of the most transparent and frustrating excuses in modern dating. This statement reveals more about a person's priorities and emotional investment than they realize.</p>
+
+      <h3>Effort vs. Interest</h3>
+      <p>Communication patterns directly reflect interest levels. When someone genuinely cares about another person, they find ways to stay connected regardless of their texting "abilities." The "bad at texting" excuse is actually a declaration of low priority—this person isn't important enough to warrant minimal effort.</p>
+
+      <h3>Modern Communication Realities</h3>
+      <p>Most adults today spend 4-7 hours daily on their phones. We order food, book appointments, manage work, and maintain friendships through text. Sudden texting incompetence exclusively with romantic interests reveals selective attention, not actual inability.</p>
+
+      <h3>Emotional Avoidance Patterns</h3>
+      <p>People who use this excuse often struggle with emotional intimacy. Texting creates a record of conversation and emotional investment that some find threatening. By claiming incompetence, they avoid the vulnerability that comes with consistent, meaningful communication.</p>
+
+      <h3>TheBreadcrumbing Connection</h3>
+      <p>"Bad at texting" frequently accompanies breadcrumbing behavior—sending just enough communication to keep someone interested without real investment. These inconsistent communication patterns create anxiety and uncertainty, which some people find psychologically addictive.</p>
+
+      <h3>Healthy Communication Standards</h3>
+      <p>Adults in healthy relationships don't make excuses for poor communication. They discuss preferences, find compatible communication styles, and prioritize staying connected. If someone can't maintain basic communication, they're not ready for a relationship.</p>
+    `
   },
   {
     quote: "I don't want to ruin our friendship.",
     translation: "I'm not sexually attracted to you, but I like the attention.",
     score: 1,
     roast: "You are firmly in the Friendzone. He values your emotional labor but will never give you the romance you want. Stop hoping, start moving on.",
-    keywords: ["friendzone", "unrequited love"]
+    keywords: ["friendzone", "unrequited love"],
+    psychologyContent: `
+      <h3>The Psychology Behind "I Don't Want to Ruin Our Friendship"</h3>
+      <p>This classic friendzone statement reveals a fundamental mismatch in romantic interest and emotional intelligence. While often framed as protective of the friendship, it typically serves as a gentle rejection that maintains the benefits of emotional connection without romantic commitment.</p>
+
+      <h3>Emotional Safety vs. Authenticity</h3>
+      <p>People who use this phrase often struggle with direct communication and conflict avoidance. Rather than being honest about lack of romantic interest, they create a scenario that sounds caring while actually being self-serving. They want to keep the emotional support without romantic responsibility.</p>
+
+      <h3>Attraction Reality Check</h3>
+      <p>When someone is genuinely romantically interested, friendship enhancement is typically viewed as a positive foundation, not a barrier. This phrase almost always indicates lack of physical or romantic attraction, regardless of how much they "value" the friendship.</p>
+
+      <h3>Breaking the Cycle</h3>
+      <p>Accepting this statement while hoping for change creates unhealthy relationship patterns. Healthy adults either pursue romantic interest honestly or maintain platonic boundaries clearly. Mixed signals lead to emotional confusion and prolonged disappointment.</p>
+    `
   },
   {
     quote: "You deserve better than me.",
     translation: "I am going to hurt you, and this is my pre-emptive fake apology.",
     score: 5,
     roast: "Believe him. He is handing you a permission slip to leave. Take it. He knows he's trash, so let the trash take itself out.",
-    keywords: ["low self esteem", "manipulation", "breakup lines"]
+    keywords: ["low self esteem", "manipulation", "breakup lines"],
+    psychologyContent: `
+      <h3>The Psychology Behind "You Deserve Better Than Me"</h3>
+      <p>This seemingly self-aware statement often masks manipulation and emotional cowardice. While appearing humble and considerate, it's typically a preemptive excuse for poor behavior and a way to avoid taking responsibility for hurting someone.</p>
+
+      <h3>False Humility and Control</h3>
+      <p>This phrase puts the responsibility for the breakup on the recipient while making the speaker appear noble. It's a form of emotional manipulation that forces the other person to either argue for the relationship's worth or accept the "generous" offer to leave.</p>
+
+      <h3>Accountability Avoidance</h3>
+      <p>By claiming inadequacy upfront, the speaker creates a built-in excuse for future poor behavior. They can always say "I told you so" when things go wrong, avoiding genuine accountability for their actions.</p>
+
+      <h3>Self-Fulfilling Prophecy</h3>
+      <p>People who genuinely believe they don't deserve good relationships often sabotage them. This statement may reflect genuine low self-esteem or it may be a calculated manipulation technique.</p>
+    `
   },
   {
     quote: "I've never felt this connection with anyone before.",
     translation: "I say this to every girl on the second date to get in her pants.",
     score: 5,
     roast: "Love Bombing 101. If he's planning your wedding after 2 weeks, he's not in love, he's a narcissist seeking supply. Real connection takes time, not a script.",
-    keywords: ["love bombing", "moving too fast", "narcissistic patterns"]
+    keywords: ["love bombing", "moving too fast", "narcissistic patterns"],
+    psychologyContent: `
+      <h3>The Psychology Behind "I've Never Felt This Connection Before"</h3>
+      <p>This classic love bombing technique creates artificial intimacy and urgency. While genuine deep connections do exist, this phrase when used early in dating often signals manipulation tactics designed to override rational decision-making.</p>
+
+      <h3>Love Bombing Pattern</h3>
+      <p>Narcissistic individuals use intense emotional language to create dependency quickly. By claiming unprecedented connection, they position themselves as irreplaceable and make targets feel uniquely special.</p>
+
+      <h3>Pace and Intensity</h3>
+      <p>Healthy relationships develop gradually. This rush of intensity bypasses normal vetting processes and creates emotional investment before red flags become apparent.</p>
+    `
   },
   {
     quote: "I'm not ready for a relationship right now, but I really like you.",
     translation: "I am ready for a relationship, just not with YOU. I want to keep you around as a placeholder until I find someone I actually want to commit to.",
     score: 5,
     roast: "The oldest lie in the book. Translation: 'I want all the perks of a girlfriend with none of the responsibility.' Watch him get into a serious relationship with the next girl 2 weeks after you break up.",
-    keywords: ["commitment issues", "friendzone", "mixed signals"]
+    keywords: ["commitment issues", "friendzone", "mixed signals"],
+    psychologyContent: createBasicPsychologyContent("I'm not ready for a relationship right now, but I really like you.", 5)
   },
   {
     quote: "You are just so intimidating.",
     translation: "You have standards and boundaries, and that makes it hard for me to manipulate you.",
     score: 4,
     roast: "He's telling on himself. 'Intimidating' is weak-man code for 'I can't control you.' He wants a woman with low self-esteem who won't call him out on his nonsense. Keep being 'intimidating', queen.",
-    keywords: ["negging", "insecure men", "dating red flags"]
+    keywords: ["negging", "insecure men", "dating red flags"],
+    psychologyContent: createBasicPsychologyContent("You are just so intimidating.", 4)
   },
   {
     quote: "I was just joking, you're too sensitive.",

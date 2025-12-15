@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import ResultCard from '@/components/ResultCard';
 
 // 1. 自动生成 SEO 标题
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -46,57 +47,88 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
           "{quote.quote}"
         </h1>
 
-        {/* Section 1: What this really means */}
-        <section className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
-          <h2 className="text-2xl font-bold text-rose-400 mb-4">What this really means</h2>
-          <p className="text-xl leading-relaxed text-gray-300">{quote.translation}</p>
-        </section>
+        {/* RESULT CARD - MOVED TO TOP (ABOVE THE FOLD) */}
+        <div className="space-y-8">
+          <ResultCard
+            result={{
+              score: quote.score,
+              translation: quote.translation,
+              roast: quote.roast,
+              quote: quote.quote
+            }}
+            showShareButton={true}
+            isSeoPage={true}
+          />
+        </div>
 
-        {/* Section 2: Red flag score */}
-        <section className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
-          <h2 className="text-2xl font-bold text-red-500 mb-4">Red flag score</h2>
-          <div className="flex items-center gap-4">
-            <span className="text-4xl font-black text-white">{quote.score}/5</span>
-            <span className="text-2xl">{quote.score >= 4 ? '🚩' : '⚠️'}</span>
+        {/* SECTION: The Psychology Behind This Text */}
+        <section className="space-y-8">
+          <h2 className="text-3xl font-bold text-white text-center mb-8">The Psychology Behind This Text</h2>
+
+          {/* Why this is a red flag */}
+          <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
+            <h3 className="text-2xl font-bold text-yellow-400 mb-6">Why this is a red flag</h3>
+            <ul className="space-y-3">
+              {quote.keywords.map((keyword, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <span className="text-red-500 mt-1">•</span>
+                  <span className="text-lg text-gray-300">{keyword}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <p className="text-lg text-gray-300 mt-4">
-            {quote.score >= 4 ? "This is a major red flag indicating serious relationship issues." :
-             quote.score >= 3 ? "This is concerning behavior that warrants careful consideration." :
-             "This shows poor communication but may be manageable."}
-          </p>
+
+          {/* Additional psychological analysis */}
+          <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
+            <h3 className="text-2xl font-bold text-purple-400 mb-6">Understanding the Pattern</h3>
+            <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
+              <p>
+                This type of communication pattern often reflects deeper issues in emotional intelligence and relationship readiness.
+                The vagueness and ambiguity serve as protective mechanisms that prevent genuine connection while maintaining the appearance of interest.
+              </p>
+              <p>
+                Psychology suggests that individuals who consistently use such phrasing may be struggling with commitment anxiety,
+                fear of vulnerability, or may be intentionally maintaining multiple options without clear communication.
+              </p>
+              <p>
+                The impact on the recipient can be particularly damaging, as it creates a state of perpetual uncertainty and emotional limbo,
+                making it difficult to make informed decisions about the relationship's future.
+              </p>
+            </div>
+          </div>
+
+          {/* What to do next */}
+          <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
+            <h3 className="text-2xl font-bold text-green-400 mb-6">How to Respond Effectively</h3>
+            <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
+              <p>
+                When faced with this type of communication, it's essential to prioritize clarity and self-respect.
+                Direct but compassionate communication often reveals the true nature of the situation.
+              </p>
+              <p>
+                Setting clear boundaries and asking for specific responses can help cut through the ambiguity.
+                Remember that your time and emotional energy are valuable resources that deserve honest communication in return.
+              </p>
+              <p>
+                If the pattern continues despite your efforts to establish clear communication, it may be a sign to redirect your energy
+                toward relationships that offer the respect and transparency you deserve.
+              </p>
+            </div>
+          </div>
         </section>
 
-        {/* Section 3: Toxic bestie take */}
-        <section className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
-          <h2 className="text-2xl font-bold text-orange-400 mb-4">Toxic bestie take</h2>
-          <p className="text-lg leading-relaxed text-gray-300 italic">"{quote.roast}"</p>
-        </section>
-
-        {/* Section 4: Why this is a red flag */}
-        <section className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
-          <h2 className="text-2xl font-bold text-yellow-400 mb-6">Why this is a red flag</h2>
-          <ul className="space-y-3">
-            {quote.keywords.map((keyword, index) => (
-              <li key={index} className="flex items-start gap-3">
-                <span className="text-red-500 mt-1">•</span>
-                <span className="text-lg text-gray-300">{keyword}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* 导流按钮 (Call to Action) */}
+        {/* Call to Action */}
         <div className="bg-gradient-to-r from-rose-600 to-orange-600 text-white p-8 rounded-3xl text-center space-y-6 shadow-lg">
-           <h3 className="text-2xl font-black">Got a text like this?</h3>
-           <p className="text-rose-100 font-medium">Don't rely on guessing. Use our AI to decode the hidden meaning instantly.</p>
+           <h3 className="text-2xl font-black">Got a confusing text?</h3>
+           <p className="text-rose-100 font-medium">Don't second-guess yourself. Get instant clarity with our AI decoder.</p>
            <Link href="/" className="inline-block bg-white text-rose-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-md">
              Decode My Text Now
            </Link>
         </div>
 
-        {/* 底部相关推荐 (内链闭环) */}
+        {/* See Also: Internal Links Section */}
         <div className="pt-10 border-t border-white/10">
-           <h3 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-6">Related Red Flags</h3>
+           <h3 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-6">See Also</h3>
            <div className="grid md:grid-cols-3 gap-4">
               {related.map(r => (
                 <Link href={`/decode/${r.slug}`} key={r.slug} className="block bg-neutral-900/50 p-5 rounded-xl border border-white/5 hover:border-rose-500/50 transition group">

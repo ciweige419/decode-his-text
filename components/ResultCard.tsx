@@ -50,46 +50,70 @@ export default function ResultCard({ result, onUnlockClick, showShareButton = tr
         </div>
 
         {/* PREMIUM STRATEGY KIT SECTION */}
-        <div className="bg-gradient-to-br from-purple-900/20 to-rose-900/20 rounded-2xl p-6 border border-purple-500/20 relative">
+        <div className="bg-gradient-to-br from-purple-900/20 to-rose-900/20 rounded-2xl p-6 border border-purple-500/20">
           <p className="text-xs font-bold text-purple-400 uppercase tracking-wider mb-6 flex items-center gap-2">
              <Sparkles size={14}/> Premium Strategy Kit
           </p>
 
-          {/* Teaser Titles List */}
-          <div className="space-y-4 mb-6">
-            <div className="text-white font-medium text-lg">Option 1: The "High Value" Pivot</div>
-            <div className="text-white font-medium text-lg">Option 2: The Dark Psychology Mirror</div>
-            <div className="text-white font-medium text-lg">Option 3: The "Unbothered" End Game</div>
-          </div>
-
-          {/* Blurred Content Section */}
-          <div className="space-y-4 mb-6">
+          {/* Strategy Options - Visible Titles + Blurred Content */}
+          <div className="space-y-6 mb-8">
             {[
-              "This strategic response positions you as a high-value individual who refuses to engage in ambiguity. It communicates that you have clear boundaries and standards, making it clear that vague communication is unacceptable...",
-              "This psychological technique mirrors their energy back to them, forcing them to confront their own communication patterns. It creates a powerful dynamic where they must either step up or step away...",
-              "This approach demonstrates complete emotional independence and confidence. It shows that their vague messaging has no impact on your state of mind, making you appear more attractive and less needy..."
-            ].map((content, index) => (
-              <div key={index} className="p-4 bg-neutral-900/50 rounded-xl border border-white/5" style={{ filter: 'blur(8px)' }}>
-                <p className="text-neutral-300 font-medium leading-relaxed">{content}</p>
+              {
+                title: "Option 1: The High-Value Frame",
+                content: "This strategic response positions you as a high-value individual who refuses to engage in ambiguity. It communicates that you have clear boundaries and standards, making it clear that vague communication is unacceptable..."
+              },
+              {
+                title: "Option 2: Mirroring Power Reset",
+                content: "This psychological technique mirrors their energy back to them, forcing them to confront their own communication patterns. It creates a powerful dynamic where they must either step up or step away..."
+              },
+              {
+                title: "Option 3: Low-Demand Termination",
+                content: "This approach demonstrates complete emotional independence and confidence. It shows that their vague messaging has no impact on your state of mind, making you appear more attractive and less needy..."
+              }
+            ].map((option, index) => (
+              <div key={index} className="relative">
+                {/* Visible Title */}
+                <h4 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-gradient-to-r from-purple-600 to-rose-600 rounded-full flex items-center justify-center text-xs text-white font-black">
+                    {index + 1}
+                  </span>
+                  {option.title}
+                </h4>
+
+                {/* Blurred Content */}
+                <div className="p-4 bg-neutral-900/50 rounded-xl border border-white/5 relative overflow-hidden">
+                  <p className="text-neutral-300 font-medium leading-relaxed" style={{ filter: 'blur(6px)' }}>
+                    {option.content}
+                  </p>
+
+                  {/* Individual Option Lock Overlay */}
+                  <div className="absolute inset-0 bg-black/40 rounded-xl flex items-center justify-center">
+                    <Lock size={16} className="text-white/60" />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Central Overlay with CTA */}
-          <div className="absolute inset-0 bg-black/80 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10">
-            <div className="text-center px-6">
-              <Lock size={32} className="text-white/80 mx-auto mb-4" />
+          {/* Central CTA Section */}
+          <div className="bg-neutral-900/50 rounded-2xl p-6 border border-white/10 text-center relative overflow-hidden">
+            {/* Light overlay background */}
+            <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
+
+            {/* Content */}
+            <div className="relative z-10">
+              <Lock size={28} className="text-white/80 mx-auto mb-3" />
               {isSeoPage ? (
                 <Link
                   href="/"
-                  className="inline-block bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all transform hover:scale-105 active:scale-95 shadow-xl mb-4"
+                  className="inline-block bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-bold px-8 py-3 rounded-xl text-lg transition-all transform hover:scale-105 active:scale-95 shadow-xl mb-4"
                 >
                   Unlock Full Strategy Kit ($2.99)
                 </Link>
               ) : (
                 <button
                   onClick={onUnlockClick}
-                  className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all transform hover:scale-105 active:scale-95 shadow-xl mb-4"
+                  className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-bold px-8 py-3 rounded-xl text-lg transition-all transform hover:scale-105 active:scale-95 shadow-xl mb-4"
                 >
                   Unlock Full Strategy Kit ($2.99)
                 </button>
