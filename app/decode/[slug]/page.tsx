@@ -10,10 +10,10 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const params = await props.params;
   const quote = getQuoteBySlug(params.slug);
   if (!quote) return {};
-  
+
   return {
-    title: `Meaning of "${quote.quote}" - Red Flag Analysis (2025)`,
-    description: `When he says "${quote.quote}", it usually means: ${quote.translation}. Red Flag Score: ${quote.score}/5.`,
+    title: `"${quote.quote}" Meaning? - Red Flag Score & Psychology Analysis`,
+    description: `He sent "${quote.quote}"? Read the brutal translation, psychological analysis, and get 3 strategic copy-paste replies to take back control.`,
   };
 }
 
