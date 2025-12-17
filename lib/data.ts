@@ -62,7 +62,7 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
       <p>Perhaps the most insidious phrase in modern dating, "let's just go with the flow" represents the ultimate commitment-avoidance strategy. This seemingly innocent suggestion actually masks a deep-seated fear of intimacy and unwillingness to invest emotionally in another person.</p>
 
       <h3>Avoidant Attachment in Action</h3>
-      <p>People who consistently suggest "going with the flow" typically exhibit avoidant attachment patterns. They crave intimacy but simultaneously fear it, creating a push-pull dynamic that keeps potential partners emotionally off-balance. By refusing to define the relationship, they maintain emotional distance while still享受ing the benefits of connection.</p>
+      <p>People who consistently suggest "going with the flow" typically exhibit avoidant attachment patterns. They crave intimacy but simultaneously fear it, creating a push-pull dynamic that keeps potential partners emotionally off-balance. By refusing to define the relationship, they maintain emotional distance while still enjoying the benefits of connection.</p>
 
       <h3>The Illusion of Spontaneity</h3>
       <p>The flow metaphor suggests natural, effortless progression, but in reality, it's carefully manufactured ambiguity. Most successful relationships require intentional planning, communication, and mutual investment. "Going with the flow" removes these requirements while creating the illusion that something meaningful might develop spontaneously.</p>
