@@ -116,7 +116,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "Beyoncé is busy. The President is busy. This guy manages a spreadsheet. If he can watch Instagram stories, he can text you back. He's not busy, he's just not that into you.",
     keywords: ["mixed signals", "slow fading", "he takes hours to text"],
-    psychologyContent: createBasicPsychologyContent("I'm just really busy with work right now.", 3)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Priority Management
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is the classic <strong>"Priority Displacement"</strong> excuse. By claiming to be "busy," he's communicating that you're not important enough to warrant 30 seconds of his time.
+          <br><br>
+          Psychologically, this reveals <strong>Investment Imbalance</strong>—he's reallocating his time and energy elsewhere while keeping you as a backup option. People make time for what they value.
+        </p>
+      </section>
+
+      <div class="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-yellow-400 uppercase tracking-wide mb-2">Why This Is A Yellow Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Time Auditing:</strong> Notice how he has time for Instagram, gaming, or other activities—just not for you. His calendar reveals his true priorities.
+          </li>
+          <li>
+            <strong>Maintenance Mode:</strong> This is often a way to keep you interested with minimal effort while he explores other options.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to learn the exact response that forces him to either invest or disappear.
+      </p>
+    </div>
+    `
   },
   {
     quote: "My ex was crazy.",
@@ -124,7 +153,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "Red Flag Alert 🚩. If all his exes are 'crazy', the common denominator is HIM. He lacks accountability and will likely call YOU crazy to his next girl.",
     keywords: ["narcissist", "gaslighting", "toxic ex"],
-    psychologyContent: createBasicPsychologyContent("My ex was crazy.", 5)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Blame Shifting
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is the ultimate <strong>"Victim Narrative"</strong> strategy. By branding his ex as "crazy," he pre-emptively inoculates himself against any future accountability.
+          <br><br>
+          Psychologically, this reveals <strong>Narcissistic Defense Mechanisms</strong>—an inability to accept responsibility for relationship failures. If all his exes were crazy, he's the common denominator.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Pattern Recognition:</strong> Multiple "crazy" exes indicates a pattern of failed relationships where he never takes responsibility.
+          </li>
+          <li>
+            <strong>Future Prediction:</strong> You're on deck. The day you disagree with him or set boundaries, you'll become the next "crazy ex" in his stories.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see how to respond when someone starts trash-talking their ex.
+      </p>
+    </div>
+    `
   },
   {
     quote: "I'm bad at texting.",
@@ -215,7 +273,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "The oldest lie in the book. Translation: 'I want all the perks of a girlfriend with none of the responsibility.' Watch him get into a serious relationship with the next girl 2 weeks after you break up.",
     keywords: ["commitment issues", "friendzone", "mixed signals"],
-    psychologyContent: createBasicPsychologyContent("I'm not ready for a relationship right now, but I really like you.", 5)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Strategic Ambiguity
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is the most dangerous form of <strong>"Commitment Baiting"</strong>. He's offering just enough validation to keep you invested while clearly stating he won't commit.
+          <br><br>
+          Psychologically, this creates <strong>Cognitive Dissonance</strong>—you're receiving affection mixed with rejection, making it hard to process the reality: he wants girlfriend benefits without boyfriend responsibilities.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>False Hope Manufacturing:</strong> The "but I really like you" is designed to keep you waiting indefinitely for him to "be ready."
+          </li>
+          <li>
+            <strong>Situationship Trap:</strong> You'll be his emotional support, intimacy partner, and companion while he remains free to date others.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see how to break free from the waiting game.
+      </p>
+    </div>
+    `
   },
   {
     quote: "You are just so intimidating.",
@@ -223,7 +310,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "He's telling on himself. 'Intimidating' is weak-man code for 'I can't control you.' He wants a woman with low self-esteem who won't call him out on his nonsense. Keep being 'intimidating', queen.",
     keywords: ["negging", "insecure men", "dating red flags"],
-    psychologyContent: createBasicPsychologyContent("You are just so intimidating.", 4)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Control Complaint
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is classic <strong>"Negging with Compliments"</strong>. He's calling you "intimidating" because you have standards, boundaries, and won't tolerate his nonsense.
+          <br><br>
+          Psychologically, this reveals <strong>Control Deficit Anxiety</strong>—he feels threatened by women who won't be easily manipulated. Your confidence makes his low-effort tactics ineffective.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Preference for Insecurity:</strong> He wants someone with lower self-esteem who won't call him out on his poor behavior.
+          </li>
+          <li>
+            <strong>Projecting Inadequacy:</strong> He's calling you intimidating because he feels inadequate in comparison to your confidence and standards.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see how to respond to backhanded compliments.
+      </p>
+    </div>
+    `
   },
   {
     quote: "I was just joking, you're too sensitive.",
@@ -231,7 +347,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "Gaslighting 101. If a joke hurts you, it's not a joke, it's an insult. He's not funny, he's just mean. Do not let him minimize your feelings.",
     keywords: ["gaslighting", "emotional abuse", "narcissist"],
-    psychologyContent: createBasicPsychologyContent("I was just joking, you're too sensitive.", 5)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Emotional Gaslighting
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is textbook <strong>"DARVO"</strong> (Deny, Attack, Reverse Victim and Offender). He's attacking your character while denying responsibility for his hurtful words.
+          <br><br>
+          Psychologically, this is <strong>Emotional Invalidation</strong>—a tactic to make you question your own perceptions and reactions. If you're "too sensitive," then his inappropriate behavior becomes acceptable.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Boundary Testing:</strong> He's testing how much disrespect you'll tolerate while blaming you for having reasonable emotional responses.
+          </li>
+          <li>
+            <strong>Emotional Abuse Pattern:</strong> This is how emotional abuse cycles begin—invalidate, blame, and repeat until you doubt your own judgment.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to get the shutdown responses for gaslighting attempts.
+      </p>
+    </div>
+    `
   },
   {
     quote: "I hate drama.",
@@ -239,7 +384,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "Men who 'hate drama' are usually the conductors of the drama train. He lacks emotional intelligence and will dismiss your valid concerns as 'drama'. Run.",
     keywords: ["toxic relationships", "emotional unavailability", "red flag"],
-    psychologyContent: createBasicPsychologyContent("I hate drama.", 5)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Emotional Immunity Claim
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is the ultimate <strong>"Emotional Shutdown"</strong> tactic. By claiming to hate "drama," he's pre-emptively dismissing any future accountability for his own behavior.
+          <br><br>
+          Psychologically, this reveals <strong>Emotional Avoidance Patterns</strong>—an inability to handle conflict or difficult emotions. "Drama" is his code word for "consequences."
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Gaslighting Tool:</strong> Any time you express valid concerns or emotions, he'll label it "drama" to invalidate your feelings.
+          </li>
+          <li>
+            <strong>Accountability Evasion:</strong> People who create chaos often claim to hate drama to avoid taking responsibility for the fallout.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to learn how to respond when someone calls your valid concerns "drama."
+      </p>
+    </div>
+    `
   },
   {
     quote: "Let's just see where the night takes us.",
@@ -247,7 +421,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "Lazy. Low effort. He wants a hookup but is too cowardly to ask directly. If he wanted to take you on a date, he would have made a reservation.",
     keywords: ["hookup culture", "low effort men", "casual dating"],
-    psychologyContent: createBasicPsychologyContent("Let's just see where the night takes us.", 3)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Hookup Camouflage
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is <strong>"Spontaneity as Excuse"</strong> for a hookup-seeking agenda. He wants physical intimacy without investing in actual dating effort.
+          <br><br>
+          Psychologically, this reveals <strong>Effort Minimization Strategy</strong>—testing how little investment (planning, money, time) he can spend while still getting what he wants.
+        </p>
+      </section>
+
+      <div class="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-yellow-400 uppercase tracking-wide mb-2">Why This Is A Yellow Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Value Assessment:</strong> He's signaling how much (or little) he values your time and company. Spontaneous is cute when you're already dating; lazy when he's trying to sleep with you.
+          </li>
+          <li>
+            <strong>Intention Clarity:</strong> If he wanted to date you, he'd make a plan. "Seeing where it goes" usually means straight to your bedroom.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see responses that expose his true intentions.
+      </p>
+    </div>
+    `
   },
   {
     quote: "Don't worry about her, she's just a friend.",
@@ -255,7 +458,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "If he has to say 'don't worry', you should worry. Secure friendships don't need defensive explanations. Trust your gut—if it feels weird, it IS weird.",
     keywords: ["cheating signs", "micro-cheating", "jealousy"],
-    psychologyContent: createBasicPsychologyContent("Don't worry about her, she's just a friend.", 4)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Defensive Reassurance
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is <strong>"Protest Too Much"</strong> territory. The fact that he feels the need to "reassure" you means your intuition is correct.
+          <br><br>
+          Psychologically, this reveals <strong>Guilt Deflection</strong>—he's pre-emptively addressing suspicions because there's something to be suspicious about. Secure friendships don't require defensive explanations.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Trust Your Gut:</strong> Your spidey senses are tingling for a reason. The defensive tone is your biggest clue.
+          </li>
+          <li>
+            <strong>Boundary Testing:</strong> He's seeing how much you'll tolerate while maintaining other romantic/sexual options.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to get the exact responses that uncover the truth.
+      </p>
+    </div>
+    `
   },
   {
     quote: "I'm sorry you feel that way.",
@@ -263,7 +495,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "This is NOT an apology. An apology requires accountability ('I'm sorry I did X'). This is just him dismissing your emotions. He lacks empathy.",
     keywords: ["fake apology", "gaslighting", "communication issues"],
-    psychologyContent: createBasicPsychologyContent("I'm sorry you feel that way.", 5)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Non-Apology Apology
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is the ultimate <strong>"Non-Apology"</strong>—a masterclass in emotional manipulation disguised as conciliation.
+          <br><br>
+          Psychologically, this is <strong>Advanced Gaslighting</strong>—he's not apologizing for his actions, but for your feelings about his actions. It's a way to shut down conversation while claiming emotional intelligence.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Emotional Invalidation:</strong> He's making your emotional response the problem, not his behavior that caused it.
+          </li>
+          <li>
+            <strong>Conversation Ender:</strong> This phrase is designed to end difficult conversations without resolution or growth.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see how to respond when someone gaslights you with fake apologies.
+      </p>
+    </div>
+    `
   },
   {
     quote: "I'm not like other guys.",
@@ -368,7 +629,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "This is 'Zombie-ing' at its finest. He's rising from the dead not because he misses you, but because he's hungry for attention. Do not engage. Leave him in the grave.",
     keywords: ["zombieing", "he came back", "ghosting"],
-    psychologyContent: createBasicPsychologyContent("Hey stranger.", 5)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Low-Effort Testing
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This text is a textbook example of <strong>"Zombieing"</strong>. After a period of ghosting, he returns with a vague, low-effort greeting to test your <strong>boundary permeability</strong>.
+          <br><br>
+          Psychologically, he is seeking <strong>Narcissistic Supply</strong>—validation that he still has access to your attention without having to earn it. It's a way to soothe his ego or alleviate boredom, not a genuine attempt to reconnect.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Zero Accountability:</strong> By calling you "stranger," he playfully shifts the blame for the distance onto time or circumstance, rather than owning his decision to ghost you.
+          </li>
+          <li>
+            <strong>Intermittent Reinforcement:</strong> This hot-and-cold behavior creates a chemical addiction in the brain, similar to gambling, keeping you hooked on potential "wins."
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see the 3 specific texts that shut this behavior down instantly.
+      </p>
+    </div>
+    `
   },
   {
     quote: "Omg I'm so sorry, I drafted a reply and thought I sent it!",
@@ -376,7 +666,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "Unless he is 85 years old using a flip phone, he didn't 'forget' to hit send. We live on our phones. He ignored you. Don't let him insult your intelligence.",
     keywords: ["slow fading", "lying", "bad texter"],
-    psychologyContent: createBasicPsychologyContent("Omg I'm so sorry, I drafted a reply and thought I sent it!", 3)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Tech Excuse
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is the <strong>"Technical Glitch"</strong> excuse—a pathetic attempt to explain away deliberate ignoring with a made-up phone malfunction.
+          <br><br>
+          Psychologically, this reveals <strong>Contempt for Intelligence</strong>—he actually thinks you're gullible enough to believe his phone somehow "drafted but didn't send" a reply for days.
+        </p>
+      </section>
+
+      <div class="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-yellow-400 uppercase tracking-wide mb-2">Why This Is A Yellow Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Intelligence Insult:</strong> He's banking on you being too polite to call out such a ridiculous excuse.
+          </li>
+          <li>
+            <strong>Interest Assessment:</strong> People who are genuinely interested don't need excuses—their actions show their priorities.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to get responses that call out these weak excuses.
+      </p>
+    </div>
+    `
   },
   {
     quote: "Sorry I've been quiet, I deleted the app for a mental health detox.",
@@ -384,7 +703,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "Funny how his 'detox' didn't stop him from posting stories on Instagram. He didn't delete the app, he deleted his interest in you. Move on.",
     keywords: ["dating app fatigue", "hinge excuses", "soft ghosting"],
-    psychologyContent: createBasicPsychologyContent("Sorry I've been quiet, I deleted the app for a mental health detox.", 4)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Virtue Signaling Excuse
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is the <strong>"Moral High Ground"</strong> excuse—using mental health as a noble reason for what was actually strategic ignoring.
+          <br><br>
+          Psychologically, this reveals <strong>Manipulative Framing</strong>—he's trying to make himself look enlightened and self-aware while actually just demoting your communication priority level.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Social Media Evidence:</strong> Funny how his "detox" didn't stop Instagram stories or other app usage. He's selective about what he detoxes from.
+          </li>
+          <li>
+            <strong>Priority Assessment:</strong> You didn't make the cut for his preferred communication channels (WhatsApp, Snapchat, etc.).
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see how to respond when someone uses mental health as an excuse.
+      </p>
+    </div>
+    `
   },
   {
     quote: "Work has just been absolutely insane this week.",
@@ -392,7 +740,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "No one is that busy. Elon Musk tweets 50 times a day. If he wanted to talk to you, he would find the time. 'Busy' is just a polite way of saying 'Priority #99'.",
     keywords: ["busy trap", "low effort", "mixed signals"],
-    psychologyContent: createBasicPsychologyContent("Work has just been absolutely insane this week.", 3)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Professional Martyrdom
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is <strong>"Work as Shield"</strong>—using professional obligations as an acceptable excuse for emotional neglect.
+          <br><br>
+          Psychologically, this reveals <strong>Priority Transparency</strong>—he's showing you exactly where you rank on his importance scale. No one is too busy to send a 10-second text.
+        </p>
+      </section>
+
+      <div class="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-yellow-400 uppercase tracking-wide mb-2">Why This Is A Yellow Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Time Audit Reality:</strong> Elon Musk runs multiple companies and tweets 50 times daily. Your guy "too busy" for one text means he's too busy for you.
+          </li>
+          <li>
+            <strong>Value Clarification:</strong> "Insane week" is code for "You're not worth the 15 seconds it takes to text 'thinking of you.'"
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to learn how to call out the "busy" excuse effectively.
+      </p>
+    </div>
+    `
   },
   {
     quote: "I promise I'm not ignoring you!",
@@ -400,7 +777,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "If he has to clarify that he's not ignoring you... he's ignoring you. Secure men just reply; they don't give disclaimers about their silence.",
     keywords: ["breadcrumbing", "manipulation", "gaslighting"],
-    psychologyContent: createBasicPsychologyContent("I promise I'm not ignoring you!", 4)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Guilt-Preempting
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is <strong>"Guilt Deflection"</strong>—announcing the absence of bad behavior while actively engaging in it.
+          <br><br>
+          Psychologically, this reveals <strong>Manipulative Self-Awareness</strong>—he knows he's ignoring you, so he creates a narrative that makes his silence seem like a misunderstanding rather than a choice.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Protest Too Much:</strong> People who aren't ignoring you don't need to announce it. Secure men just respond.
+          </li>
+          <li>
+            <strong>Backup Management:</strong> He's keeping you emotionally invested while maintaining plausible deniability about his lack of engagement.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see how to respond to breadcrumbing behavior.
+      </p>
+    </div>
+    `
   },
   {
     quote: "I'm just in a weird headspace right now.",
@@ -416,7 +822,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "Lazy. He doesn't miss *you* (your personality, your mind), he misses *your face* (and body). This is a 2 AM booty call disguised as a compliment.",
     keywords: ["booty call", "breadcrumbing", "hoovering"],
-    psychologyContent: createBasicPsychologyContent("I miss your face.", 5)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Physical Objectification
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is <strong>"Booty Call Poetic"</strong>—trying to sound romantic while making a purely physical request.
+          <br><br>
+          Psychologically, this reveals <strong>Lazy Intimacy Seeking</strong>—he doesn't miss your personality, humor, or intelligence, just your physical appearance for temporary gratification.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Objectification Alert:</strong> Notice he doesn't miss your thoughts, conversations, or company—just your face/body.
+          </li>
+          <li>
+            <strong>Late-Night Timing:</strong> This text typically arrives after 10 PM when he's lonely, bored, or physically interested.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see how to respond to objectifying late-night texts.
+      </p>
+    </div>
+    `
   },
   {
     quote: "I lost my phone / got a new number.",
@@ -504,7 +939,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "The classic booty call. He didn't ask how your day was at noon. He's asking if you're available for service at midnight. Respect yourself and go back to sleep.",
     keywords: ["booty call", "hookup", "disrespect"],
-    psychologyContent: createBasicPsychologyContent("U up?", 5)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Booty Call Abbreviation
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is the ultimate <strong>"Low-Effort Hookup"</strong>—two characters that communicate hours of ignoring followed by immediate physical desire.
+          <br><br>
+          Psychologically, this reveals <strong>Transactional Mindset</strong>—he sees you as a convenience service available on demand, not as a person to engage with meaningfully.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Laziness Disrespect:</strong> He couldn't even type "Are you up to chat?" Two characters reveals how much effort he'll invest in you.
+          </li>
+          <li>
+            <strong>Timing Pattern:</strong> This never arrives at 2 PM on a Tuesday. It's a late-night tool for physical gratification.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to get savage responses to booty call texts.
+      </p>
+    </div>
+    `
   },
   {
     quote: "Thinking of you.",
