@@ -13,8 +13,32 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!quote) return {};
 
   return {
-    title: `"${quote.quote}" Meaning? - Red Flag Score & Psychology Analysis`,
-    description: `He sent "${quote.quote}"? Read the brutal translation, psychological analysis, and get 3 strategic copy-paste replies to take back control.`,
+    title: `"${quote.quote}" - ${quote.score}/5 Red Flag Score | Dating Psychology Analysis`,
+    description: `He sent "${quote.quote}"? Get the brutal translation, psychology behind the red flag (${quote.score}/5 danger), and strategic responses. ${quote.keywords.slice(0, 3).join(', ')}.`,
+    keywords: [...quote.keywords, 'dating red flags', 'relationship advice', 'text analysis', 'psychology', 'dating apps'],
+    openGraph: {
+      title: `"${quote.quote}" - Red Flag Analysis`,
+      description: `Is "${quote.quote}" a red flag? Get the truth behind this text with our AI-powered analysis.`,
+      type: 'article',
+      url: `https://decodehistext.com/decode/${quote.slug}`,
+      images: [
+        {
+          url: 'https://decodehistext.com/og-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Red Flag Text Analysis',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `"${quote.quote}" - Red Flag Analysis`,
+      description: `He sent "${quote.quote}"? Find out what it really means.`,
+      images: ['https://decodehistext.com/og-image.jpg'],
+    },
+    alternates: {
+      canonical: `https://decodehistext.com/decode/${quote.slug}`,
+    },
   };
 }
 
