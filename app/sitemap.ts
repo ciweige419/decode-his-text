@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // 动态详情页
+  // 动态详情页 - 迭代整个 TOXIC_QUOTES 数组
   const dynamicPages: MetadataRoute.Sitemap = TOXIC_QUOTES.map((quote) => ({
     url: `${baseUrl}/decode/${quote.slug}`,
     lastModified: new Date(),
