@@ -31,6 +31,9 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
 
   if (!quote) notFound();
 
+  // AUTO-CLEAN: Remove any Chinese characters from psychology content
+  const cleanedPsychologyContent = quote.psychologyContent.replace(/[\u4e00-\u9fa5]/g, '');
+
   // 获取相关推荐 - 基于关键词匹配或随机选择
   const getRelatedQuotes = (currentQuote: any, allQuotes: any[]) => {
     const otherQuotes = allQuotes.filter(q => q.slug !== currentQuote.slug);
@@ -96,7 +99,7 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
           </div>
         </div>
 
-        {/* SECTION: The Psychology Behind This Text */}
+        {/* PSYCHOLOGY ANALYSIS - FIRST (Value-First Approach) */}
         <section className="space-y-8">
           <h2 className="text-3xl font-bold text-white text-center mb-8">The Psychology Behind This Text</h2>
 
@@ -113,35 +116,22 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
             </ul>
           </div>
 
-          {/* Dynamic psychology content from data.ts */}
+          {/* Dynamic psychology content with FORCED STYLING and AUTO-CLEAN */}
           <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
             <style>{`
-              /* Force unified heading colors and styling */
+              /* FORCE STYLING: Override any messy HTML structure from data.ts */
               .psychology-content h1,
               .psychology-content h2,
               .psychology-content h3,
               .psychology-content h4 {
                 color: #c084fc !important;
                 font-weight: 700 !important;
+                font-size: 1.5rem !important;
                 margin-top: 2rem;
                 margin-bottom: 1rem;
               }
 
-              /* Specific font sizes for hierarchy */
-              .psychology-content h1 {
-                font-size: 2rem;
-              }
-              .psychology-content h2 {
-                font-size: 1.75rem;
-              }
-              .psychology-content h3 {
-                font-size: 1.5rem;
-              }
-              .psychology-content h4 {
-                font-size: 1.25rem;
-              }
-
-              /* Force strong text to white for psychological terms */
+              /* FORCE strong text to white for psychological terms */
               .psychology-content strong {
                 color: white !important;
                 font-weight: 700 !important;
@@ -156,10 +146,7 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
               }
 
               /* List styling */
-              .psychology-content ul {
-                margin-bottom: 1.5rem;
-                padding-left: 1.5rem;
-              }
+              .psychology-content ul,
               .psychology-content ol {
                 margin-bottom: 1.5rem;
                 padding-left: 1.5rem;
@@ -169,13 +156,14 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
                 margin-bottom: 0.5rem;
               }
 
-              /* Override any prose defaults */
+              /* Override any prose defaults completely */
               .psychology-content.prose h1,
               .psychology-content.prose h2,
               .psychology-content.prose h3,
               .psychology-content.prose h4 {
                 color: #c084fc !important;
                 font-weight: 700 !important;
+                font-size: 1.5rem !important;
               }
               .psychology-content.prose strong {
                 color: white !important;
@@ -187,7 +175,7 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
             `}</style>
             <div
               className="psychology-content prose prose-invert max-w-none"
-              dangerouslySetInnerHTML={{ __html: quote.psychologyContent }}
+              dangerouslySetInnerHTML={{ __html: cleanedPsychologyContent }}
             />
           </div>
         </section>
@@ -199,7 +187,7 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
           </p>
         </div>
 
-        {/* PREMIUM STRATEGY KIT - Now separate from basic analysis */}
+        {/* PREMIUM STRATEGY KIT - Final step in conversion flow */}
         <div className="bg-gradient-to-br from-purple-900/20 to-rose-900/20 rounded-3xl p-8 border border-purple-500/20">
           <p className="text-xs font-bold text-purple-400 uppercase tracking-wider mb-6 flex items-center gap-2 justify-center">
              <Sparkles size={14}/> Premium Strategy Kit
