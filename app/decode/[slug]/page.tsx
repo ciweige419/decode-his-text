@@ -116,35 +116,73 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
           {/* Dynamic psychology content from data.ts */}
           <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
             <style>{`
-              .psychology-content h3 {
-                color: #c084fc;
-                font-size: 1.5rem;
-                font-weight: 700;
+              /* Force unified heading colors and styling */
+              .psychology-content h1,
+              .psychology-content h2,
+              .psychology-content h3,
+              .psychology-content h4 {
+                color: #c084fc !important;
+                font-weight: 700 !important;
                 margin-top: 2rem;
                 margin-bottom: 1rem;
               }
+
+              /* Specific font sizes for hierarchy */
+              .psychology-content h1 {
+                font-size: 2rem;
+              }
+              .psychology-content h2 {
+                font-size: 1.75rem;
+              }
+              .psychology-content h3 {
+                font-size: 1.5rem;
+              }
               .psychology-content h4 {
-                color: #f472b6;
                 font-size: 1.25rem;
-                font-weight: 700;
-                margin-top: 2rem;
-                margin-bottom: 0.75rem;
               }
+
+              /* Force strong text to white for psychological terms */
               .psychology-content strong {
-                color: white;
-                font-weight: 700;
+                color: white !important;
+                font-weight: 700 !important;
               }
+
+              /* Consistent paragraph spacing */
               .psychology-content p {
                 font-size: 1.125rem;
                 color: #d1d5db;
                 line-height: 1.75;
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem !important;
               }
+
+              /* List styling */
               .psychology-content ul {
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
+                padding-left: 1.5rem;
+              }
+              .psychology-content ol {
+                margin-bottom: 1.5rem;
+                padding-left: 1.5rem;
               }
               .psychology-content li {
                 color: #d1d5db;
+                margin-bottom: 0.5rem;
+              }
+
+              /* Override any prose defaults */
+              .psychology-content.prose h1,
+              .psychology-content.prose h2,
+              .psychology-content.prose h3,
+              .psychology-content.prose h4 {
+                color: #c084fc !important;
+                font-weight: 700 !important;
+              }
+              .psychology-content.prose strong {
+                color: white !important;
+                font-weight: 700 !important;
+              }
+              .psychology-content.prose p {
+                margin-bottom: 1.5rem !important;
               }
             `}</style>
             <div
