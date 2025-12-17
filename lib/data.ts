@@ -532,7 +532,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "Any man who has to announce he's a 'nice guy' or 'different' usually isn't. Show, don't tell. This is a 'Pick Me' boy in disguise.",
     keywords: ["nice guy syndrome", "soft boi", "dating cliches"],
-    psychologyContent: createBasicPsychologyContent("I'm not like other guys.", 3)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Superiority Complex
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is the ultimate <strong>"Pick Me Boy"</strong> declaration—an attempt to stand out by claiming uniqueness while exhibiting the exact same mediocre behavior as other men.
+          <br><br>
+          Psychologically, this reveals <strong>Insecurity Masking</strong>—genuinely confident men don't need to announce their superiority. They demonstrate it through actions, not self-serving comparisons.
+        </p>
+      </section>
+
+      <div class="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-yellow-400 uppercase tracking-wide mb-2">Why This Is A Yellow Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Show, Don't Tell:</strong> Truly exceptional men prove their worth through consistent behavior, not verbal declarations.
+          </li>
+          <li>
+            <strong>Generic Warning:</strong> Anyone who needs to announce they're "different" usually isn't in a good way.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see how to respond to superiority complexes.
+      </p>
+    </div>
+    `
   },
   {
     quote: "We have such a crazy connection, let's skip the small talk.",
@@ -540,7 +569,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "Slow down. Real connection is built, not found instantly. He's trying to fast-forward the relationship to bypass your vetting process. It's a trap.",
     keywords: ["love bombing", "rushing intimacy", "future faking"],
-    psychologyContent: createBasicPsychologyContent("We have such a crazy connection, let's skip the small talk.", 4)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Pacing Acceleration
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is classic <strong>"Rushing Intimacy"</strong>—bypassing normal relationship development to create artificial intensity before you can properly vet him.
+          <br><br>
+          Psychologically, this reveals <strong>Vet Avoidance Strategy</strong>—he wants to fast-forward through getting to know each other to reach physical intimacy while his red flags are still hidden.
+        </p>
+      </section>
+
+      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Process Bypassing:</strong> Healthy relationships build gradually. Rushing means he's afraid of what you'll discover if you take your time.
+          </li>
+          <li>
+            <strong>Intensity Masking:</strong> Intense feelings substitute for genuine compatibility and shared values.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to learn how to slow down intense pacing.
+      </p>
+    </div>
+    `
   },
   {
     quote: "I'm terrible at making plans, I'm more spontaneous.",
@@ -548,7 +606,36 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "Spontaneity is cute for a vacation, not for a Tuesday night date. If he can plan a boys' trip or a fantasy football league, he can plan a date. He just chooses not to.",
     keywords: ["low effort", "breadcrumbing", "flaky"],
-    psychologyContent: createBasicPsychologyContent("I'm terrible at making plans, I'm more spontaneous.", 3)
+    psychologyContent: `
+    <div class="space-y-4 text-gray-200">
+      <section>
+        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
+          🧠 The Subtext: Effort Avoidance
+        </h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          This is <strong>"Spontaneity as Excuse"</strong> for not valuing your time or making effort. Real spontaneity is romantic; this is just lazy.
+          <br><br>
+          Psychologically, this reveals <strong>Low Investment Mentality</strong>—he can plan trips with friends, work schedules, and gaming sessions, but not time with you.
+        </p>
+      </section>
+
+      <div class="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-r-lg mt-4">
+        <h4 class="text-sm font-bold text-yellow-400 uppercase tracking-wide mb-2">Why This Is A Yellow Flag</h4>
+        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
+          <li>
+            <strong>Value Assessment:</strong> People make time for what they prioritize. "Spontaneous" means you're not worth scheduling.
+          </li>
+          <li>
+            <strong>Convenience Dating:</strong> He wants you available when it's convenient for him, not when it works for both of you.
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-gray-500 italic mt-4 text-center">
+        * Unlock the full strategy kit below to see how to respond to "spontaneous" men.
+      </p>
+    </div>
+    `
   },
   {
     quote: "I've never met anyone like you before.",
