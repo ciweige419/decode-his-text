@@ -2,7 +2,7 @@ import { getQuoteBySlug, TOXIC_QUOTES } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Flame } from 'lucide-react';
 import ResultCard from '@/components/ResultCard';
 
 // 1. 自动生成 SEO 标题
@@ -30,8 +30,27 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
 
   if (!quote) notFound();
 
-  // 获取相关推荐
-  const related = TOXIC_QUOTES.filter(q => q.slug !== params.slug).slice(0, 3);
+  // 获取相关推荐 - 基于关键词匹配或随机选择
+  const getRelatedQuotes = (currentQuote: any, allQuotes: any[]) => {
+    const otherQuotes = allQuotes.filter(q => q.slug !== currentQuote.slug);
+
+    // 尝试找到有共同关键词的引用
+    const relatedByKeywords = otherQuotes.filter(quote =>
+      quote.keywords.some((keyword: string) =>
+        currentQuote.keywords.includes(keyword)
+      )
+    );
+
+    // 如果有共同关键词的引用，使用它们，否则使用随机引用
+    const relatedQuotes = relatedByKeywords.length > 0 ? relatedByKeywords : otherQuotes;
+
+    // 随机选择最多3个
+    return relatedQuotes
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+  };
+
+  const related = getRelatedQuotes(quote, TOXIC_QUOTES);
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white p-6 md:p-20 font-sans">
@@ -78,43 +97,11 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
             </ul>
           </div>
 
-          {/* Additional psychological analysis */}
-          <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
-            <h3 className="text-2xl font-bold text-purple-400 mb-6">Understanding the Pattern</h3>
-            <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
-              <p>
-                This type of communication pattern often reflects deeper issues in emotional intelligence and relationship readiness.
-                The vagueness and ambiguity serve as protective mechanisms that prevent genuine connection while maintaining the appearance of interest.
-              </p>
-              <p>
-                Psychology suggests that individuals who consistently use such phrasing may be struggling with commitment anxiety,
-                fear of vulnerability, or may be intentionally maintaining multiple options without clear communication.
-              </p>
-              <p>
-                The impact on the recipient can be particularly damaging, as it creates a state of perpetual uncertainty and emotional limbo,
-                making it difficult to make informed decisions about the relationship's future.
-              </p>
-            </div>
-          </div>
-
-          {/* What to do next */}
-          <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
-            <h3 className="text-2xl font-bold text-green-400 mb-6">How to Respond Effectively</h3>
-            <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
-              <p>
-                When faced with this type of communication, it's essential to prioritize clarity and self-respect.
-                Direct but compassionate communication often reveals the true nature of the situation.
-              </p>
-              <p>
-                Setting clear boundaries and asking for specific responses can help cut through the ambiguity.
-                Remember that your time and emotional energy are valuable resources that deserve honest communication in return.
-              </p>
-              <p>
-                If the pattern continues despite your efforts to establish clear communication, it may be a sign to redirect your energy
-                toward relationships that offer the respect and transparency you deserve.
-              </p>
-            </div>
-          </div>
+          {/* Dynamic psychology content from data.ts */}
+          <div
+            className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10 prose prose-invert max-w-none"
+            dangerouslySetInnerHTML={{ __html: quote.psychologyContent }}
+          />
         </section>
 
         {/* Call to Action */}
@@ -126,14 +113,41 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
            </Link>
         </div>
 
-        {/* See Also: Internal Links Section */}
+        {/* Related Red Flags Section */}
         <div className="pt-10 border-t border-white/10">
-           <h3 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-6">See Also</h3>
-           <div className="grid md:grid-cols-3 gap-4">
+           <h3 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-6">Related Red Flags</h3>
+           <div className="grid md:grid-cols-3 gap-6">
               {related.map(r => (
-                <Link href={`/decode/${r.slug}`} key={r.slug} className="block bg-neutral-900/50 p-5 rounded-xl border border-white/5 hover:border-rose-500/50 transition group">
-                   <p className="text-sm font-bold text-rose-200 line-clamp-2 group-hover:text-white transition">"{r.quote}"</p>
-                   <p className="text-xs text-gray-500 mt-3 flex items-center gap-1">Read Analysis <ArrowLeft className="rotate-180" size={12}/></p>
+                <Link href={`/decode/${r.slug}`} key={r.slug} className="block bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-all group">
+                   {/* Quote Text */}
+                   <p className="text-white font-medium text-sm leading-relaxed mb-4 line-clamp-3 group-hover:text-rose-200 transition">
+                     "{r.quote.length > 100 ? r.quote.substring(0, 100) + '...' : r.quote}"
+                   </p>
+
+                   {/* Danger Score */}
+                   <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                         <Flame className="text-red-500" size={16} />
+                         <span className="text-red-400 font-bold text-sm">Danger Score</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                         {[...Array(5)].map((_, i) => (
+                            <Flame
+                              key={i}
+                              className={`${i < r.score ? 'text-red-500' : 'text-gray-700'}`}
+                              size={14}
+                            />
+                         ))}
+                      </div>
+                   </div>
+
+                   {/* Read Analysis Button */}
+                   <div className="flex items-center justify-center">
+                      <button className="text-rose-500 hover:text-rose-400 font-medium text-sm flex items-center gap-2 transition-colors">
+                         Read Analysis
+                         <ArrowLeft className="rotate-180" size={14} />
+                      </button>
+                   </div>
                 </Link>
               ))}
            </div>
