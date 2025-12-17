@@ -4,6 +4,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Flame } from 'lucide-react';
 import ResultCard from '@/components/ResultCard';
+import ShareButton from '@/components/ShareButton';
+
 
 // 1. 自动生成 SEO 标题
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -98,10 +100,44 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
           </div>
 
           {/* Dynamic psychology content from data.ts */}
-          <div
-            className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10 prose prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: quote.psychologyContent }}
-          />
+          <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
+            <style>{`
+              .psychology-content h3 {
+                color: #c084fc;
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+              }
+              .psychology-content h4 {
+                color: #f472b6;
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+              }
+              .psychology-content strong {
+                color: white;
+                font-weight: 700;
+              }
+              .psychology-content p {
+                font-size: 1.125rem;
+                color: #d1d5db;
+                line-height: 1.75;
+                margin-bottom: 1rem;
+              }
+              .psychology-content ul {
+                margin-bottom: 1rem;
+              }
+              .psychology-content li {
+                color: #d1d5db;
+              }
+            `}</style>
+            <div
+              className="psychology-content prose prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: quote.psychologyContent }}
+            />
+          </div>
         </section>
 
         {/* Call to Action */}
@@ -111,6 +147,12 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
            <Link href="/" className="inline-block bg-white text-rose-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-md">
              Decode My Text Now
            </Link>
+        </div>
+
+        {/* Share this Red Flag CTA */}
+        <div className="text-center space-y-4">
+           <h3 className="text-xl font-bold text-white">Know someone who needs to see this?</h3>
+           <ShareButton quote={quote.quote} />
         </div>
 
         {/* Related Red Flags Section */}
