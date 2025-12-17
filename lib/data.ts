@@ -25,42 +25,6 @@ function generateSeoSlug(quote: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
-// 创建基础心理学内容模板
-const createBasicPsychologyContent = (quote: string, score: number): string => {
-  const highScoreAnalysis = score >= 4 ?
-    `<p>This phrase represents a significant relationship red flag that often indicates <strong>avoidant attachment patterns</strong>, <strong>fear of commitment</strong>, or <strong>manipulative behavior</strong>. The person using this language is typically creating emotional distance while maintaining access to intimacy benefits.</p>` :
-    `<p>While potentially less severe, this communication pattern still reveals important insights into <strong>emotional availability</strong> and <strong>relationship readiness</strong>. The phrase may indicate varying levels of self-awareness, communication skills, or emotional maturity.</p>`;
-
-  const frameControlAnalysis = score >= 4 ?
-    `<p>This language establishes a power imbalance where one person controls relationship terms without mutual investment. It's a form of <strong>frame control</strong> that prevents genuine partnership development.</p>` :
-    `<p>The communication style may unintentionally create confusion or unclear expectations, potentially leading to misunderstandings and emotional disconnection.</p>`;
-
-  const breadcrumbingAnalysis = score >= 3 ?
-    `<p>Often accompanied by <strong>breadcrumbing behaviors</strong>—providing just enough attention to maintain interest without real investment. This creates anxiety and uncertainty through inconsistent communication patterns.</p>` :
-    `<p>This may reflect genuine communication challenges or different relationship expectations that require open discussion and mutual understanding.</p>`;
-
-  return `
-    <h3>The Psychology Behind "${quote}"</h3>
-    <p>This common dating phrase reveals critical insights into attachment styles, emotional availability, and relationship intentions. Understanding the psychological mechanisms behind these words helps recognize <strong>toxic communication patterns</strong> and make informed dating decisions.</p>
-
-    <h3>Attachment Style Analysis</h3>
-    ${highScoreAnalysis}
-
-    <h3>Power Dynamics and Frame Control</h3>
-    ${frameControlAnalysis}
-    <p>When someone uses vague or non-committal language, they're maintaining <strong>emotional control</strong> while avoiding vulnerability. Healthy relationships require mutual investment and clear communication, not ambiguity that serves one person's convenience.</p>
-
-    <h3>Communication Pattern Recognition</h3>
-    ${breadcrumbingAnalysis}
-    <p>The pattern of inconsistent or minimal effort often indicates deeper <strong>commitment issues</strong> or emotional wounds. People who are genuinely interested typically demonstrate consistent effort and clear communication.</p>
-
-    <h3>Setting Healthy Boundaries</h3>
-    <p>Recognizing these communication patterns enables setting appropriate boundaries and seeking relationships built on mutual respect. Your emotional wellbeing deserves to be prioritized, and clear communication is the foundation of healthy partnership.</p>
-
-    <h3>Relationship Readiness Assessment</h3>
-    <p>Adults who are emotionally ready for healthy relationships don't need to create confusion or ambiguity. They communicate clearly, invest consistently, and demonstrate their interest through actions rather than vague statements. Understanding these patterns helps distinguish between <strong>low effort behavior</strong> and genuine relationship potential.</p>
-  `;
-};
 
 // 原始数据（用于生成新的 SEO slug）
 const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
@@ -643,7 +607,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "Standard Love Bombing script. He's putting you on a pedestal so high that the fall will break your ankles. Enjoy the compliment, but check his actions.",
     keywords: ["love bombing", "mirroring", "narcissist"],
-    psychologyContent: createBasicPsychologyContent("I've never met anyone like you before.", 4)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-i-ve-never-met-anyone-like-you-before">
+      <header>
+        <h3 id="psychology-i-ve-never-met-anyone-like-you-before">The Psychology Behind "I've never met anyone like you before."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "Sorry, my phone died.",
@@ -651,7 +652,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 2,
     roast: "In 2025? Who lets their phone die for 12 hours? He has a charger in his car, at his desk, and in his pocket. He just didn't want to talk to you.",
     keywords: ["slow fading", "ghosting", "lying"],
-    psychologyContent: createBasicPsychologyContent("Sorry, my phone died.", 2)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-sorry-my-phone-died">
+      <header>
+        <h3 id="psychology-sorry-my-phone-died">The Psychology Behind "Sorry, my phone died."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>While potentially less concerning, this communication pattern still provides valuable insights into <strong class="emphasis-attachment">emotional availability</strong> and <strong class="emphasis-attachment">relationship readiness</strong>. The statement may indicate varying levels of self-awareness, communication proficiency, or emotional maturity.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>The communication approach may inadvertently create confusion or ambiguous expectations, potentially resulting in misunderstandings and emotional disconnection between parties.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>This may reflect authentic communication challenges or differing relationship expectations that necessitate open discussion and mutual understanding to resolve effectively.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "I have trust issues because of my ex.",
@@ -659,7 +697,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "He needs a therapist, not a girlfriend. He's setting the stage to be controlling and possessive while playing the victim. Don't try to 'fix' him.",
     keywords: ["controlling behavior", "insecure", "emotional baggage"],
-    psychologyContent: createBasicPsychologyContent("I have trust issues because of my ex.", 5)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-trust-issues">
+      <header>
+        <h3 id="psychology-trust-issues">The Psychology Behind "I have trust issues because of my ex."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating phrase reveals critical insights into attachment styles, emotional availability, and relationship intentions. Understanding the psychological mechanisms behind these words helps recognize <strong class="emphasis-toxic">toxic communication patterns</strong> and make informed dating decisions.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Analysis</h4>
+        <p>This phrase represents a significant relationship red flag that often indicates <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative behavior</strong>. The person using this language is typically creating emotional distance while maintaining access to intimacy benefits.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Power Dynamics and Frame Control</h4>
+        <p>This language establishes a power imbalance where one person controls relationship terms without mutual investment. It's a form of <strong class="emphasis-control">frame control</strong> that prevents genuine partnership development.</p>
+        <p>When someone uses vague or non-committal language, they're maintaining <strong class="emphasis-control">emotional control</strong> while avoiding vulnerability. Healthy relationships require mutual investment and clear communication, not ambiguity that serves one person's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Pattern Recognition</h4>
+        <p>Often accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing just enough attention to maintain interest without real investment. This creates anxiety and uncertainty through inconsistent communication patterns.</p>
+        <p>The pattern of inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment issues</strong> or emotional wounds. People who are genuinely interested typically demonstrate consistent effort and clear communication.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Setting Healthy Boundaries</h4>
+        <p>Recognizing these communication patterns enables setting appropriate boundaries and seeking relationships built on mutual respect. Your emotional wellbeing deserves to be prioritized, and clear communication is the foundation of healthy partnership.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Assessment</h4>
+        <p>Adults who are emotionally ready for healthy relationships don't need to create confusion or ambiguity. They communicate clearly, invest consistently, and demonstrate their interest through actions rather than vague statements. Understanding these patterns helps distinguish between <strong class="emphasis-readiness">low effort behavior</strong> and genuine relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "I want to be exclusive, but not put a label on it.",
@@ -667,7 +742,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "This is a scam. He wants the 'husband package' at the 'stranger price'. If it looks like a duck and quacks like a duck but he refuses to call it a duck, he's playing you.",
     keywords: ["situationship", "fear of commitment", "mixed signals"],
-    psychologyContent: createBasicPsychologyContent("I want to be exclusive, but not put a label on it.", 4)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-exclusive-no-label">
+      <header>
+        <h3 id="psychology-exclusive-no-label">The Psychology Behind "I want to be exclusive, but not put a label on it."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating phrase reveals critical insights into attachment styles, emotional availability, and relationship intentions. Understanding the psychological mechanisms behind these words helps recognize <strong class="emphasis-toxic">toxic communication patterns</strong> and make informed dating decisions.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Analysis</h4>
+        <p>This phrase represents a significant relationship red flag that often indicates <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative behavior</strong>. The person using this language is typically creating emotional distance while maintaining access to intimacy benefits.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Power Dynamics and Frame Control</h4>
+        <p>This language establishes a power imbalance where one person controls relationship terms without mutual investment. It's a form of <strong class="emphasis-control">frame control</strong> that prevents genuine partnership development.</p>
+        <p>When someone uses vague or non-committal language, they're maintaining <strong class="emphasis-control">emotional control</strong> while avoiding vulnerability. Healthy relationships require mutual investment and clear communication, not ambiguity that serves one person's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Pattern Recognition</h4>
+        <p>Often accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing just enough attention to maintain interest without real investment. This creates anxiety and uncertainty through inconsistent communication patterns.</p>
+        <p>The pattern of inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment issues</strong> or emotional wounds. People who are genuinely interested typically demonstrate consistent effort and clear communication.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Setting Healthy Boundaries</h4>
+        <p>Recognizing these communication patterns enables setting appropriate boundaries and seeking relationships built on mutual respect. Your emotional wellbeing deserves to be prioritized, and clear communication is the foundation of healthy partnership.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Assessment</h4>
+        <p>Adults who are emotionally ready for healthy relationships don't need to create confusion or ambiguity. They communicate clearly, invest consistently, and demonstrate their interest through actions rather than vague statements. Understanding these patterns helps distinguish between <strong class="emphasis-readiness">low effort behavior</strong> and genuine relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "I really need to focus on myself right now.",
@@ -675,7 +787,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 2,
     roast: "Translation: 'It's not me, it's you... but I'm saying it's me.' Let him focus on himself. Alone. Block him and help him focus.",
     keywords: ["breakup lines", "soft rejection", "emotional unavailability"],
-    psychologyContent: createBasicPsychologyContent("I really need to focus on myself right now.", 2)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-focus-myself">
+      <header>
+        <h3 id="psychology-focus-myself">The Psychology Behind "I really need to focus on myself right now."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating phrase reveals critical insights into attachment styles, emotional availability, and relationship intentions. Understanding the psychological mechanisms behind these words helps recognize <strong class="emphasis-toxic">toxic communication patterns</strong> and make informed dating decisions.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Analysis</h4>
+        <p>While potentially less severe, this communication pattern still reveals important insights into <strong class="emphasis-attachment">emotional availability</strong> and <strong class="emphasis-attachment">relationship readiness</strong>. The phrase may indicate varying levels of self-awareness, communication skills, or emotional maturity.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Power Dynamics and Frame Control</h4>
+        <p>The communication style may unintentionally create confusion or unclear expectations, potentially leading to misunderstandings and emotional disconnection.</p>
+        <p>When someone uses vague or non-committal language, they're maintaining <strong class="emphasis-control">emotional control</strong> while avoiding vulnerability. Healthy relationships require mutual investment and clear communication, not ambiguity that serves one person's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Pattern Recognition</h4>
+        <p>This may reflect genuine communication challenges or different relationship expectations that require open discussion and mutual understanding.</p>
+        <p>The pattern of inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment issues</strong> or emotional wounds. People who are genuinely interested typically demonstrate consistent effort and clear communication.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Setting Healthy Boundaries</h4>
+        <p>Recognizing these communication patterns enables setting appropriate boundaries and seeking relationships built on mutual respect. Your emotional wellbeing deserves to be prioritized, and clear communication is the foundation of healthy partnership.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Assessment</h4>
+        <p>Adults who are emotionally ready for healthy relationships don't need to create confusion or ambiguity. They communicate clearly, invest consistently, and demonstrate their interest through actions rather than vague statements. Understanding these patterns helps distinguish between <strong class="emphasis-readiness">low effort behavior</strong> and genuine relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "Do you want to come over and watch a movie?",
@@ -683,7 +832,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "Netflix and Chill is not a date. If he hasn't taken you out in public yet, you are not dating, you are a hookup. Unless you just want sex too, then go for it.",
     keywords: ["hookup signs", "low effort date", "netflix and chill"],
-    psychologyContent: createBasicPsychologyContent("Do you want to come over and watch a movie?", 3)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-watch-movie">
+      <header>
+        <h3 id="psychology-watch-movie">The Psychology Behind "Do you want to come over and watch a movie?"</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating phrase reveals critical insights into attachment styles, emotional availability, and relationship intentions. Understanding the psychological mechanisms behind these words helps recognize <strong class="emphasis-toxic">toxic communication patterns</strong> and make informed dating decisions.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Analysis</h4>
+        <p>While potentially less severe, this communication pattern still reveals important insights into <strong class="emphasis-attachment">emotional availability</strong> and <strong class="emphasis-attachment">relationship readiness</strong>. The phrase may indicate varying levels of self-awareness, communication skills, or emotional maturity.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Power Dynamics and Frame Control</h4>
+        <p>The communication style may unintentionally create confusion or unclear expectations, potentially leading to misunderstandings and emotional disconnection.</p>
+        <p>When someone uses vague or non-committal language, they're maintaining <strong class="emphasis-control">emotional control</strong> while avoiding vulnerability. Healthy relationships require mutual investment and clear communication, not ambiguity that serves one person's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Pattern Recognition</h4>
+        <p>Often accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing just enough attention to maintain interest without real investment. This creates anxiety and uncertainty through inconsistent communication patterns.</p>
+        <p>The pattern of inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment issues</strong> or emotional wounds. People who are genuinely interested typically demonstrate consistent effort and clear communication.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Setting Healthy Boundaries</h4>
+        <p>Recognizing these communication patterns enables setting appropriate boundaries and seeking relationships built on mutual respect. Your emotional wellbeing deserves to be prioritized, and clear communication is the foundation of healthy partnership.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Assessment</h4>
+        <p>Adults who are emotionally ready for healthy relationships don't need to create confusion or ambiguity. They communicate clearly, invest consistently, and demonstrate their interest through actions rather than vague statements. Understanding these patterns helps distinguish between <strong class="emphasis-readiness">low effort behavior</strong> and genuine relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "I'm kind of seeing someone, but it's complicated.",
@@ -691,7 +877,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "It's not complicated. He's taken. He's fishing for a backup option. If he'll cheat WITH you, he'll cheat ON you. Next.",
     keywords: ["cheating", "emotional affair", "red flag"],
-    psychologyContent: createBasicPsychologyContent("I'm kind of seeing someone, but it's complicated.", 5)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-complicated-seeing">
+      <header>
+        <h3 id="psychology-complicated-seeing">The Psychology Behind "I'm kind of seeing someone, but it's complicated."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating phrase reveals critical insights into attachment styles, emotional availability, and relationship intentions. Understanding the psychological mechanisms behind these words helps recognize <strong class="emphasis-toxic">toxic communication patterns</strong> and make informed dating decisions.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Analysis</h4>
+        <p>This phrase represents a significant relationship red flag that often indicates <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative behavior</strong>. The person using this language is typically creating emotional distance while maintaining access to intimacy benefits.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Power Dynamics and Frame Control</h4>
+        <p>This language establishes a power imbalance where one person controls relationship terms without mutual investment. It's a form of <strong class="emphasis-control">frame control</strong> that prevents genuine partnership development.</p>
+        <p>When someone uses vague or non-committal language, they're maintaining <strong class="emphasis-control">emotional control</strong> while avoiding vulnerability. Healthy relationships require mutual investment and clear communication, not ambiguity that serves one person's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Pattern Recognition</h4>
+        <p>Often accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing just enough attention to maintain interest without real investment. This creates anxiety and uncertainty through inconsistent communication patterns.</p>
+        <p>The pattern of inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment issues</strong> or emotional wounds. People who are genuinely interested typically demonstrate consistent effort and clear communication.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Setting Healthy Boundaries</h4>
+        <p>Recognizing these communication patterns enables setting appropriate boundaries and seeking relationships built on mutual respect. Your emotional wellbeing deserves to be prioritized, and clear communication is the foundation of healthy partnership.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Assessment</h4>
+        <p>Adults who are emotionally ready for healthy relationships don't need to create confusion or ambiguity. They communicate clearly, invest consistently, and demonstrate their interest through actions rather than vague statements. Understanding these patterns helps distinguish between <strong class="emphasis-readiness">low effort behavior</strong> and genuine relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "Why are you acting so crazy?",
@@ -699,7 +922,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "Reactive Abuse. He pokes you until you explode, then points the finger and says 'Look how crazy she is.' Don't take the bait. Walk away silently.",
     keywords: ["reactive abuse", "gaslighting", "toxic argument"],
-    psychologyContent: createBasicPsychologyContent("Why are you acting so crazy?", 5)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-why-are-you-acting-so-crazy">
+      <header>
+        <h3 id="psychology-why-are-you-acting-so-crazy">The Psychology Behind "Why are you acting so crazy?"</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "Good morning beautiful (mass text)",
@@ -707,7 +967,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "Generic. Lazy. Low effort. If it feels like a mass email, it probably is. Check if he actually asks about your day or just wants a generic ego boost.",
     keywords: ["breadcrumbing", "player tactics", "dating apps"],
-    psychologyContent: createBasicPsychologyContent("Good morning beautiful (mass text)", 3)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-good-morning-beautiful-mass-text">
+      <header>
+        <h3 id="psychology-good-morning-beautiful-mass-text">The Psychology Behind "Good morning beautiful (mass text)"</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   // --- Ghosting & Zombieing Collection (消失与诈尸系列) ---
   {
@@ -901,7 +1198,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "Translation: He's emotionally unavailable. Don't try to be his therapist. You can't fix his 'headspace', but you can protect yours by blocking him.",
     keywords: ["emotional unavailability", "soft breakup", "dating excuses"],
-    psychologyContent: createBasicPsychologyContent("I'm just in a weird headspace right now.", 4)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-i-m-just-in-a-weird-headspace-right-now">
+      <header>
+        <h3 id="psychology-i-m-just-in-a-weird-headspace-right-now">The Psychology Behind "I'm just in a weird headspace right now."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "I miss your face.",
@@ -910,34 +1244,42 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     roast: "Lazy. He doesn't miss *you* (your personality, your mind), he misses *your face* (and body). This is a 2 AM booty call disguised as a compliment.",
     keywords: ["booty call", "breadcrumbing", "hoovering"],
     psychologyContent: `
-    <div class="space-y-4 text-gray-200">
-      <section>
-        <h3 class="text-lg font-bold text-purple-400 flex items-center gap-2">
-          🧠 The Subtext: Physical Objectification
-        </h3>
-        <p class="mt-2 text-sm leading-relaxed">
-          This is <strong>"Booty Call Poetic"</strong>—trying to sound romantic while making a purely physical request.
-          <br><br>
-          Psychologically, this reveals <strong>Lazy Intimacy Seeking</strong>—he doesn't miss your personality, humor, or intelligence, just your physical appearance for temporary gratification.
-        </p>
+    <article class="psychology-analysis" aria-labelledby="psychology-i-miss-your-face">
+      <header>
+        <h3 id="psychology-i-miss-your-face">The Psychology Behind "I miss your face."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
       </section>
 
-      <div class="bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r-lg mt-4">
-        <h4 class="text-sm font-bold text-red-400 uppercase tracking-wide mb-2">Why This Is A Red Flag</h4>
-        <ul class="list-disc ml-4 text-sm space-y-2 text-gray-300">
-          <li>
-            <strong>Objectification Alert:</strong> Notice he doesn't miss your thoughts, conversations, or company—just your face/body.
-          </li>
-          <li>
-            <strong>Late-Night Timing:</strong> This text typically arrives after 10 PM when he's lonely, bored, or physically interested.
-          </li>
-        </ul>
-      </div>
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
 
-      <p class="text-xs text-gray-500 italic mt-4 text-center">
-        * Unlock the full strategy kit below to see how to respond to objectifying late-night texts.
-      </p>
-    </div>
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
     `
   },
   {
@@ -946,7 +1288,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "In the age of iCloud? Please. He didn't lose his contacts. He's just hoping you've lost your memory of how badly he treated you last time.",
     keywords: ["lying", "ghosting excuses", "toxic ex"],
-    psychologyContent: createBasicPsychologyContent("I lost my phone / got a new number.", 5)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-i-lost-my-phone-got-a-new-number">
+      <header>
+        <h3 id="psychology-i-lost-my-phone-got-a-new-number">The Psychology Behind "I lost my phone / got a new number."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "I pulled back because I didn't want to lead you on.",
@@ -954,7 +1333,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "Ghosting IS leading someone on (to wonder where you went). A mature man says 'I'm not interested'. A coward disappears and calls it 'kindness'.",
     keywords: ["cowardice", "ghosting psychology", "avoidant attachment"],
-    psychologyContent: createBasicPsychologyContent("I pulled back because I didn't want to lead you on.", 4)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-i-pulled-back-because-i-didn-t-want-to-lead-you-on">
+      <header>
+        <h3 id="psychology-i-pulled-back-because-i-didn-t-want-to-lead-you-on">The Psychology Behind "I pulled back because I didn't want to lead you on."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "Sorry, had a family emergency.",
@@ -962,7 +1378,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "If it's real, fair enough. But if he's back on Bumble 2 days later without explaining, the 'emergency' was just him losing interest. Proceed with extreme caution.",
     keywords: ["lying", "red flags", "excuses"],
-    psychologyContent: createBasicPsychologyContent("Sorry, had a family emergency.", 3)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-sorry-had-a-family-emergency">
+      <header>
+        <h3 id="psychology-sorry-had-a-family-emergency">The Psychology Behind "Sorry, had a family emergency."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "I got scared because I like you too much.",
@@ -970,7 +1423,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "Run. This isn't romantic; it's a warning. He's telling you he will punish you for getting close to him. You are not a rehabilitation center for avoidant men.",
     keywords: ["avoidant attachment", "love bombing", "future faking"],
-    psychologyContent: createBasicPsychologyContent("I got scared because I like you too much.", 5)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-i-got-scared-because-i-like-you-too-much">
+      <header>
+        <h3 id="psychology-i-got-scared-because-i-like-you-too-much">The Psychology Behind "I got scared because I like you too much."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "I literally forgot to hit send.",
@@ -978,7 +1468,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 2,
     roast: "Once? Maybe. Every time? He's just not that into you. People don't forget to text people they are crazy about.",
     keywords: ["low interest", "bad texter", "slow fade"],
-    psychologyContent: createBasicPsychologyContent("I literally forgot to hit send.", 2)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-forgot-send">
+      <header>
+        <h3 id="psychology-forgot-send">The Psychology Behind "I literally forgot to hit send."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating phrase reveals critical insights into attachment styles, emotional availability, and relationship intentions. Understanding the psychological mechanisms behind these words helps recognize <strong class="emphasis-toxic">toxic communication patterns</strong> and make informed dating decisions.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Analysis</h4>
+        <p>While potentially less severe, this communication pattern still reveals important insights into <strong class="emphasis-attachment">emotional availability</strong> and <strong class="emphasis-attachment">relationship readiness</strong>. The phrase may indicate varying levels of self-awareness, communication skills, or emotional maturity.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Power Dynamics and Frame Control</h4>
+        <p>The communication style may unintentionally create confusion or unclear expectations, potentially leading to misunderstandings and emotional disconnection.</p>
+        <p>When someone uses vague or non-committal language, they're maintaining <strong class="emphasis-control">emotional control</strong> while avoiding vulnerability. Healthy relationships require mutual investment and clear communication, not ambiguity that serves one person's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Pattern Recognition</h4>
+        <p>This may reflect genuine communication challenges or different relationship expectations that require open discussion and mutual understanding.</p>
+        <p>The pattern of inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment issues</strong> or emotional wounds. People who are genuinely interested typically demonstrate consistent effort and clear communication.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Setting Healthy Boundaries</h4>
+        <p>Recognizing these communication patterns enables setting appropriate boundaries and seeking relationships built on mutual respect. Your emotional wellbeing deserves to be prioritized, and clear communication is the foundation of healthy partnership.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Assessment</h4>
+        <p>Adults who are emotionally ready for healthy relationships don't need to create confusion or ambiguity. They communicate clearly, invest consistently, and demonstrate their interest through actions rather than vague statements. Understanding these patterns helps distinguish between <strong class="emphasis-readiness">low effort behavior</strong> and genuine relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "My social battery is just drained.",
@@ -986,7 +1513,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "If you drain his battery, you aren't a match. The right person recharges you. Don't beg for the scraps of his energy.",
     keywords: ["introvert excuses", "lack of interest", "incompatibility"],
-    psychologyContent: createBasicPsychologyContent("My social battery is just drained.", 3)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-social-battery">
+      <header>
+        <h3 id="psychology-social-battery">The Psychology Behind "My social battery is just drained."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating phrase reveals critical insights into attachment styles, emotional availability, and relationship intentions. Understanding the psychological mechanisms behind these words helps recognize <strong class="emphasis-toxic">toxic communication patterns</strong> and make informed dating decisions.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Analysis</h4>
+        <p>While potentially less severe, this communication pattern still reveals important insights into <strong class="emphasis-attachment">emotional availability</strong> and <strong class="emphasis-attachment">relationship readiness</strong>. The phrase may indicate varying levels of self-awareness, communication skills, or emotional maturity.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Power Dynamics and Frame Control</h4>
+        <p>The communication style may unintentionally create confusion or unclear expectations, potentially leading to misunderstandings and emotional disconnection.</p>
+        <p>When someone uses vague or non-committal language, they're maintaining <strong class="emphasis-control">emotional control</strong> while avoiding vulnerability. Healthy relationships require mutual investment and clear communication, not ambiguity that serves one person's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Pattern Recognition</h4>
+        <p>Often accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing just enough attention to maintain interest without real investment. This creates anxiety and uncertainty through inconsistent communication patterns.</p>
+        <p>The pattern of inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment issues</strong> or emotional wounds. People who are genuinely interested typically demonstrate consistent effort and clear communication.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Setting Healthy Boundaries</h4>
+        <p>Recognizing these communication patterns enables setting appropriate boundaries and seeking relationships built on mutual respect. Your emotional wellbeing deserves to be prioritized, and clear communication is the foundation of healthy partnership.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Assessment</h4>
+        <p>Adults who are emotionally ready for healthy relationships don't need to create confusion or ambiguity. They communicate clearly, invest consistently, and demonstrate their interest through actions rather than vague statements. Understanding these patterns helps distinguish between <strong class="emphasis-readiness">low effort behavior</strong> and genuine relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "Sorry I fell asleep.",
@@ -994,7 +1558,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 2,
     roast: "He fell asleep at 8 PM and woke up at 4 PM? Is he a bear hibernating? No, he just didn't prioritize replying to you in the morning.",
     keywords: ["low effort", "lies", "texting etiquette"],
-    psychologyContent: createBasicPsychologyContent("Sorry I fell asleep.", 2)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-sorry-i-fell-asleep">
+      <header>
+        <h3 id="psychology-sorry-i-fell-asleep">The Psychology Behind "Sorry I fell asleep."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>While potentially less concerning, this communication pattern still provides valuable insights into <strong class="emphasis-attachment">emotional availability</strong> and <strong class="emphasis-attachment">relationship readiness</strong>. The statement may indicate varying levels of self-awareness, communication proficiency, or emotional maturity.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>The communication approach may inadvertently create confusion or ambiguous expectations, potentially resulting in misunderstandings and emotional disconnection between parties.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>This may reflect authentic communication challenges or differing relationship expectations that necessitate open discussion and mutual understanding to resolve effectively.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "I have my notifications turned off.",
@@ -1002,7 +1603,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "Why does he need to hide his notifications? Usually, it's because he doesn't want the girl he's *actually* dating to see your name.",
     keywords: ["cheating", "hiding phone", "player"],
-    psychologyContent: createBasicPsychologyContent("I have my notifications turned off.", 4)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-i-have-my-notifications-turned-off">
+      <header>
+        <h3 id="psychology-i-have-my-notifications-turned-off">The Psychology Behind "I have my notifications turned off."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "Just saw this!",
@@ -1010,7 +1648,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "Read receipts exist for a reason. Even if they're off, we know. He's treating you like an option. Treat him like a ghost.",
     keywords: ["breadcrumbing", "stalling", "benching"],
-    psychologyContent: createBasicPsychologyContent("Just saw this!", 3)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-just-saw-this">
+      <header>
+        <h3 id="psychology-just-saw-this">The Psychology Behind "Just saw this!"</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "Can we raincheck? (and never reschedules)",
@@ -1018,7 +1693,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 4,
     roast: "A cancellation without a new date proposed is a rejection. He's not busy; he's bailing. Don't ask 'when?'. Just say 'ok' and delete his number.",
     keywords: ["flaky", "cancellation", "soft rejection"],
-    psychologyContent: createBasicPsychologyContent("Can we raincheck? (and never reschedules)", 4)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-can-we-raincheck-and-never-reschedules">
+      <header>
+        <h3 id="psychology-can-we-raincheck-and-never-reschedules">The Psychology Behind "Can we raincheck? (and never reschedules)"</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "U up?",
@@ -1063,7 +1775,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 3,
     roast: "This is a 'ping'. He's just checking if you're still on the hook. It's low effort and requires zero commitment. Don't give him the validation.",
     keywords: ["orbiting", "hoovering", "breadcrumbing"],
-    psychologyContent: createBasicPsychologyContent("Thinking of you.", 3)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-thinking-of-you">
+      <header>
+        <h3 id="psychology-thinking-of-you">The Psychology Behind "Thinking of you."</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   },
   {
     quote: "*Left on Read*",
@@ -1071,7 +1820,44 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
     score: 5,
     roast: "No answer is an answer. It's the loudest answer. He is showing you exactly how much he respects you (he doesn't). Block and bless.",
     keywords: ["ghosting", "disrespect", "closure"],
-    psychologyContent: createBasicPsychologyContent("*Left on Read*", 5)
+    psychologyContent: `
+    <article class="psychology-analysis" aria-labelledby="psychology-left-on-read">
+      <header>
+        <h3 id="psychology-left-on-read">The Psychology Behind "*Left on Read*"</h3>
+      </header>
+
+      <section class="introductory-analysis">
+        <p>This common dating expression reveals crucial insights regarding attachment styles, emotional availability, and relationship intentions. Comprehending the psychological mechanisms underlying these expressions enables recognition of <strong class="emphasis-toxic">concerning communication patterns</strong> and facilitates informed relationship decision-making.</p>
+      </section>
+
+      <section class="attachment-analysis">
+        <h4>Attachment Style Assessment</h4>
+        <p>This phrase represents a significant relationship indicator that often reflects <strong class="emphasis-attachment">avoidant attachment patterns</strong>, <strong class="emphasis-attachment">fear of commitment</strong>, or <strong class="emphasis-attachment">manipulative communication behavior</strong>. The individual employing this language typically creates emotional distance while maintaining access to intimacy benefits without reciprocal investment.</p>
+      </section>
+
+      <section class="power-dynamics">
+        <h4>Relational Dynamics and Control Patterns</h4>
+        <p>This language establishes an imbalanced dynamic where one party controls relationship terms without mutual investment. It functions as a form of <strong class="emphasis-control">frame control</strong> that inhibits genuine partnership development and creates unequal power distribution.</p>
+        <p>When individuals employ vague or non-committal language, they frequently maintain <strong class="emphasis-control">emotional control</strong> while avoiding genuine vulnerability. Healthy relationships necessitate mutual investment and transparent communication, rather than ambiguity that primarily serves one party's convenience.</p>
+      </section>
+
+      <section class="communication-patterns">
+        <h4>Communication Behavior Analysis</h4>
+        <p>Frequently accompanied by <strong class="emphasis-pattern">breadcrumbing behaviors</strong>—providing minimal attention to maintain interest without substantial investment. This pattern generates anxiety and uncertainty through inconsistent communication rhythms and unpredictable engagement.</p>
+        <p>The tendency toward inconsistent or minimal effort often indicates deeper <strong class="emphasis-pattern">commitment challenges</strong> or unresolved emotional concerns. Individuals who are genuinely interested typically demonstrate consistent effort and maintain clear communication patterns.</p>
+      </section>
+
+      <section class="boundaries">
+        <h4>Establishing Healthy Relational Boundaries</h4>
+        <p>Recognizing these communication patterns enables appropriate boundary establishment and seeking relationships constructed upon mutual respect. Your emotional wellbeing warrants prioritization, and transparent communication forms the foundation of healthy partnership dynamics.</p>
+      </section>
+
+      <section class="relationship-readiness">
+        <h4>Relationship Readiness Evaluation</h4>
+        <p>Adults who are emotionally prepared for healthy relationships do not require confusion or ambiguity. They communicate transparently, invest consistently, and demonstrate their interest through actions rather than ambiguous statements. Understanding these patterns assists in distinguishing between <strong class="emphasis-readiness">minimal investment behavior</strong> and authentic relationship potential.</p>
+      </section>
+    </article>
+    `
   }
 ];
 
