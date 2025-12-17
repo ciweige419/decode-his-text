@@ -2136,7 +2136,6 @@ The person who suggested casual maintains control by using the original agreemen
   {
     quote: "I need some space right now.",
     translation: "I want to distance myself without officially breaking up so I can explore other options.",
-    roast: "Translation: I'm slowly backing away without having to do the difficult thing of actually breaking up.",
     score: 4,
     keywords: ["avoidance", "pre-ghosting", "emotional distance", "backup plan"],
     psychologyContent: `
@@ -2179,7 +2178,6 @@ This creates an <strong class="emphasis-imbalance">emotional power imbalance</st
   {
     quote: "I'm talking to other people.",
     translation: "I want to make you jealous and keep you competing for my attention.",
-    roast: "This person is emotionally unavailable and not ready for a healthy relationship.",
     score: 5,
     keywords: ["manipulation", "jealousy", "competition", "power dynamics"],
     psychologyContent: `
@@ -2216,7 +2214,6 @@ The recipient begins to view the relationship as a prize to be won rather than a
   {
     quote: "I just got out of a bad relationship.",
     translation: "I'm using my past as an excuse to avoid commitment and keep you at arm's length.",
-    roast: "This person is emotionally unavailable and not ready for a healthy relationship.",
     score: 4,
     keywords: ["excuses", "commitment avoidance", "emotional baggage", "red flag"],
     psychologyContent: `
@@ -2259,7 +2256,6 @@ When used as an excuse, the statement is vague,永恒, and serves to avoid respo
   {
     quote: "I have a lot going on right now.",
     translation: "You're not a priority and I don't want to invest time or effort into this relationship.",
-    roast: "This person is emotionally unavailable and not ready for a healthy relationship.",
     score: 4,
     keywords: ["priorities", "excuses", "low investment", "avoidance"],
     psychologyContent: `
@@ -2298,7 +2294,6 @@ When used as an excuse, the statement is accompanied by complete withdrawal and 
   {
     quote: "I don't want to put a label on it.",
     translation: "I want all the benefits without any commitment, and I want to keep my options open.",
-    roast: "This person is emotionally unavailable and not ready for a healthy relationship.",
     score: 5,
     keywords: ["situationship", "commitment avoidance", "ambiguity", "exploitation"],
     psychologyContent: `
@@ -2341,7 +2336,6 @@ This avoidance typically stems from deeper issues with intimacy or past relation
   {
     quote: "I'm not ready for a relationship.",
     translation: "I don't want a relationship WITH YOU, but I want to keep you available for attention/validation.",
-    roast: "This person is emotionally unavailable and not ready for a healthy relationship.",
     score: 4,
     keywords: ["rejection", "mixed signals", "emotional unavailability", "friendzone"],
     psychologyContent: `
@@ -2386,7 +2380,6 @@ This creates prolonged emotional uncertainty for the recipient.</p>
   {
     quote: "You're too good for me.",
     translation: "I'm about to hurt you and this is my preemptive excuse/way to manage guilt.",
-    roast: "This person is emotionally unavailable and not ready for a healthy relationship.",
     score: 5,
     keywords: ["manipulation", "preemptive rejection", "guilt management", "red flag"],
     psychologyContent: `
@@ -2429,7 +2422,6 @@ When used as manipulation, the statement is absolute and serves to end the relat
   {
     quote: "I need to focus on myself right now.",
     translation: "You are not a priority and I'm ending this relationship without having to take responsibility.",
-    roast: "This person is emotionally unavailable and not ready for a healthy relationship.",
     score: 4,
     keywords: ["rejection", "self-prioritization", "avoidance", "accountability dodge"],
     psychologyContent: `
@@ -2472,7 +2464,6 @@ The context reveals whether it's genuine growth or strategic exit.</p>
   {
     quote: "Maybe we can hang out sometime.",
     translation: "I have no intention of ever making plans with you but want to keep you on the hook.",
-    roast: "This person is emotionally unavailable and not ready for a healthy relationship.",
     score: 5,
     keywords: ["breadcrumbing", "vague plans", "low effort", "stringing along"],
     psychologyContent: `
@@ -2517,7 +2508,6 @@ The speaker maintains attention and validation with zero actual investment.</p>
   {
     quote: "I'm really busy this week, but let's definitely do something next week.",
     translation: "I'm avoiding you this week and will use the exact same excuse next week when you follow up.",
-    roast: "This person is emotionally unavailable and not ready for a healthy relationship.",
     score: 5,
     keywords: ["procrastination", "avoidance", "broken promises", "stringing along"],
     psychologyContent: `
