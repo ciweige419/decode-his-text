@@ -20,7 +20,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       title: `"${quote.quote}" - Red Flag Analysis`,
       description: `Is "${quote.quote}" a red flag? Get the truth behind this text with our AI-powered analysis.`,
       type: 'article',
-      url: `https://decodehistext.com/decode/${quote.slug}`,
+      url: `https://decodehistext.com/analyze/${quote.slug}`,
       images: [
         {
           url: 'https://decodehistext.com/og-image.jpg',
@@ -37,7 +37,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       images: ['https://decodehistext.com/og-image.jpg'],
     },
     alternates: {
-      canonical: `https://decodehistext.com/decode/${quote.slug}`,
+      canonical: `https://decodehistext.com/analyze/${quote.slug}`,
     },
   };
 }
@@ -311,7 +311,7 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
            <h3 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-6">Related Red Flags</h3>
            <div className="grid md:grid-cols-3 gap-6">
               {related.map(r => (
-                <Link href={`/decode/${r.slug}`} key={r.slug} className="block bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-all group">
+                <Link href={`/analyze/${r.slug}`} key={r.slug} className="block bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-all group">
                    {/* Quote Text */}
                    <p className="text-white font-medium text-sm leading-relaxed mb-4 line-clamp-3 group-hover:text-rose-200 transition">
                      "{r.quote.length > 100 ? r.quote.substring(0, 100) + '...' : r.quote}"

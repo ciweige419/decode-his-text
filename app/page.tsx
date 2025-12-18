@@ -171,7 +171,7 @@ export default function Home() {
                  <div className="grid sm:grid-cols-2 gap-4">
                     {TOXIC_QUOTES.slice(0, 6).map((item) => (
                       <Link 
-                        href={`/decode/${item.slug}`}
+                        href={`/analyze/${item.slug}`}
                         key={item.slug}
                         className="bg-neutral-900/50 hover:bg-neutral-800 border border-white/5 hover:border-rose-500/30 p-5 rounded-2xl transition-all group block"
                       >

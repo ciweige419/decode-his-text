@@ -13,9 +13,20 @@ export function middleware(request: NextRequest) {
     if (oldSlug) {
       const newSlug = getRedirectSlug(oldSlug);
 
-      // 如果找到重定向映射，执行 301 重定向
+      // 如果找到重定向映射，执行 301 重定向到新的 /analyze 路径
       if (newSlug && newSlug !== oldSlug) {
-        const newUrl = new URL(`/decode/${newSlug}`, request.url);
+        const newUrl = new URL(`/analyze/${newSlug}`, request.url);
+
+        // 返回 301 永久重定向
+        return NextResponse.redirect(newUrl, {
+          status: 301,
+          headers: {
+            'Cache-Control': 'public, max-age=31536000, immutable',
+          },
+        });
+      } else {
+        // 如果没有找到重定向映射，直接重定向到 /analyze 路径
+        const newUrl = new URL(`/analyze/${oldSlug}`, request.url);
 
         // 返回 301 永久重定向
         return NextResponse.redirect(newUrl, {

@@ -97,7 +97,7 @@ const nextConfig: NextConfig = {
     // 生成重定向数组
     return slugMappings.map(({ old, quote }) => ({
       source: `/decode/${old}`,
-      destination: `/decode/${generateSeoSlug(quote)}`,
+      destination: `/analyze/${generateSeoSlug(quote)}`,
       permanent: true,
     }));
   },

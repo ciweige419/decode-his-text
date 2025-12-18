@@ -50,7 +50,7 @@ export default function DatabasePage() {
           {TOXIC_QUOTES.map((item) => (
             <Link 
               key={item.slug} 
-              href={`/decode/${item.slug}`}
+              href={`/analyze/${item.slug}`}
               className="group flex items-center justify-between p-6 bg-neutral-900/50 border border-white/5 hover:border-rose-500/50 hover:bg-neutral-900 rounded-2xl transition-all"
             >
               <div className="space-y-2">
