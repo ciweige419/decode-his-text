@@ -74,6 +74,75 @@ export default function DatabasePage() {
         </div>
 
       </div>
+
+      {/* Footer */}
+      <footer className="border-t border-white/5 py-12 bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-2.5 font-bold text-xl tracking-tighter mb-4">
+                <div className="bg-gradient-to-br from-rose-600 to-orange-600 text-white p-2 rounded-xl shadow-lg shadow-rose-900/20">
+                  <Database size={16} fill="currentColor" />
+                </div>
+                <span className="text-white">Decode<span className="text-rose-500">His</span>Text</span>
+              </div>
+              <p className="text-neutral-500 text-sm">
+                AI-powered relationship insights for healthier communication dynamics.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-white font-semibold mb-4">Resources</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/database" className="text-neutral-500 hover:text-white transition">
+                    Red Flags Database
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about-us" className="text-neutral-500 hover:text-white transition">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact-us" className="text-neutral-500 hover:text-white transition">
+                    Contact Support
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-white font-semibold mb-4">Legal</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/privacy-policy" className="text-neutral-500 hover:text-white transition">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms-of-service" className="text-neutral-500 hover:text-white transition">
+                    Terms of Service
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-white/5 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-neutral-600 text-sm text-center md:text-left">
+                &copy; 2025 DecodeHisText.com • For entertainment and educational purposes only.
+              </p>
+              <div className="flex items-center gap-6 text-neutral-600 text-sm">
+                <span>GDPR & CCPA Compliant</span>
+                <span>•</span>
+                <span>Privacy-First</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
