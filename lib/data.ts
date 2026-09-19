@@ -8,23 +8,7 @@ export interface QuoteData {
   psychologyContent: string; // HTML string for SEO content
 }
 
-// 去主语的标准化 slug 生成函数
-function generateSeoSlug(quote: string): string {
-  return quote
-    // 去除常见主语开头
-    .replace(/^(I'm|I am|He says|She says|He said|She said|I've|I have|Let's|You|We|They|Don't|Can't|Won't)\s+/i, '')
-    // 去除标点符号和URL非法字符
-    .replace(/[.,!?;:'"\/#?&=@%$<>{}[\]|\\^`~]/g, '')
-    // 转换为小写并用连字符替换空格
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, '-')
-    // 移除多余的连字符
-    .replace(/-+/g, '-')
-    // 移除开头和结尾的连字符
-    .replace(/^-+|-+$/g, '');
-}
-
+import { generateSeoSlug } from './slug';
 
 // 原始数据（用于生成新的 SEO slug）
 const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
@@ -2563,7 +2547,7 @@ This can continue for weeks or months with no actual meeting.</p>
     quote: "I never said that, you are imagining things.",
     translation: "I'm actively rewriting reality to make you doubt your own memory and sanity.",
     roast: "This person thinks they're the sole author of reality and your memories are just rough drafts.",
-    score: 95,
+    score: 5,
     keywords: ["gaslighting", "manipulation", "toxic", "narcissist"],
     psychologyContent: `
       <article>
@@ -2582,7 +2566,7 @@ This can continue for weeks or months with no actual meeting.</p>
     quote: "You are just being too sensitive.",
     translation: "I'm deflecting from my bad behavior by attacking your emotional response instead of taking responsibility.",
     roast: "This person has a PhD in Emotional Invalidation and thinks your feelings are 'user error'.",
-    score: 95,
+    score: 5,
     keywords: ["gaslighting", "emotional-invalidation", "red-flag"],
     psychologyContent: `
       <article>
@@ -2601,7 +2585,7 @@ This can continue for weeks or months with no actual meeting.</p>
     quote: "Relax, it was just a joke. Can't you take a joke?",
     translation: "I said something hurtful and now I'm pretending it was humor to avoid accountability.",
     roast: "This person's humor is like their personality - nonexistent and only funny to them.",
-    score: 95,
+    score: 5,
     keywords: ["gaslighting", "covert-aggression", "negging"],
     psychologyContent: `
       <article>
@@ -2617,29 +2601,10 @@ This can continue for weeks or months with no actual meeting.</p>
     `
   },
   {
-    quote: "I'm sorry you feel that way.",
-    translation: "I'm not actually sorry for what I did, I'm just sorry you're upset about it.",
-    roast: "This person mastered the art of apologizing without apologizing - it's a verbal magic trick!",
-    score: 95,
-    keywords: ["non-apology", "gaslighting", "deflection"],
-    psychologyContent: `
-      <article>
-        <h3>The Psychology Behind "I'm sorry you feel that way."</h3>
-        <p><strong>The Psychology:</strong> This is a <em>Non-Apology</em>. He is apologizing for <em>your feelings</em>, not for <em>his actions</em>.</p>
-        <p><strong>Subconscious Intent:</strong> To shut down the conversation and look like the 'good guy' who apologized, without actually admitting any wrongdoing or changing his behavior.</p>
-
-        <section>
-          <h4>How to Respond</h4>
-          <p>Call out the syntax. Say: 'That is an apology for my feelings, not your actions. I need you to take responsibility for what you did, not for how I reacted to it.'</p>
-        </section>
-      </article>
-    `
-  },
-  {
     quote: "Look what you made me do. If you hadn't..., I wouldn't have...",
     translation: "I refuse to take responsibility for my own choices and blame you for my bad behavior.",
     roast: "This person has the emotional maturity of a toddler who thinks breaking your toy is your fault.",
-    score: 95,
+    score: 5,
     keywords: ["victim-blaming", "abuse-cycle", "danger-zone"],
     psychologyContent: `
       <article>

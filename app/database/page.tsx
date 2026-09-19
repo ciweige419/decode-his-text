@@ -54,7 +54,7 @@ export default function DatabasePage() {
               className="group flex items-center justify-between p-6 bg-neutral-900/50 border border-white/5 hover:border-rose-500/50 hover:bg-neutral-900 rounded-2xl transition-all"
             >
               <div className="space-y-2">
-                <p className="text-lg md:text-xl font-bold text-gray-200 group-hover:text-white transition">"{item.quote}"</p>
+                <p className="text-lg md:text-xl font-bold text-gray-200 group-hover:text-white transition">&quot;{item.quote}&quot;</p>
                 <div className="flex flex-wrap gap-2">
                   {item.keywords.map(k => (
                     <span key={k} className="text-xs px-2 py-1 rounded bg-white/5 text-gray-500 uppercase tracking-wider font-medium">{k}</span>
@@ -70,7 +70,7 @@ export default function DatabasePage() {
 
         {/* 底部提示 */}
         <div className="text-center pt-10 text-gray-500 text-sm">
-          Updated for 2025 Dating Market • <Link href="/" className="underline hover:text-rose-500">Submit a new phrase</Link>
+          Written example library • <Link href="/" className="underline hover:text-rose-500">Try a phrase</Link>
         </div>
 
       </div>
@@ -87,7 +87,7 @@ export default function DatabasePage() {
                 <span className="text-white">Decode<span className="text-rose-500">His</span>Text</span>
               </div>
               <p className="text-neutral-500 text-sm">
-                AI-powered relationship insights for healthier communication dynamics.
+                Written examples for reflecting on communication.
               </p>
             </div>
 
@@ -135,9 +135,9 @@ export default function DatabasePage() {
                 &copy; 2025 DecodeHisText.com • For entertainment and educational purposes only.
               </p>
               <div className="flex items-center gap-6 text-neutral-600 text-sm">
-                <span>GDPR & CCPA Compliant</span>
+                <span>Free example preview</span>
                 <span>•</span>
-                <span>Privacy-First</span>
+                <span>No paid features</span>
               </div>
             </div>
           </div>

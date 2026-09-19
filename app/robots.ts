@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/'],
       },
     ],
-    sitemap: 'https://decodehistext.com/sitemap.xml',
+    sitemap: 'https://www.decodehistext.com/sitemap.xml',
   };
 }
 

@@ -1,8 +1,8 @@
-import { getQuoteBySlug, TOXIC_QUOTES } from '@/lib/data';
+import { getQuoteBySlug, TOXIC_QUOTES, type QuoteData } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Flame, MessageCircle, Sparkles, Lock, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Flame, MessageCircle } from 'lucide-react';
 import ShareButton from '@/components/ShareButton';
 
 
@@ -13,17 +13,17 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!quote) return {};
 
   return {
-    title: `"${quote.quote}" - ${quote.score}/5 Red Flag Score | Dating Psychology Analysis`,
-    description: `He sent "${quote.quote}"? Get the brutal translation, psychology behind the red flag (${quote.score}/5 danger), and strategic responses. ${quote.keywords.slice(0, 3).join(', ')}.`,
+    title: `"${quote.quote}" - ${quote.score}/5 Editorial concern rating | Dating Psychology Analysis`,
+    description: `He sent "${quote.quote}"? Explore a written interpretation, its limitations, and communication context. ${quote.keywords.slice(0, 3).join(', ')}.`,
     keywords: [...quote.keywords, 'dating red flags', 'relationship advice', 'text analysis', 'psychology', 'dating apps'],
     openGraph: {
       title: `"${quote.quote}" - Red Flag Analysis`,
-      description: `Is "${quote.quote}" a red flag? Get the truth behind this text with our AI-powered analysis.`,
+      description: `Is "${quote.quote}" a red flag? Explore an editorial interpretation and consider the context.`,
       type: 'article',
-      url: `https://decodehistext.com/analyze/${quote.slug}`,
+      url: `https://www.decodehistext.com/analyze/${quote.slug}`,
       images: [
         {
-          url: 'https://decodehistext.com/og-image.jpg',
+          url: 'https://www.decodehistext.com/opengraph-image',
           width: 1200,
           height: 630,
           alt: 'Red Flag Text Analysis',
@@ -33,11 +33,11 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     twitter: {
       card: 'summary_large_image',
       title: `"${quote.quote}" - Red Flag Analysis`,
-      description: `He sent "${quote.quote}"? Find out what it really means.`,
-      images: ['https://decodehistext.com/og-image.jpg'],
+      description: `He sent "${quote.quote}"? Consider a possible interpretation and the context.`,
+      images: ['https://www.decodehistext.com/opengraph-image'],
     },
     alternates: {
-      canonical: `https://decodehistext.com/analyze/${quote.slug}`,
+      canonical: `https://www.decodehistext.com/analyze/${quote.slug}`,
     },
   };
 }
@@ -59,7 +59,7 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
   const cleanedPsychologyContent = quote.psychologyContent.replace(/[\u4e00-\u9fa5]/g, '');
 
   // 获取相关推荐 - 基于关键词匹配或随机选择
-  const getRelatedQuotes = (currentQuote: any, allQuotes: any[]) => {
+  const getRelatedQuotes = (currentQuote: QuoteData, allQuotes: QuoteData[]) => {
     const otherQuotes = allQuotes.filter(q => q.slug !== currentQuote.slug);
 
     // 尝试找到有共同关键词的引用
@@ -74,7 +74,6 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
 
     // 随机选择最多3个
     return relatedQuotes
-      .sort(() => Math.random() - 0.5)
       .slice(0, 3);
   };
 
@@ -91,14 +90,16 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
 
         {/* H1: 原始完整用户句子 */}
         <h1 className="text-4xl md:text-6xl font-black leading-tight text-center">
-          "{quote.quote}"
+          &quot;{quote.quote}&quot;
         </h1>
+
+        <p className="rounded-xl border border-white/10 p-4 text-neutral-300">This is a written example, not a personalized analysis. Ratings are editorial labels, not measured risk. A single message does not establish intentions or diagnose a person.</p>
 
         {/* RESULT CARD - BASIC ANALYSIS ONLY */}
         <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-500 ring-1 ring-rose-500/20">
           <div className="flex items-center justify-between mb-8">
              <div>
-               <p className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-1">Red Flag Score</p>
+               <p className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-1">Editorial concern rating</p>
                <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <div key={i} className={`h-2 w-8 rounded-full ${i < quote.score ? (quote.score >= 4 ? 'bg-red-500' : 'bg-yellow-500') : 'bg-neutral-800'}`}></div>
@@ -111,7 +112,7 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
           <div className="space-y-8">
             <div className="pl-6 border-l-2 border-rose-500/30">
                <p className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">Translation</p>
-               <p className="text-2xl text-white font-medium">"{quote.translation}"</p>
+               <p className="text-2xl text-white font-medium">&quot;{quote.translation}&quot;</p>
             </div>
 
             <div className="bg-neutral-800/50 rounded-2xl p-6 border border-white/5">
@@ -211,92 +212,12 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
           </p>
         </div>
 
-        {/* PREMIUM STRATEGY KIT - Final step in conversion flow */}
-        <div className="bg-gradient-to-br from-purple-900/20 to-rose-900/20 rounded-3xl p-8 border border-purple-500/20">
-          <p className="text-xs font-bold text-purple-400 uppercase tracking-wider mb-6 flex items-center gap-2 justify-center">
-             <Sparkles size={14}/> Premium Strategy Kit
-          </p>
-
-          {/* Strategy Options - Visible Titles + Blurred Content */}
-          <div className="space-y-6 mb-8">
-            {[
-              {
-                title: "Option 1: The High-Value Frame",
-                content: "This strategic response positions you as a high-value individual who refuses to engage in ambiguity. It communicates that you have clear boundaries and standards, making it clear that vague communication is unacceptable..."
-              },
-              {
-                title: "Option 2: Mirroring Power Reset",
-                content: "This psychological technique mirrors their energy back to them, forcing them to confront their own communication patterns. It creates a powerful dynamic where they must either step up or step away..."
-              },
-              {
-                title: "Option 3: Low-Demand Termination",
-                content: "This approach demonstrates complete emotional independence and confidence. It shows that their vague messaging has no impact on your state of mind, making you appear more attractive and less needy..."
-              }
-            ].map((option, index) => (
-              <div key={index} className="relative">
-                {/* Visible Title */}
-                <h4 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-gradient-to-r from-purple-600 to-rose-600 rounded-full flex items-center justify-center text-xs text-white font-black">
-                    {index + 1}
-                  </span>
-                  {option.title}
-                </h4>
-
-                {/* Blurred Content */}
-                <div className="p-4 bg-neutral-900/50 rounded-xl border border-white/5 relative overflow-hidden">
-                  <p className="text-neutral-300 font-medium leading-relaxed" style={{ filter: 'blur(6px)' }}>
-                    {option.content}
-                  </p>
-
-                  {/* Individual Option Lock Overlay */}
-                  <div className="absolute inset-0 bg-black/40 rounded-xl flex items-center justify-center">
-                    <Lock size={16} className="text-white/60" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Central CTA Section */}
-          <div className="bg-neutral-900/50 rounded-2xl p-6 border border-white/10 text-center relative overflow-hidden">
-            {/* Light overlay background */}
-            <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
-
-            {/* Content */}
-            <div className="relative z-10">
-              <Lock size={28} className="text-white/80 mx-auto mb-3" />
-              <Link
-                href="/"
-                className="inline-block bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-bold px-8 py-3 rounded-xl text-lg transition-all transform hover:scale-105 active:scale-95 shadow-xl mb-4"
-              >
-                Unlock Full Strategy Kit ($2.99)
-              </Link>
-
-              {/* Value Props */}
-              <div className="space-y-2 text-left max-w-xs mx-auto">
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 size={16} className="text-green-400" />
-                  <span className="text-white">3 Strategic Replies (Copy-Paste)</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 size={16} className="text-green-400" />
-                  <span className="text-white">Psychological Power Analysis</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 size={16} className="text-green-400" />
-                  <span className="text-white">His Likely Reaction Forecast</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Call to Action */}
         <div className="bg-gradient-to-r from-rose-600 to-orange-600 text-white p-8 rounded-3xl text-center space-y-6 shadow-lg">
            <h3 className="text-2xl font-black">Got a confusing text?</h3>
-           <p className="text-rose-100 font-medium">Don't second-guess yourself. Get instant clarity with our AI decoder.</p>
+           <p className="text-rose-100 font-medium">Try the written examples and tell us what would help you next.</p>
            <Link href="/" className="inline-block bg-white text-rose-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-md">
-             Decode My Text Now
+             Try the Free Preview
            </Link>
         </div>
 
@@ -314,14 +235,14 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
                 <Link href={`/analyze/${r.slug}`} key={r.slug} className="block bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-all group">
                    {/* Quote Text */}
                    <p className="text-white font-medium text-sm leading-relaxed mb-4 line-clamp-3 group-hover:text-rose-200 transition">
-                     "{r.quote.length > 100 ? r.quote.substring(0, 100) + '...' : r.quote}"
+                     &quot;{r.quote.length > 100 ? r.quote.substring(0, 100) + '...' : r.quote}&quot;
                    </p>
 
-                   {/* Danger Score */}
+                   {/* Editorial rating */}
                    <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2">
                          <Flame className="text-red-500" size={16} />
-                         <span className="text-red-400 font-bold text-sm">Danger Score</span>
+                         <span className="text-red-400 font-bold text-sm">Editorial rating</span>
                       </div>
                       <div className="flex items-center gap-1">
                          {[...Array(5)].map((_, i) => (
@@ -360,7 +281,7 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
                 <span className="text-white">Decode<span className="text-rose-500">His</span>Text</span>
               </div>
               <p className="text-neutral-500 text-sm">
-                AI-powered relationship insights for healthier communication dynamics.
+                Written examples for reflecting on communication.
               </p>
             </div>
 
@@ -408,9 +329,9 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
                 &copy; 2025 DecodeHisText.com • For entertainment and educational purposes only.
               </p>
               <div className="flex items-center gap-6 text-neutral-600 text-sm">
-                <span>GDPR & CCPA Compliant</span>
+                <span>Free example preview</span>
                 <span>•</span>
-                <span>Privacy-First</span>
+                <span>No paid features</span>
               </div>
             </div>
           </div>
