@@ -37,25 +37,22 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
   },
   {
     quote: "Let's just go with the flow.",
-    translation: "I have no plan to commit. You are a placeholder until I get bored.",
-    score: 5,
-    roast: "'Flow' implies going down the drain. He's saying, 'I don't like you enough to date you, but I don't hate you enough to block you.' You are a convenience store, and he's browsing.",
-    keywords: ["dating advice", "casual dating", "nato dating"],
+    translation: "I want to keep this undefined for now. That may mean casual dating, uncertainty, or avoiding a commitment conversation.",
+    score: 3,
+    roast: "The phrase sounds relaxed, but it leaves an important question unanswered: are you both comfortable with the same kind of relationship?",
+    keywords: ["go with the flow dating", "undefined relationship", "casual dating", "mixed signals"],
     psychologyContent: `
-      <h3>The Psychology Behind "Let's Just Go With the Flow"</h3>
-      <p>Perhaps the most insidious phrase in modern dating, "let's just go with the flow" represents the ultimate commitment-avoidance strategy. This seemingly innocent suggestion actually masks a deep-seated fear of intimacy and unwillingness to invest emotionally in another person.</p>
+      <h3>What "Let's Just Go With the Flow" Usually Means</h3>
+      <p>In dating, this phrase usually means the person does not want to define the relationship yet. It can be a reasonable request for more time, a preference for something casual, or a way to postpone a conversation about commitment. The words alone do not tell you which explanation applies.</p>
 
-      <h3>Avoidant Attachment in Action</h3>
-      <p>People who consistently suggest "going with the flow" typically exhibit avoidant attachment patterns. They crave intimacy but simultaneously fear it, creating a push-pull dynamic that keeps potential partners emotionally off-balance. By refusing to define the relationship, they maintain emotional distance while still enjoying the benefits of connection.</p>
+      <h3>When It May Be Reasonable</h3>
+      <p>Early in dating, two people may genuinely want to learn more about each other before choosing a label. That explanation is more credible when communication stays consistent, plans are mutual, and both people can discuss boundaries without being dismissed.</p>
 
-      <h3>The Illusion of Spontaneity</h3>
-      <p>The flow metaphor suggests natural, effortless progression, but in reality, it's carefully manufactured ambiguity. Most successful relationships require intentional planning, communication, and mutual investment. "Going with the flow" removes these requirements while creating the illusion that something meaningful might develop spontaneously.</p>
+      <h3>When It Becomes a Mixed Signal</h3>
+      <p>Pay attention when the relationship includes regular intimacy and emotional support but every request for clarity is delayed. Repeated ambiguity can leave one person investing in a future the other person has never agreed to.</p>
 
-      <h3>Power and Control Dynamics</h3>
-      <p>This phrase immediately establishes a power imbalance where one person gets to maintain complete control over the relationship's direction. They can reap all benefits of partnership without any of the responsibilities. It's emotional freeloading disguised as spiritual openness.</p>
-
-      <h3>Recognition and Response</h3>
-      <p>Healthy adults don't fear clarity or definition. When someone resists defining the relationship while wanting all the benefits, they're not "going with the flow"—they're going with their convenience. The appropriate response is to redirect toward clarity or redirect your energy elsewhere.</p>
+      <h3>A Clear Question to Ask</h3>
+      <p>You can respond with: “I'm comfortable taking things slowly, but I want to understand what going with the flow means to you. Are you open to a relationship if this continues to go well?” The answer and the behavior that follows are more useful than the original phrase.</p>
     `
   },
   {
@@ -150,28 +147,22 @@ const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
   },
   {
     quote: "I'm bad at texting.",
-    translation: "I'm on my phone 24/7, just not for you.",
+    translation: "Do not judge my interest by texting alone. Check whether I communicate and follow through in other consistent ways.",
     score: 2,
-    roast: "Lies. He has his phone in his hand right now. He's watching TikToks. 'Bad at texting' translates to 'Low Effort'. Don't settle for crumbs.",
-    keywords: ["dry texting", "breadcrumbing"],
+    roast: "Being a slow texter can be real. The useful test is whether they suggest calls, make plans, and reliably show up instead.",
+    keywords: ["bad at texting meaning", "dry texting", "slow replies", "dating communication"],
     psychologyContent: `
-      <h3>The Psychology Behind "I'm Bad at Texting"</h3>
-      <p>In the age of smartphones and constant connectivity, claiming to be "bad at texting" has become one of the most transparent and frustrating excuses in modern dating. This statement reveals more about a person's priorities and emotional investment than they realize.</p>
+      <h3>What "I'm Bad at Texting" Can Mean</h3>
+      <p>Some people genuinely dislike long text conversations, forget to check messages, or communicate better by phone and in person. Others use the phrase to lower expectations while making little effort. You cannot reliably distinguish those situations from the sentence alone.</p>
 
-      <h3>Effort vs. Interest</h3>
-      <p>Communication patterns directly reflect interest levels. When someone genuinely cares about another person, they find ways to stay connected regardless of their texting "abilities." The "bad at texting" excuse is actually a declaration of low priority—this person isn't important enough to warrant minimal effort.</p>
+      <h3>Look for an Alternative Form of Effort</h3>
+      <p>A person who is interested but dislikes texting usually offers another way to stay connected. They may call, suggest a date, reply when a decision is needed, or explain their communication rhythm. Consistent follow-through matters more than reply speed.</p>
 
-      <h3>Modern Communication Realities</h3>
-      <p>Most adults today spend 4-7 hours daily on their phones. We order food, book appointments, manage work, and maintain friendships through text. Sudden texting incompetence exclusively with romantic interests reveals selective attention, not actual inability.</p>
+      <h3>When Slow Texting Is a Problem</h3>
+      <p>The pattern becomes concerning when replies are sporadic, plans remain vague, and the person reappears only when they want attention. The issue is then not texting skill; it is whether the communication arrangement meets both people's needs.</p>
 
-      <h3>Emotional Avoidance Patterns</h3>
-      <p>People who use this excuse often struggle with emotional intimacy. Texting creates a record of conversation and emotional investment that some find threatening. By claiming incompetence, they avoid the vulnerability that comes with consistent, meaningful communication.</p>
-
-      <h3>TheBreadcrumbing Connection</h3>
-      <p>"Bad at texting" frequently accompanies breadcrumbing behavior—sending just enough communication to keep someone interested without real investment. These inconsistent communication patterns create anxiety and uncertainty, which some people find psychologically addictive.</p>
-
-      <h3>Healthy Communication Standards</h3>
-      <p>Adults in healthy relationships don't make excuses for poor communication. They discuss preferences, find compatible communication styles, and prioritize staying connected. If someone can't maintain basic communication, they're not ready for a relationship.</p>
+      <h3>What You Can Say</h3>
+      <p>Try a direct, low-pressure question: “What kind of communication works best for you? I don't need constant texting, but I do value consistency.” A useful response includes a preference and some follow-through, rather than another vague excuse.</p>
     `
   },
   {

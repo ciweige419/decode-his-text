@@ -7,8 +7,11 @@ const GA_MEASUREMENT_ID = "G-XFSSKRVGMZ";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.decodehistext.com"),
-  title: "Decode His Text - Understand Mixed Signals",
-  description: "Explore common dating phrases and communication patterns. Consider context, possible meanings, and your own boundaries.",
+  title: {
+    default: "Decode His Text: What Does His Message Mean?",
+    template: "%s | Decode His Text",
+  },
+  description: "Explore what common dating texts may mean, the context clues that matter, and clearer ways to respond to mixed signals.",
   // GSC 验证标签 (已集成)
   verification: {
     google: "th5gX4Qxjeyi8G3i5SPTGSUxLvKKlMCiarYm6zX2J9U",

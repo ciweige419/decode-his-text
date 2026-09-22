@@ -5,6 +5,17 @@ import Link from 'next/link';
 import { ArrowLeft, Flame, MessageCircle } from 'lucide-react';
 import ShareButton from '@/components/ShareButton';
 
+const SITE_URL = 'https://www.decodehistext.com';
+
+function shorten(value: string, maxLength: number) {
+  if (value.length <= maxLength) return value;
+  return `${value.slice(0, maxLength - 1).trimEnd()}…`;
+}
+
+function pageDescription(quote: QuoteData) {
+  const phrase = shorten(quote.quote, 72);
+  return `What might “${phrase}” mean in dating? Review a possible interpretation, context clues, and communication patterns before deciding how to respond.`;
+}
 
 // 1. 自动生成 SEO 标题
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -12,15 +23,20 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const quote = getQuoteBySlug(params.slug);
   if (!quote) return {};
 
+  const titlePhrase = shorten(quote.quote, 48);
+  const description = pageDescription(quote);
+  const url = `${SITE_URL}/analyze/${quote.slug}`;
+
   return {
-    title: `"${quote.quote}" - ${quote.score}/5 Editorial concern rating | Dating Psychology Analysis`,
-    description: `He sent "${quote.quote}"? Explore a written interpretation, its limitations, and communication context. ${quote.keywords.slice(0, 3).join(', ')}.`,
+    title: `What Does “${titlePhrase}” Mean?`,
+    description,
     keywords: [...quote.keywords, 'dating red flags', 'relationship advice', 'text analysis', 'psychology', 'dating apps'],
+    robots: { index: true, follow: true },
     openGraph: {
-      title: `"${quote.quote}" - Red Flag Analysis`,
-      description: `Is "${quote.quote}" a red flag? Explore an editorial interpretation and consider the context.`,
+      title: `What Does “${titlePhrase}” Mean?`,
+      description,
       type: 'article',
-      url: `https://www.decodehistext.com/analyze/${quote.slug}`,
+      url,
       images: [
         {
           url: 'https://www.decodehistext.com/opengraph-image',
@@ -32,12 +48,12 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     },
     twitter: {
       card: 'summary_large_image',
-      title: `"${quote.quote}" - Red Flag Analysis`,
-      description: `He sent "${quote.quote}"? Consider a possible interpretation and the context.`,
+      title: `What Does “${titlePhrase}” Mean?`,
+      description,
       images: ['https://www.decodehistext.com/opengraph-image'],
     },
     alternates: {
-      canonical: `https://www.decodehistext.com/analyze/${quote.slug}`,
+      canonical: url,
     },
   };
 }
@@ -78,9 +94,36 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
   };
 
   const related = getRelatedQuotes(quote, TOXIC_QUOTES);
+  const url = `${SITE_URL}/analyze/${quote.slug}`;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        headline: `What Does “${quote.quote}” Mean?`,
+        description: pageDescription(quote),
+        mainEntityOfPage: url,
+        inLanguage: 'en',
+        author: { '@type': 'Organization', name: 'Decode His Text' },
+        publisher: { '@type': 'Organization', name: 'Decode His Text', url: SITE_URL },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Phrase library', item: `${SITE_URL}/database` },
+          { '@type': 'ListItem', position: 3, name: quote.quote, item: url },
+        ],
+      },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white p-6 md:p-20 font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
+      />
       <div className="max-w-3xl mx-auto space-y-12">
 
         {/* 顶部导航 */}
@@ -88,9 +131,9 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
           <ArrowLeft size={20} /> Back to Decoder
         </Link>
 
-        {/* H1: 原始完整用户句子 */}
+        {/* H1: match the question people search for */}
         <h1 className="text-4xl md:text-6xl font-black leading-tight text-center">
-          &quot;{quote.quote}&quot;
+          What Does &quot;{quote.quote}&quot; Mean?
         </h1>
 
         <p className="rounded-xl border border-white/10 p-4 text-neutral-300">This is a written example, not a personalized analysis. Ratings are editorial labels, not measured risk. A single message does not establish intentions or diagnose a person.</p>
@@ -111,26 +154,36 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
 
           <div className="space-y-8">
             <div className="pl-6 border-l-2 border-rose-500/30">
-               <p className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">Translation</p>
+               <p className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">One possible interpretation</p>
                <p className="text-2xl text-white font-medium">&quot;{quote.translation}&quot;</p>
             </div>
 
             <div className="bg-neutral-800/50 rounded-2xl p-6 border border-white/5">
               <p className="text-xs font-bold text-orange-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                 <MessageCircle size={14}/> The Roast
+                 <MessageCircle size={14}/> A candid take
               </p>
               <p className="text-neutral-300 font-light text-lg">{quote.roast}</p>
             </div>
           </div>
         </div>
 
+        <section className="rounded-3xl border border-white/10 bg-neutral-900 p-8 md:p-10">
+          <h2 className="mb-5 text-2xl font-bold text-white">Context to check before you decide</h2>
+          <ul className="space-y-4 text-lg leading-relaxed text-neutral-300">
+            <li><strong className="text-white">Pattern:</strong> Is this a one-time message or part of repeated behavior?</li>
+            <li><strong className="text-white">Follow-through:</strong> Do their actions match what they said afterward?</li>
+            <li><strong className="text-white">Clarity:</strong> When you ask a direct question, do they answer it directly?</li>
+          </ul>
+          <p className="mt-6 text-neutral-400">A single text can have several explanations. Repeated behavior and willingness to communicate usually provide more useful evidence than wording alone.</p>
+        </section>
+
         {/* PSYCHOLOGY ANALYSIS - FIRST (Value-First Approach) */}
         <section className="space-y-8">
           <h2 className="text-3xl font-bold text-white text-center mb-8">The Psychology Behind This Text</h2>
 
-          {/* Why this is a red flag */}
+          {/* Themes connected to this phrase */}
           <div className="bg-neutral-900 border border-white/10 rounded-3xl p-8 md:p-10">
-            <h3 className="text-2xl font-bold text-yellow-400 mb-6">Why this is a red flag</h3>
+            <h3 className="text-2xl font-bold text-yellow-400 mb-6">Patterns to consider</h3>
             <ul className="space-y-3">
               {quote.keywords.map((keyword, index) => (
                 <li key={index} className="flex items-start gap-3">
@@ -340,4 +393,3 @@ export default async function QuotePage(props: { params: Promise<{ slug: string 
     </div>
   );
 }
-

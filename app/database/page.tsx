@@ -3,8 +3,9 @@ import { TOXIC_QUOTES } from '@/lib/data';
 import { ArrowLeft, Database } from 'lucide-react';
 
 export const metadata = {
-  title: 'Red Flag Database - DecodeHisText',
-  description: 'The complete directory of toxic dating phrases and their meanings.',
+  title: 'Dating Text Meanings: Common Phrases Explained',
+  description: 'Browse common dating texts and phrases, possible meanings, context clues, and communication patterns.',
+  alternates: { canonical: 'https://www.decodehistext.com/database' },
 };
 
 export default function DatabasePage() {
@@ -23,8 +24,8 @@ export default function DatabasePage() {
              <Database size={32} />
            </div>
            <div>
-             <h1 className="text-4xl md:text-5xl font-black tracking-tight">Dating Red Flag Phrases Explained</h1>
-             <p className="text-gray-400 mt-2"> A database of common texts and phrases men use that often signal mixed intentions, emotional unavailability, or commitment issues.</p>
+             <h1 className="text-4xl md:text-5xl font-black tracking-tight">Common Dating Texts and What They May Mean</h1>
+             <p className="text-gray-400 mt-2">Browse common messages, possible interpretations, and the context clues that help distinguish a one-off text from a repeated pattern.</p>
            </div>
         </div>
 
@@ -146,4 +147,3 @@ export default function DatabasePage() {
     </div>
   );
 }
-
