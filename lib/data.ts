@@ -9,6 +9,7 @@ export interface QuoteData {
 }
 
 import { generateSeoSlug } from './slug';
+import { SEARCH_ARTICLES } from './search-content';
 
 // 原始数据（用于生成新的 SEO slug）
 const QUOTE_DATA: Omit<QuoteData, 'slug'>[] = [
@@ -2613,10 +2614,19 @@ This can continue for weeks or months with no actual meeting.</p>
 ];
 
 // 生成新的 TOXIC_QUOTES 数组，使用 SEO slug
-export const TOXIC_QUOTES: QuoteData[] = QUOTE_DATA.map((data) => ({
-  ...data,
-  slug: generateSeoSlug(data.quote)
-}));
+export const TOXIC_QUOTES: QuoteData[] = QUOTE_DATA.map((data) => {
+  const slug = generateSeoSlug(data.quote);
+  const article = SEARCH_ARTICLES[slug];
+  return {
+    ...data,
+    slug,
+    ...(article ? {
+      translation: article.answer,
+      roast: article.sections[0].paragraphs[0],
+      psychologyContent: '',
+    } : {}),
+  };
+});
 
 // 旧 slug 到新 slug 的映射（用于重定向）
 export const SLUG_REDIRECTS: Record<string, string> = {

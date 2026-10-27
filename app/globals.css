@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+html { scroll-behavior: smooth; }
+.legacy-content { color: #d1d5db; font-size: 1.125rem; line-height: 1.8; }
+.legacy-content h3, .legacy-content h4 { color: white; font-size: 1.4rem; font-weight: 700; margin: 2rem 0 1rem; }
+.legacy-content p, .legacy-content ul { margin-bottom: 1.25rem; }
+.legacy-content ul { padding-left: 1.5rem; list-style: disc; }
+:target { scroll-margin-top: 1.5rem; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

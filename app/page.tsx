@@ -1,26 +1,18 @@
 import Link from 'next/link';
 import DemandDemo from '@/components/DemandDemo';
+import { SiteNav, SiteFooter } from '@/components/SiteChrome';
+import { TOXIC_QUOTES } from '@/lib/data';
+import { SEARCH_ARTICLES, TOPICS } from '@/lib/search-content';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Decode His Text: What Does His Message Mean?',
-  description: 'Decode common dating texts and mixed signals with written examples, context checks, and practical communication guidance.',
+  title: { absolute: 'Decode His Text: Dating Message Meanings & Replies' },
+  description: 'What does his text mean? Explore common dating messages, slow replies, and mixed signals with clear explanations, context checks, and example replies.',
   alternates: { canonical: 'https://www.decodehistext.com/' },
-  openGraph: {
-    title: 'Decode His Text: What Does His Message Mean?',
-    description: 'Explore possible meanings behind common dating texts and the context clues that matter.',
-    url: 'https://www.decodehistext.com/',
-    type: 'website',
-  },
+  openGraph: { title: 'Decode His Text: Dating Message Meanings & Replies', description: 'Understand common dating texts and find a clearer way to respond.', url: 'https://www.decodehistext.com/', type: 'website' },
 };
+const featured = ['my-notifications-turned-off', 'not-looking-for-anything-serious-right-now', 'bad-at-texting', 'just-go-with-the-flow', 'not-ready-for-a-relationship-right-now-but-i-really-like-you', 'sorry-i-fell-asleep'];
 
 export default function Home() {
-  return <div className="min-h-screen bg-neutral-950 text-white">
-    <nav className="border-b border-white/10"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-6"><Link href="/" className="text-lg font-bold sm:text-xl">Decode<span className="text-rose-400">His</span>Text</Link><Link href="/database" className="flex min-h-12 items-center text-sm text-neutral-300 hover:text-white">Phrase library</Link></div></nav>
-    <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12 md:py-20">
-      <header className="mb-6 max-w-3xl space-y-3 sm:mb-10 sm:space-y-5"><p className="text-xs uppercase tracking-widest text-rose-400 sm:text-sm">Free dating text examples</p><h1 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl">What does his text mean?</h1><p className="text-lg leading-relaxed text-neutral-300 sm:text-xl">Explore possible meanings behind common dating texts, check the context that matters, and decide what to ask next.</p></header>
-      <DemandDemo />
-    </main>
-    <footer className="mx-auto max-w-6xl space-y-5 border-t border-white/10 px-4 py-8 text-sm text-neutral-400 sm:px-6"><div className="flex flex-wrap gap-x-5 gap-y-2"><Link href="/about-us">About</Link><Link href="/contact-us">Contact</Link><Link href="/privacy-policy">Privacy</Link><Link href="/terms-of-service">Terms</Link></div><p>Written examples for reflection. Not a psychological assessment or a way to determine another person&apos;s intentions.</p></footer>
-  </div>;
+  return <div className="min-h-screen bg-neutral-950 text-white"><SiteNav /><main className="mx-auto max-w-6xl space-y-14 px-4 py-8 sm:px-6 sm:py-14"><header className="max-w-3xl space-y-5"><p className="text-sm uppercase tracking-widest text-rose-300">Dating texts, explained with context</p><h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-6xl">What does his text mean?</h1><p className="text-xl leading-relaxed text-neutral-300">Find possible meanings behind common dating messages, check what the words leave out, and choose a clearer way to respond.</p><p className="leading-relaxed text-neutral-400">A message can show what someone said. Their follow-through and a direct conversation tell you more about what happens next.</p></header><section className="space-y-6" aria-labelledby="common-texts"><div className="flex flex-wrap items-end justify-between gap-4"><h2 id="common-texts" className="text-2xl font-bold sm:text-3xl">Start with the text you received</h2><Link href="/database" className="py-2 text-rose-300 underline">Browse all {TOXIC_QUOTES.length} phrases →</Link></div><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{featured.map(slug => <Link href={`/analyze/${slug}`} key={slug} className="flex flex-col justify-between gap-5 rounded-2xl border border-white/10 bg-neutral-900 p-5 hover:border-rose-400"><h3 className="text-lg font-semibold leading-relaxed">{SEARCH_ARTICLES[slug].title}</h3><span className="text-sm text-rose-300">Meaning, context & example replies →</span></Link>)}</div></section><section className="space-y-6"><h2 className="text-2xl font-bold sm:text-3xl">Look at the bigger picture</h2><div className="grid gap-4 md:grid-cols-3">{TOPICS.map(t => <Link href={t.guide ?? `/database#${t.id}`} key={t.id} className="space-y-4 rounded-2xl border border-white/10 p-6 hover:border-rose-400"><h3 className="text-xl font-semibold text-rose-300">{t.title}</h3><p className="leading-relaxed text-neutral-300">{t.description}</p><span className="block text-sm text-neutral-400">Explore the topic →</span></Link>)}</div></section><section className="space-y-6 border-t border-white/10 pt-10"><h2 className="text-2xl font-bold sm:text-3xl">Or look up an exact phrase</h2><DemandDemo /></section><section className="max-w-3xl space-y-4 text-lg leading-relaxed text-neutral-300"><h2 className="text-2xl font-bold text-white">How to use these explanations</h2><p>Read the short answer, compare the context with what actually happened, and adapt a reply to your own needs. We separate communication examples from claims about a person’s motives.</p><p>This site offers written guides, not live AI analysis or a psychological assessment. <Link href="/about-us" className="text-rose-300 underline">Read how we prepare the content.</Link></p></section></main><SiteFooter /></div>;
 }

@@ -31,3 +31,35 @@ The first pages to monitor are:
 ## Decision rules
 
 Do not judge demand from the first 4 impressions. Review Search Console after 7 and 14 days. Before expanding the page library, look for pages with at least 20 impressions. Improve the title and description when a page receives impressions but no clicks; improve or expand the content when it receives clicks but little engagement. Treat these as working thresholds for this experiment, not universal SEO benchmarks.
+
+## 2026-10-27 search-only release
+
+The owner explicitly prioritized Google organic traffic and deferred monetization. Do not use revenue, payment features, or product-feature expansion as the success measure for this release.
+
+### Verified baseline
+
+Search Console, 2026-09-28 through 2026-10-25: 417 impressions, 13 clicks, 3.1% CTR, average position 7.1. Homepage: 295 impressions / 10 clicks. Notifications-off: 70 / 1. Not-looking-for-anything-serious: 34 / 1. My-ex-was-crazy: 19 / 0. Go-with-the-flow: 7 / 1. Index report updated October 23: 9 indexed and 60 not indexed across known URLs, including historical routes. This is not the indexing count for the current sitemap alone.
+
+### Changes
+
+- Substantively revise 10 existing phrase pages using unique context, example replies, and explicit limits on interpreting a text; keep all 65 original article URLs.
+- Replace the shared rating/roast-focused article shell with a readable short answer, topic navigation, and relevant related links. The remaining 55 older articles are not claimed as rewritten or independently fact-checked.
+- Add two distinct overview guides: slow replies and relationship intentions. They support phrase discovery and explain different decisions rather than duplicating exact-phrase pages.
+- Add server-rendered links to six priority articles and the topic guides on the homepage; organize the library into curated topics plus the full remaining collection.
+- Add honest editorial information, including AI assistance and no claimed clinical review.
+- Add accurate last-modified dates only to substantively changed pages. Sitemap now contains 70 URLs: the previous 67 plus two guides and the about page. The date must not automatically change on subsequent builds.
+
+### Validation and interpretation
+
+Existing four behavior/privacy tests pass. Production webpack build and TypeScript checks pass. Local HTTP verification covers 73 pages, all original article URLs, internal links and anchors, canonical tags, single H1, descriptions, JSON-LD parsing, no accidental noindex, and three historical redirects. Browser inspection uses the local preview and does not generate production demand events.
+
+Compare future complete 28-day windows with this baseline, and separately inspect the 10 revised pages and two new guides. Track impressions, clicks, query relevance, and canonical URL indexing. Early changes may reflect recrawling or small samples. Neither a sitemap submission nor a successful live URL test guarantees indexing or ranking. Do not repeatedly request the same URL expecting faster indexing.
+
+### Rationale and limits
+
+Google recommends helpful original content and descriptive crawlable internal links. These are supported improvements, not a diagnosis that Google rejected the old pages for a specific quality reason. External links or reputation, competition, and search demand have not been quantified in this release.
+
+References:
+- https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+- https://developers.google.com/search/docs/crawling-indexing/links-crawlable
+- https://support.google.com/webmasters/answer/7440203
