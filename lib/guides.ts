@@ -1,4 +1,9 @@
-export const GUIDES = {
+import { NEW_GUIDES } from './new-guides';
+import type { Guide } from './guide-types';
+
+export const GUIDE_LIST_UPDATED = '2026-10-28';
+export const GUIDES: Record<string, Guide> = {
+  ...NEW_GUIDES,
   'slow-replies': {
     title: 'Slow Replies in Dating: What to Check Before You Assume',
     description: 'A practical guide to slow dating replies: distinguish communication habits, missed plans, and mismatched expectations, with clear questions to ask.',
@@ -16,6 +21,7 @@ export const GUIDES = {
       { heading: '4. Choose a next step based on the pattern', paragraphs: ['If a clear request leads to a workable routine, the original delay may no longer need decoding. If the pattern continues, decide whether to reduce your investment or stop making open-ended plans.', 'Avoid creating a second guessing game by deliberately delaying replies as a punishment. You can protect your time directly: “If we haven’t confirmed by Friday evening, I’ll assume the plan is off.” That describes what you will do without claiming to know what the other person feels.'] },
     ],
     articleSlugs: ['my-notifications-turned-off', 'bad-at-texting', 'sorry-i-fell-asleep'],
+    relatedGuides: ['he-only-texts-at-night', 'hot-and-cold-texting', 'he-texts-every-day-but-never-makes-plans'],
     nextGuide: 'relationship-intentions',
   },
   'relationship-intentions': {
@@ -35,9 +41,10 @@ export const GUIDES = {
       { heading: '4. Choose a boundary instead of a decoding contest', paragraphs: ['A boundary might be declining exclusivity without a mutual agreement, pausing romantic contact while deciding what you want, or ending an arrangement that leaves you continually uncertain.', 'If you both want to revisit the conversation, agree on contact and expectations in the meantime. A check-in creates another chance to talk; it does not guarantee that either person will have different feelings. Repeated vagueness is information about the clarity currently available, even when the hidden reason remains unknown.'] },
     ],
     articleSlugs: ['not-looking-for-anything-serious-right-now', 'just-go-with-the-flow', 'not-ready-for-a-relationship-right-now-but-i-really-like-you', 'i-really-need-to-focus-on-myself-right-now'],
+    relatedGuides: ['he-texts-every-day-but-never-makes-plans', 'hot-and-cold-texting'],
     nextGuide: 'slow-replies',
   },
-} as const;
+};
 
 export type GuideSlug = keyof typeof GUIDES;
-export function getGuide(slug: string) { return GUIDES[slug as GuideSlug]; }
+export function getGuide(slug: string) { return Object.prototype.hasOwnProperty.call(GUIDES, slug) ? GUIDES[slug] : undefined; }

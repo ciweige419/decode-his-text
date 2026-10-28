@@ -1,0 +1,101 @@
+import type { Guide } from './guide-types';
+
+export const NEW_GUIDES: Record<string, Guide> = {
+  'he-texts-every-day-but-never-makes-plans': {
+    title: 'He Texts Every Day but Never Makes Plans: What to Do',
+    description: 'Daily texts but no date? Separate conversation from an actual plan, ask a clear question, and decide what to do when meeting stays vague.',
+    publishedAt: '2026-10-28',
+    updatedAt: '2026-10-28',
+    intro: 'Daily texting shows that someone is participating in a conversation. It does not establish that they intend to meet or build a relationship. If you want to date in person, a specific invitation and the response to it give you more useful information than the number of messages.',
+    rows: [
+      ['You chat often, but neither of you has suggested meeting', 'Your interest in meeting may not yet be explicit', 'Suggest one specific, comfortable plan.'],
+      ['He cannot make your suggestion but offers another day', 'There is a concrete alternative to discuss', 'Confirm the day, time, and place together.'],
+      ['He keeps saying “soon” without choosing a time', 'No meeting is currently agreed', 'Ask whether he actually wants to make a plan, then decide what contact you want.'],
+      ['You are long-distance or cannot safely meet yet', 'An in-person date may not be the right next step', 'Discuss a call or another mutually comfortable way to connect.'],
+    ],
+    sections: [
+      { heading: 'Frequent contact and an actual date are different', paragraphs: ['A daily “good morning” message, a long conversation, or a running joke can create a sense of familiarity. A plan still needs enough agreement for both people to know what they are doing. “We should grab coffee sometime” expresses an idea; choosing a café and a time turns it into an arrangement.', 'This difference does not tell you that the conversation is fake. The other person may enjoy chatting, feel uncertain about meeting, have practical constraints, or want a different kind of connection. Those are possibilities, not conclusions you can settle from text frequency.'] },
+      { heading: 'Make the invitation explicit if you want to meet', paragraphs: ['You can suggest a date yourself. For example: “I’ve enjoyed talking. Would you like to get coffee on Saturday afternoon?” Choose something you would be comfortable doing, rather than a complicated event designed to prove how interested they are.', 'If you have not met before, use the same precautions you would for any new person: choose a public place, keep your own travel arrangements, and let someone you trust know your plan. You do not owe someone a meeting simply because you have been texting.'] },
+      { heading: 'Look for a response that moves the plan forward', paragraphs: ['Compare these illustrative replies. “Saturday won’t work, but I’m free Sunday after lunch” gives you an alternative. “Definitely, soon!” keeps the conversation warm while leaving the practical question unanswered. The second reply is not proof of bad intent, but it is also not a date.', 'If there is a real obstacle, ask what would work instead. A person who cannot predict their schedule may honestly be unable to offer a plan. You can respect that while deciding that open-ended texting is not what you want.'] },
+      { heading: 'Decide how much unplanned contact suits you', paragraphs: ['You might enjoy continuing to chat without expectations. You might prefer to pause until a date is possible. Either choice is clearer when it reflects your actual preference, rather than a tactic intended to make the other person chase.', 'If you have already asked directly and received repeated vague responses, another perfectly worded invitation may not resolve the situation. You can leave the next concrete proposal with them and make your own plans. There is no fixed number of days or messages that proves someone should be ready to meet.'] },
+    ],
+    replies: [
+      { situation: 'You have not suggested a date yet', text: 'I’ve enjoyed talking with you. Would you like to get coffee on Saturday afternoon?' },
+      { situation: 'He says he is busy but keeps chatting', text: 'I understand this week is busy. If you’d like to meet, what day would be realistic for you?' },
+      { situation: 'Plans keep staying vague', text: 'I’m looking to date in person rather than keep an open-ended chat. Let me know if you want to suggest a specific plan.' },
+    ],
+    questions: [
+      { question: 'Does texting every day mean he likes me?', answer: 'It shows ongoing contact, but the kind of interest remains unclear. Enjoying a conversation, wanting a date, and wanting a committed relationship are separate possibilities.' },
+      { question: 'Should I stop texting to see whether he chases me?', answer: 'You can reduce contact if the arrangement does not suit you. You do not need to turn that choice into a test. Explain what you want and decide based on the response and follow-through.' },
+      { question: 'How long should I wait for him to make plans?', answer: 'There is no universal deadline. Consider your circumstances, whether you have made a clear invitation, and whether an alternative is being offered. You can stop holding time open for a plan that has not been confirmed.' },
+    ],
+    articleSlugs: ['bad-at-texting', 'just-go-with-the-flow', 'not-looking-for-anything-serious-right-now'],
+    relatedGuides: ['relationship-intentions', 'hot-and-cold-texting'],
+    nextGuide: 'he-only-texts-at-night',
+  },
+  'he-only-texts-at-night': {
+    title: 'He Only Texts at Night: Meaning, Boundaries & Replies',
+    description: 'He only messages late at night. Check schedules, conversation content, and follow-through before deciding what the pattern means and how to reply.',
+    publishedAt: '2026-10-28',
+    updatedAt: '2026-10-28',
+    intro: 'Messages arriving only at night can reflect a schedule, a time-zone difference, a preferred chatting time, or interest limited to a particular kind of contact. The hour alone cannot tell you which. Notice what he asks for, whether daytime plans are possible, and whether your boundaries are respected.',
+    rows: [
+      ['You live in different time zones or work different shifts', '“Late” may refer to different parts of your day', 'Compare local schedules and agree on a workable time.'],
+      ['Evening chats are mutual and planned dates happen', 'The contact may fit both of your routines', 'Keep the arrangement if it works for you.'],
+      ['Every message is an immediate invitation to come over', 'The contact currently centers on that invitation', 'Say whether you want that kind of meeting or suggest a different plan.'],
+      ['He pressures you after you decline or asks you to stay awake', 'Your stated preference is not being respected', 'Repeat the boundary or stop engaging; you do not owe late-night availability.'],
+    ],
+    sections: [
+      { heading: 'Start with schedules rather than a clock-time rule', paragraphs: ['A message at midnight means something different for a night-shift worker than for someone who starts work early. Time zones can also make your evening their afternoon. Ask which routine you are actually dealing with before using the hour as evidence about interest.', 'If the timing is inconvenient, that is enough reason to discuss it. You do not have to prove that there is a suspicious motive before saying you will answer the next day.'] },
+      { heading: 'Look at what the messages are for', paragraphs: ['Compare an evening conversation about your day with repeated last-minute invitations to come over. Both happen at night, but they ask for different kinds of contact. Someone who only sends a late “U up?” has not, through that message alone, offered a daytime date or a relationship.', 'You can ask for what you actually want: a planned date, an ordinary conversation, or no late-night messages. A different suggestion lets you see whether there is a mutually acceptable arrangement, rather than forcing you to guess from the time stamp.'] },
+      { heading: 'State your boundary without justifying your whole routine', paragraphs: ['For example: “I’m heading to bed. I’ll reply tomorrow.” If you are interested in meeting but not in a spontaneous visit, try: “Not tonight, but I’d be up for coffee this weekend.” These are examples to adapt, not scripts that can reveal a hidden intention.', 'You may also prefer not to continue the conversation at all. An invitation is not an obligation, and being friendly earlier does not commit you to being available later.'] },
+      { heading: 'Watch how the boundary is received', paragraphs: ['A workable response might be arranging a different time or accepting that you are unavailable. Arguing, repeatedly pushing for the same visit, or treating a refusal as a debt is a different issue from simply having a late schedule.', 'If a pattern keeps conflicting with what you want, decide whether to continue the contact. No particular hour proves cheating, attraction, or disrespect; the specific requests and the response to your boundaries are the information you can use.'] },
+    ],
+    replies: [
+      { situation: 'You are interested but want to sleep', text: 'I’m heading to bed now. I’d like to catch up tomorrow when I’m free.' },
+      { situation: 'You would prefer a planned date', text: 'I’m not up for a last-minute visit, but I’d be interested in making a plan for this weekend.' },
+      { situation: 'You do not want late-night contact', text: 'Late-night messages don’t work for me. Please contact me during the day instead.' },
+    ],
+    questions: [
+      { question: 'Does late-night texting mean he only wants sex?', answer: 'The timing alone cannot establish that. Repeated sexual requests or invitations may show the kind of contact being proposed, but you can ask directly and decide whether it matches what you want.' },
+      { question: 'Do I need to answer before going to sleep?', answer: 'No. You can answer when you are available. If you want to avoid confusion, tell the person that you usually stop checking messages at night.' },
+      { question: 'What if he says he is busy all day?', answer: 'That may be true. Ask whether there is another time that works for both of you. An honest scheduling constraint can still mean your communication preferences do not fit.' },
+    ],
+    articleSlugs: ['sorry-i-fell-asleep', 'my-notifications-turned-off', 'bad-at-texting'],
+    relatedGuides: ['slow-replies', 'he-texts-every-day-but-never-makes-plans'],
+    nextGuide: 'hot-and-cold-texting',
+  },
+  'hot-and-cold-texting': {
+    title: 'Hot and Cold Texting: Recognize the Pattern & Respond',
+    description: 'Warm conversations followed by silence? Identify what changes, distinguish an ordinary busy period from repeated uncertainty, and ask for clearer contact.',
+    publishedAt: '2026-10-28',
+    updatedAt: '2026-10-28',
+    intro: '“Hot and cold texting” describes a repeated shift between engaged contact and distant or absent contact. It names a pattern, not its cause. Look at what changes, whether plans are affected, and whether a direct conversation leads to a more workable routine.',
+    rows: [
+      ['One busy day interrupts an otherwise steady conversation', 'A single exception may not describe a pattern', 'Consider the explanation and what happens afterward.'],
+      ['Enthusiastic chats repeatedly end in unexplained gaps', 'The contact is inconsistent from your perspective', 'Ask what communication rhythm the other person can realistically offer.'],
+      ['Warm messages return whenever you stop pursuing a plan', 'Affection is not resolving the practical question', 'Return to the specific invitation or relationship question.'],
+      ['You agree on a routine, but it repeatedly falls through', 'The proposed solution is not working', 'Decide whether to change the arrangement or step back.'],
+    ],
+    sections: [
+      { heading: 'Describe what actually changes', paragraphs: ['Instead of starting with “He is playing games,” describe the sequence: you have an engaged conversation, you ask about a date, the question goes unanswered, and the next contact is another affectionate message. That description identifies the unresolved issue without claiming to know the reason.', 'Also consider whether your expectations were shared. An open-ended dating-app conversation is different from a promise to call. A pattern you dislike can still be worth discussing even if no explicit agreement has been broken.'] },
+      { heading: 'Separate an exception from repeated uncertainty', paragraphs: ['Work, travel, illness, or a change in routine can interrupt contact. An explanation becomes more useful when it includes what the person can offer next, such as a different day to talk or a direct answer about plans.', 'You do not need to investigate every gap. Look for whether uncertainty keeps returning after you have addressed it. A single burst of warmth does not, by itself, settle a question about availability or commitment.'] },
+      { heading: 'Ask for a routine, not a personality diagnosis', paragraphs: ['You could say: “I enjoy talking with you, but the stop-start contact is hard for me. What kind of communication can you realistically keep up?” The aim is to find out whether your preferences fit, not to require constant access to the other person.', 'Avoid assuming that a pattern proves an attachment style, a disorder, or deliberate manipulation. You can decide that inconsistent contact is not right for you without resolving those questions.'] },
+      { heading: 'Give your attention a boundary too', paragraphs: ['If checking messages is taking over your day, choose times when you will look at your phone and keep the other plans you care about. This is a practical way to manage your availability, not a technique to make someone miss you.', 'If you continue the connection, compare the agreed routine with what actually happens. If you step back, be clear if a message is needed: “This pattern isn’t working for me, so I’m going to stop dating.” You do not need to wait for certainty about the other person’s feelings to make that choice.'] },
+    ],
+    replies: [
+      { situation: 'You want to ask about the pattern', text: 'I enjoy our conversations, but the stop-start contact is difficult for me. What rhythm would be realistic for you?' },
+      { situation: 'Affection returns but your question is unanswered', text: 'It’s nice to hear from you. I still need an answer about whether you want to make a plan for Saturday.' },
+      { situation: 'You have decided to step back', text: 'I’m looking for more consistent contact than we have now. This arrangement isn’t working for me, so I’m stepping back.' },
+    ],
+    questions: [
+      { question: 'Is hot and cold texting always deliberate?', answer: 'No. The same visible pattern can have different explanations. Its effect on you and whether a shared arrangement is possible are questions you can address directly.' },
+      { question: 'Should I copy the same delays?', answer: 'You can choose your own reply times. Copying delays as a test may leave both people guessing; a clear request or a direct boundary gives more useful information.' },
+      { question: 'How can I tell whether anything has changed?', answer: 'Name the specific change you agreed on, such as confirming a plan or scheduling a call. Look at follow-through rather than treating a single enthusiastic message as the whole answer.' },
+    ],
+    articleSlugs: ['bad-at-texting', 'just-go-with-the-flow', 'not-ready-for-a-relationship-right-now-but-i-really-like-you'],
+    relatedGuides: ['slow-replies', 'relationship-intentions'],
+    nextGuide: 'he-texts-every-day-but-never-makes-plans',
+    sources: [{ title: 'Further reading: University of Alberta — dealing with mixed signals', url: 'https://www.gsa.ualberta.ca/en/current-students/counselling/resources/dear-maddi/2026/mixed-signals-relationships.html' }],
+  },
+};

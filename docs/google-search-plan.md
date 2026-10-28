@@ -63,3 +63,19 @@ References:
 - https://developers.google.com/search/docs/fundamentals/creating-helpful-content
 - https://developers.google.com/search/docs/crawling-indexing/links-crawlable
 - https://support.google.com/webmasters/answer/7440203
+
+## 2026-10-28: first new scenario-article batch
+
+The owner asked whether articles should also be updated. Add three distinct scenario guides alongside the earlier existing-article revisions:
+
+- `/guides/he-texts-every-day-but-never-makes-plans`: moving from frequent conversation to a concrete plan.
+- `/guides/he-only-texts-at-night`: schedules, the kind of contact being proposed, and availability boundaries.
+- `/guides/hot-and-cold-texting`: repeated inconsistency, practical questions, and follow-through.
+
+Each has its own introductory answer, situation examples, four substantive sections, three example replies, and three common questions. Publication and modification dates are October 28, 2026. The two existing overview guides retain their earlier editorial dates; they now link to the specific new situations. Homepage and library links, and the existing sitemap, expose all three new articles.
+
+Topic rationale: adjacent to the site's existing slow-reply and relationship-intention content, with public search results and reader discussions for each question. Exact search volume and ranking difficulty have not been measured; do not call these verified high-volume or low-competition keywords. These are an initial content experiment, not an established publication cadence.
+
+A primary further-reading source is the University of Alberta's psychologist-authored article about mixed signals: https://www.gsa.ualberta.ca/en/current-students/counselling/resources/dear-maddi/2026/mixed-signals-relationships.html . It is linked as an independent resource, not an endorsement or clinical review of this website. New examples and replies are illustrative, not testimonials or a diagnosis.
+
+Validation: four existing behavior/privacy tests, production build, and type checks pass. Local HTTP verification covers 76 pages, all 65 original phrase URLs, the three historical redirects, internal links/anchors, metadata and JSON-LD. Each new article has its own publication date, visible reply/FAQ sections, and one H1. Sitemap grows from 70 to 73 URLs.
