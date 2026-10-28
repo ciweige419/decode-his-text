@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButton from '@/components/ShareButton';
+import { formatGuideDate } from '@/lib/guide-types';
 
 const SITE_URL = 'https://www.decodehistext.com';
 const prose = 'space-y-5 text-lg leading-relaxed text-neutral-300';
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title, description,
     alternates: { canonical: url },
-    openGraph: { title, description, type: 'article', url, ...(article ? { modifiedTime: CONTENT_UPDATED } : {}) },
+    openGraph: { title, description, type: 'article', url, ...(article ? { modifiedTime: article.updatedAt ?? CONTENT_UPDATED } : {}) },
     twitter: { card: 'summary_large_image', title, description },
   };
 }
@@ -43,7 +44,7 @@ export default async function QuotePage({ params }: { params: Promise<{ slug: st
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'Article', headline: title, description: article?.description, mainEntityOfPage: `${SITE_URL}/analyze/${slug}`, inLanguage: 'en',
-        ...(article ? { dateModified: CONTENT_UPDATED } : {}),
+        ...(article ? { dateModified: article.updatedAt ?? CONTENT_UPDATED } : {}),
         author: { '@type': 'Organization', name: 'Decode His Text', url: `${SITE_URL}/about-us` },
         publisher: { '@type': 'Organization', name: 'Decode His Text', url: SITE_URL } },
       { '@type': 'BreadcrumbList', itemListElement: [
@@ -60,7 +61,7 @@ export default async function QuotePage({ params }: { params: Promise<{ slug: st
     <main className="mx-auto max-w-3xl space-y-10 px-4 py-8 sm:px-6 sm:py-14">
       <nav aria-label="Breadcrumb" className="flex flex-wrap gap-2 text-sm text-neutral-400"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/database">Phrase library</Link>{topic && <><span aria-hidden="true">/</span><Link href={`/database#${topic.id}`}>{topic.title}</Link></>}</nav>
       <article className="space-y-10">
-        <header className="space-y-5"><p className="text-sm font-semibold uppercase tracking-widest text-rose-300">Dating text meanings</p><h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-5xl">{title}</h1><p className="text-neutral-400">By <Link className="underline" href="/about-us">Decode His Text</Link>{article && <> · Updated <time dateTime={CONTENT_UPDATED}>October 27, 2026</time></>}</p><p className="text-sm text-neutral-400">Communication examples, not a personalized assessment.</p></header>
+        <header className="space-y-5"><p className="text-sm font-semibold uppercase tracking-widest text-rose-300">Dating text meanings</p><h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-5xl">{title}</h1><p className="text-neutral-400">By <Link className="underline" href="/about-us">Decode His Text</Link>{article && <> · Updated <time dateTime={article.updatedAt ?? CONTENT_UPDATED}>{formatGuideDate(article.updatedAt ?? CONTENT_UPDATED)}</time></>}</p><p className="text-sm text-neutral-400">Communication examples, not a personalized assessment.</p></header>
         <section aria-labelledby="short-answer" className="space-y-4 rounded-2xl border border-rose-400/30 bg-rose-400/5 p-5 sm:p-7"><h2 id="short-answer" className="text-xl font-bold">The short answer</h2><p className="text-lg leading-relaxed text-neutral-200">{article?.answer ?? quote.translation}</p>{!article && <p className="text-sm text-neutral-400">This is one editorial interpretation. A single message cannot establish someone’s intentions.</p>}</section>
         <nav aria-label="On this page" className="flex flex-wrap gap-x-5 gap-y-3 text-sm text-rose-300">{article ? <><a href="#meaning">Meaning and context</a><a href="#replies">How to reply</a><a href="#questions">Common questions</a></> : <a href="#meaning">Meaning and context</a>}<a href="#related">Related phrases</a></nav>
         {article ? <>

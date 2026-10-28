@@ -79,3 +79,15 @@ Topic rationale: adjacent to the site's existing slow-reply and relationship-int
 A primary further-reading source is the University of Alberta's psychologist-authored article about mixed signals: https://www.gsa.ualberta.ca/en/current-students/counselling/resources/dear-maddi/2026/mixed-signals-relationships.html . It is linked as an independent resource, not an endorsement or clinical review of this website. New examples and replies are illustrative, not testimonials or a diagnosis.
 
 Validation: four existing behavior/privacy tests, production build, and type checks pass. Local HTTP verification covers 76 pages, all 65 original phrase URLs, the three historical redirects, internal links/anchors, metadata and JSON-LD. Each new article has its own publication date, visible reply/FAQ sections, and one H1. Sitemap grows from 70 to 73 URLs.
+
+## 2026-10-28: complete the legacy-library cleanup
+
+Audit found 55 remaining older phrase pages; 29 reused the exact introductory sentence “This common dating expression reveals crucial insights”. This is a verified content repetition finding, not proof of why Google did not index a page.
+
+Replace all 55 older bodies and deterministic motive claims with individual concise editorial explanations. Each includes its own short answer, two context paragraphs, one adaptable reply, and a specific question/answer. Keep the earlier 10 longer articles and all 65 public phrase URLs. Do not call the shorter replacements 55 new articles or clinically reviewed advice.
+
+Separate stable phrase identities from content and remove the old raw psychology templates from the data used by the application. The exact-phrase lookup now uses the revised answers too. Organize every phrase into one topic: slow replies (22), relationship intentions (31), and difficult conversations (12). The sitemap remains at 73 URLs; this release improves existing pages rather than creating more addresses. Newly revised phrase pages use October 28 modification dates, while the earlier 10 retain their October 27 dates.
+
+Google Search Console manual checks resumed through the native browser interface. New scenario URLs initially reported unknown to Google, and indexing requests are being submitted one at a time. Record only confirmed queue acceptance, separately from actual indexing.
+
+Checks: existing four behavior/privacy tests, production build and types pass; all 65 rendered phrase pages have no occurrences of the old repeated introduction, attachment-assessment heading, or former rating label. Content identity, topic partition and related links pass an independent integrity check. Preserve the prior audit as evidence and validate the live deployment before claiming completion.

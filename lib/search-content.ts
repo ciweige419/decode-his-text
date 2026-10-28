@@ -1,5 +1,9 @@
+import { PHRASE_NOTES } from './phrase-notes';
+import { PHRASE_LIST } from './phrases';
+
 export type SearchArticle = {
   title: string;
+  updatedAt?: string;
   description: string;
   answer: string;
   topic: 'slow-replies' | 'relationship-intentions' | 'difficult-conversations';
@@ -11,7 +15,28 @@ export type SearchArticle = {
 
 // Dates refer to substantive editorial changes, never to a build or a crawl.
 export const CONTENT_UPDATED = '2026-10-27';
+const noteArticles = Object.fromEntries(PHRASE_LIST.filter(p => PHRASE_NOTES[p.slug]).map((p): [string, SearchArticle] => {
+  const note = PHRASE_NOTES[p.slug];
+  const relatedByTopic = {
+    'slow-replies': ['bad-at-texting', 'my-notifications-turned-off', 'sorry-i-fell-asleep'],
+    'relationship-intentions': ['not-looking-for-anything-serious-right-now', 'just-go-with-the-flow', 'not-ready-for-a-relationship-right-now-but-i-really-like-you'],
+    'difficult-conversations': ['my-ex-was-crazy', 'trust-issues-because-of-my-ex', 'why-are-you-acting-so-crazy'],
+  };
+  return [p.slug, {
+    title: `What Does “${p.quote}” Mean?`,
+    description: `What does “${p.quote}” mean? Read a practical explanation, context to check, and a reply you can adapt.`,
+    updatedAt: '2026-10-28',
+    answer: note.answer,
+    topic: note.topic,
+    sections: [{ heading: 'Context to check', paragraphs: note.context }],
+    replies: [{ situation: 'A direct response you can adapt', text: note.reply }],
+    questions: [{ question: note.question, answer: note.response }],
+    related: relatedByTopic[note.topic].filter(slug => slug !== p.slug),
+  }];
+}));
+
 export const SEARCH_ARTICLES: Record<string, SearchArticle> = {
+  ...noteArticles,
   'my-notifications-turned-off': {
     title: 'He Has Notifications Turned Off: Meaning & How to Reply',
     description: 'He says his notifications are turned off. See what that can mean, how it differs from hiding messages, and what to say about slow replies.',
@@ -225,7 +250,7 @@ export const SEARCH_ARTICLES: Record<string, SearchArticle> = {
 };
 
 export const TOPICS = [
-  { id: 'slow-replies', title: 'Slow replies and texting habits', description: 'Separate response time from reliability, and make plans without chasing a reply.', guide: '/guides/slow-replies', slugs: ['my-notifications-turned-off', 'bad-at-texting', 'sorry-i-fell-asleep'] },
-  { id: 'relationship-intentions', title: 'Commitment and mixed signals', description: 'Clarify casual dating, taking it slowly, and what someone is actually offering.', guide: '/guides/relationship-intentions', slugs: ['not-looking-for-anything-serious-right-now', 'just-go-with-the-flow', 'not-ready-for-a-relationship-right-now-but-i-really-like-you', 'i-really-need-to-focus-on-myself-right-now'] },
-  { id: 'difficult-conversations', title: 'Exes, trust, and difficult conversations', description: 'Ask about specific behavior and set boundaries without diagnosing someone.', guide: null, slugs: ['my-ex-was-crazy', 'trust-issues-because-of-my-ex', 'why-are-you-acting-so-crazy'] },
+  { id: 'slow-replies', title: 'Slow replies and texting habits', description: 'Separate response time from reliability, and make plans without chasing a reply.', guide: '/guides/slow-replies', slugs: Object.keys(SEARCH_ARTICLES).filter(slug => SEARCH_ARTICLES[slug].topic === 'slow-replies') },
+  { id: 'relationship-intentions', title: 'Commitment and mixed signals', description: 'Clarify casual dating, taking it slowly, and what someone is actually offering.', guide: '/guides/relationship-intentions', slugs: Object.keys(SEARCH_ARTICLES).filter(slug => SEARCH_ARTICLES[slug].topic === 'relationship-intentions') },
+  { id: 'difficult-conversations', title: 'Exes, trust, and difficult conversations', description: 'Ask about specific behavior and set boundaries without diagnosing someone.', guide: null, slugs: Object.keys(SEARCH_ARTICLES).filter(slug => SEARCH_ARTICLES[slug].topic === 'difficult-conversations') },
 ] as const;
